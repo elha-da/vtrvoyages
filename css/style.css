@@ -1,0 +1,27 @@
+﻿.onglet {
+	display:inline-block;
+	cursor:pointer;
+	font: 20px Arial !important;
+	margin-right: 1em;
+}
+
+.contenu_onglet {
+	display:none;
+}
+
+.onglet_0 {
+	background:#dddddd;
+}
+.onglet_1 {
+	background:#bbbbbb;
+}
+
+.control-label-nbPersonnes {
+    text-align: left;
+    width: 150px;
+}
+
+.nbPersonnes {
+    width: 100px;
+    margin-bottom : 10px ;
+}

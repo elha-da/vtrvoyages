@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>VTR Voyages</title>		
+		<link rel="stylesheet" type="text/css" href="http://www.vtr-voyages.fr/css/5e48888.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	</head>
+
+	<body>
+
+		<div class="container-fluid">
+			<div class="onglets">
+				<span class="onglet_0 onglet" id="onglet_ski" onclick="change_onglet('ski');">Ski</span>
+				<span class="onglet_0 onglet" id="onglet_autre" onclick="change_onglet('autre');">Autre</span>				
+			</div>
+
+			<div>
+
+				<div class="contenu_onglet" id="contenu_onglet_autre">
+					<aside class="span3">
+						<div class="recherche">
+							<fieldset>
+								<form method="post" class="form-horizontal" action="/recherche-detail">
+									
+									<div class="control-group champ_pays">
+										<div class="controls">
+											<select id="search_type_pays" name="search_type[pays]" required="required">
+												<option value="1" selected="selected">France</option>
+												<option value="8">Grèce</option>
+												<option value="22">Inde</option>
+												<option value="17">Thaïlande</option>
+											</select>
+										</div>
+									</div>
+									
+									<div class="control-group champ_region">
+										<div class="controls">
+											<select id="search_type_region" name="search_type[region]">
+												<option value="">Région</option>
+												<option value="20">Midi-Pyrénées</option>
+												<option value="2">Provence-Alpes-Côte d&#039;Azur</option>
+											</select>
+										</div>
+									</div>
+									
+									<div class="control-group ville_station">
+										<div class="controls">
+											<select id="search_type_ville" name="search_type[ville]">
+												<option value="">Ville/Station</option>
+												<option value="1749">Abriès</option>
+												<option value="4">Alpe d&#039;Huez</option>
+												<option value="2421">Vogüé</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="control-group champ_pays">
+										<div class="controls">
+											<select id="search_type_theme" name="search_type[theme]">
+												<option value="">Formule</option>
+												<optgroup label="Séjours Ski">
+													<option value="9">Location</option>
+													<option value="46">A l&#039;étranger</option>
+												</optgroup>
+												<optgroup label="Séjours Juniors">
+													<option value="60">Vacances d&#039;Août</option>
+													<option value="47">Week-ends et Courts Séjours</option>
+												</optgroup>
+												<optgroup label="Monde">
+													<option value="52">Hébergement seul</option>
+													<option value="53">Vol + Hôtel</option>
+													<option value="54">Circuit</option>
+													<option value="56">Week-ends et Courts séjours</option>
+												</optgroup>
+												<optgroup label="Séjours Sportifs">
+													<option value="27">Séjours Aquatiques</option>
+													<option value="37">Séjours Combinés</option>
+												</optgroup>
+											</select>
+										</div>
+									</div>
+
+									<div class="control-group duree_sejour">
+										<div class="controls">
+											<select id="search_type_duree_sejour" name="search_type[duree_sejour]">
+												<option value="">Durée du séjour</option>
+												<option value="1">Week-ends &amp; Court-Séjours</option>
+												<option value="2">1 à 2 semaines</option>
+												<option value="3">Plus de 15 jours</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="control-group typehebergement">
+										<div class="controls">
+											<select id="search_type_typehebergement" name="search_type[typehebergement]">
+												<option value="">Type d&#039;hébergement</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="control-group date_depart">
+										<label class="control-label" for="search_type_date_depart">Date de départ</label>
+										<input type="text" id="search_type_date_depart" name="search_type[date_depart]" class="date" style="width:113px" />
+									</div>
+
+									<div class="control-group date_flexible">
+										<label class="control-label" for="search_type_date_flexible">Date flexible</label>
+										<input type="checkbox" id="search_type_date_flexible" name="search_type[date_flexible]" value="1" />
+									</div>
+
+									<div class="control-group">
+										<button type="submit" class="btn">
+											<i class="icon-search"></i>
+											Recherche
+										</button>
+										<input type="hidden" id="search_type__token" name="search_type[_token]" value="2d8a50d8e070a0c5adade73e76864289673e6853" />
+									</div>
+
+								</form>
+							</fieldset>
+						</div>
+					</aside>
+				</div>
+
+				<div class="contenu_onglet" id="contenu_onglet_ski">
+					<aside class="span3">
+						<div class="recherche">
+							<fieldset>
+								<form method="post" name="ski" class="form-horizontal" action="/recherche-detail">
+
+									<div class="control-group date_depart">
+										<label class="control-label" for="search_type_date_depart">Date de départ</label>
+										<input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" style="width:113px" required="required">
+									</div>
+
+									<div class="control-group date_flexible">
+										<label class="control-label" for="Search_Type_Date_Flexible">Date flexible</label>
+										<input type="checkbox" id="search_type_date_flexible_ski" name="search_type[date_flexible]" value="1" >
+									</div>
+									
+									<div class="control-group controls">										
+											<label class="control-label-nbPersonnes" for="search_type_date_nbPersonnes">Nombre de personnes</label>
+											<input type="number" step="1" value="2" min="1" class="nbPersonnes" required="required">										
+									</div>
+
+									<div class="control-group champ_pays">
+										<div class="controls">
+											<select id="search_type_pays" name="search_type[pays]" required="required">
+
+												<option value="1" selected="selected">France</option>
+												<option value="8">Grèce</option>
+												<option value="22">Inde</option>
+												<option value="17">Thaïlande</option>
+
+											</select>
+										</div>
+									</div>
+									
+									<div class="control-group champ_region">
+										<div class="controls">
+											<select id="search_type_region" name="search_type[region]">
+												<option value="">Région</option>
+												<option value="20">Midi-Pyrénées</option>
+												<option value="2">Provence-Alpes-Côte d&#039;Azur</option>
+											</select>
+										</div>
+									</div>
+									
+									<div class="control-group ville_station">
+										<div class="controls">
+											<select id="search_type_ville" name="search_type[ville]">
+												<option value="">Ville/Station</option>
+												<option value="1749">Abriès</option>
+												<option value="4">Alpe d&#039;Huez</option>
+												<option value="2421">Vogüé</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="control-group champ_pays">
+										<div class="controls">
+											<select id="search_type_theme" name="search_type[theme]">
+												<option value="">Formule</option>
+												<option value="1">Hebergement seul</option>
+												<option value="2">H + remontées mécaniques</option>
+												<option value="3">H + RM + matériel</option>
+												<option value="4">H + RM + M + cours de ski</option>
+												
+												
+											</select>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<button type="submit" class="btn">
+											<i class="icon-search"></i>
+											Recherche
+										</button>
+										<input type="hidden" id="search_type__token" name="search_type[_token]" value="2d8a50d8e070a0c5adade73e76864289673e6853" />
+									</div>
+
+								</form>
+							</fieldset>
+
+
+						</div>
+					</aside>
+				</div>
+
+			</div>
+		</div>
+		<!--  -->
+		<script src="js/recherche.js"></script>
+
+		<!-- ressources pour datepicker -->
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/datePicker.js"></script>
+
+	</body>
+</html>
