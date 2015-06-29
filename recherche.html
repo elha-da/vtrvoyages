@@ -5,7 +5,9 @@
     <title>VTR Voyages</title>		
     <link rel="stylesheet" type="text/css" href="http://www.vtr-voyages.fr/css/5e48888.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="liste.js"></script>
   </head>
 
   <body>
@@ -26,38 +28,37 @@
 		  
 		  <div class="control-group champ_pays">
 		    <div class="controls">
-		      <select id="search_type_pays" name="search_type[pays]" required="required">
-			<option value="1" selected="selected">France</option>
-			<option value="8">Grèce</option>
-			<option value="22">Inde</option>
-			<option value="17">Thaïlande</option>
+		      <select id="search_type_pays" name="search_type_pays">
+			<option value="">Pays</option>
 		      </select>
 		    </div>
 		  </div>
-		  
+
 		  <div class="control-group champ_region">
 		    <div class="controls">
-		      <select id="search_type_region" name="search_type[region]">
-			<option value="">Région</option>
-			<option value="20">Midi-Pyrénées</option>
-			<option value="2">Provence-Alpes-Côte d&#039;Azur</option>
+		      <select id="search_type_region" name="search_type_region">
+			<option value="">Régions</option>
 		      </select>
 		    </div>
 		  </div>
-		  
+		  <div class="control-group champ_region">
+		    <div class="controls">
+		      <select id="search_type_departement" name="search_type_departement">
+			<option value="">Départements</option>
+		      </select>
+		    </div>
+		  </div>
+
 		  <div class="control-group ville_station">
 		    <div class="controls">
-		      <select id="search_type_ville" name="search_type[ville]">
+		      <select id="search_type_ville" name="search_type_ville">
 			<option value="">Ville/Station</option>
-			<option value="1749">Abriès</option>
-			<option value="4">Alpe d&#039;Huez</option>
-			<option value="2421">Vogüé</option>
 		      </select>
 		    </div>
 		  </div>
 
 		  <hr class="bloc" />
-		 
+		  
 		  <div class="control-group champ_pays">
 		    <div class="controls">
 		      <select id="search_type_theme" name="search_type[theme]">
@@ -137,34 +138,31 @@
 
 		  <div class="control-group champ_pays">
 		    <div class="controls">
-		      <select id="search_type_pays" name="search_type[pays]" required="required">
-
-			<option value="1" selected="selected">France</option>
-			<option value="8">Grèce</option>
-			<option value="22">Inde</option>
-			<option value="17">Thaïlande</option>
-
+		      <select id="search_type_pays" name="search_type_pays">
+			<option value="">Pays</option>
 		      </select>
 		    </div>
 		  </div>
-		  
+
 		  <div class="control-group champ_region">
 		    <div class="controls">
-		      <select id="search_type_region" name="search_type[region]">
-			<option value="">Région</option>
-			<option value="20">Midi-Pyrénées</option>
-			<option value="2">Provence-Alpes-Côte d&#039;Azur</option>
+		      <select id="search_type_region" name="search_type_region">
+			<option value="">Régions</option>
 		      </select>
 		    </div>
 		  </div>
-		  
+		  <div class="control-group champ_region">
+		    <div class="controls">
+		      <select id="search_type_departement" name="search_type_departement">
+			<option value="">Départements</option>
+		      </select>
+		    </div>
+		  </div>
+
 		  <div class="control-group ville_station">
 		    <div class="controls">
-		      <select id="search_type_ville" name="search_type[ville]">
+		      <select id="search_type_ville" name="search_type_ville">
 			<option value="">Ville/Station</option>
-			<option value="1749">Abriès</option>
-			<option value="4">Alpe d&#039;Huez</option>
-			<option value="2421">Vogüé</option>
 		      </select>
 		    </div>
 		  </div>
@@ -187,7 +185,7 @@
 		    <label class="control-label-nbPersonnes" for="search_type_date_nbPersonnes">Nombre de personnes</label>
 		    <input type="number" step="1" value="2" min="1" class="nbPersonnes" required="required">										
 		  </div>	
-	 
+		  
 		  <hr class="bloc" />
 
 		  <div class="control-group champ_pays">
@@ -226,9 +224,34 @@
     <script src="js/recherche.js"></script>
 
     <!-- ressources pour datepicker -->
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-ui.js"></script>
     <script src="js/datePicker.js"></script>
 
   </body>
 </html>
+
+<!--
+    <select id="search_type_pays" name="search_type[pays]" required="required">
+      <option value="12">Allemagne</option>
+      <option value="15">Andorre</option>
+      <option value="5">Angleterre</option>
+      <option value="7">Croatie</option>
+      <option value="19">Cuba</option>
+      <option value="23">Emirats Arabes Unis</option>
+      <option value="4">Espagne</option>
+      <option value="20">Etats-Unis</option>
+      <option value="1" selected="selected">France</option>
+      <option value="8">Grèce</option>
+      <option value="22">Inde</option>
+      <option value="2">Italie</option>
+      <option value="11">Malte</option>
+      <option value="9">Maroc</option>
+      <option value="13">Pays Bas</option>
+      <option value="21">Pérou</option>
+      <option value="16">République Tchèque</option>
+      <option value="18">Sénégal</option>
+      <option value="3">Suisse</option>
+      <option value="24">Tanzanie</option>
+      <option value="17">Thaïlande</option>
+      <option value="25">Tunisie</option>
+      <option value="26">Turquie</option>
+      -->
