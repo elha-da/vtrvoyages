@@ -56,6 +56,8 @@
 		    </div>
 		  </div>
 
+		  <hr class="bloc" />
+		 
 		  <div class="control-group champ_pays">
 		    <div class="controls">
 		      <select id="search_type_theme" name="search_type[theme]">
@@ -101,6 +103,8 @@
 		    </div>
 		  </div>
 
+		  <hr class="bloc" />
+
 		  <div class="control-group date_depart">
 		    <label class="control-label" for="search_type_date_depart">Date de départ</label>
 		    <input type="text" id="search_type_date_depart" name="search_type[date_depart]" class="date" style="width:113px" />
@@ -130,21 +134,6 @@
 	    <div class="recherche">
 	      <fieldset>
 		<form method="post" name="ski" class="form-horizontal" action="/recherche-detail">
-
-		  <div class="control-group date_depart">
-		    <label class="control-label" for="search_type_date_depart">Date de départ</label>
-		    <input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" style="width:113px" required="required">
-		  </div>
-
-		  <div class="control-group date_flexible">
-		    <label class="control-label" for="Search_Type_Date_Flexible">Date flexible</label>
-		    <input type="checkbox" id="search_type_date_flexible_ski" name="search_type[date_flexible]" value="1" >
-		  </div>
-		  
-		  <div class="control-group controls">										
-		    <label class="control-label-nbPersonnes" for="search_type_date_nbPersonnes">Nombre de personnes</label>
-		    <input type="number" step="1" value="2" min="1" class="nbPersonnes" required="required">										
-		  </div>
 
 		  <div class="control-group champ_pays">
 		    <div class="controls">
@@ -179,6 +168,27 @@
 		      </select>
 		    </div>
 		  </div>
+
+		  <hr class="bloc" />
+
+		  <div class="control-group date_depart">
+		    <label class="control-label" for="search_type_date_depart">Date de départ</label>
+		    <input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" style="width:113px" required="required">
+		  </div>
+
+		  <div class="control-group date_flexible">
+		    <label class="control-label" for="Search_Type_Date_Flexible">Date flexible</label>
+		    <input type="checkbox" id="search_type_date_flexible_ski" name="search_type[date_flexible]" value="1" >
+		  </div>
+
+		  <hr class="bloc" />
+		  
+		  <div class="control-group controls">										
+		    <label class="control-label-nbPersonnes" for="search_type_date_nbPersonnes">Nombre de personnes</label>
+		    <input type="number" step="1" value="2" min="1" class="nbPersonnes" required="required">										
+		  </div>	
+	 
+		  <hr class="bloc" />
 
 		  <div class="control-group champ_pays">
 		    <div class="controls">
