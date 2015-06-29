@@ -1,19 +1,36 @@
-﻿.onglet {
-	display:inline-block;
-	cursor:pointer;
-	font: 20px Arial !important;
-	margin-right: 1em;
+﻿.onglets {
+    width : 231px ;
+    text-decoration: none;
+}
+
+.onglet {
+    display:inline-block;
+    cursor:pointer;
+    font: 20px Arial !important;
+    min-width: 111px;
+    padding: 1.2px;
+    text-align: center;
 }
 
 .contenu_onglet {
-	display:none;
+    display:none;
 }
 
 .onglet_0 {
-	background:#dddddd;
+    background-color: #fff;
+    color: #666;
 }
+.onglet_0:hover{
+    color: #08c;
+    background-color: #eee ;
+    border-bottom: 1px solid  #fff;
+}
+
 .onglet_1 {
-	background:#bbbbbb;
+    background-color: #eee ;
+    color: #000;
+    font-weight: bold;
+    border-bottom: 1px solid  #eee;
 }
 
 .control-label-nbPersonnes {
@@ -24,4 +41,8 @@
 .nbPersonnes {
     width: 100px;
     margin-bottom : 10px ;
+}
+.recherche {
+    border: 1px solid #eee;
+    background-color: #eee;
 }
