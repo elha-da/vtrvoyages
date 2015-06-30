@@ -8,6 +8,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="liste.js"></script>
+    <script src="listeSki.js"></script>
   </head>
 
   <body>
@@ -27,22 +28,22 @@
 		<form method="post" class="form-horizontal" action="/recherche-detail">
 		  
 		  <div class="control-group champ_pays">
-		    <div class="controls">
+		    <div class="controls" id="pays">
 		      <select id="search_type_pays" name="search_type_pays">
 			<option value="">Pays</option>
 		      </select>
 		    </div>
 		  </div>
 
-		  <div class="control-group champ_region">
-		    <div class="controls">
+		  <div class="control-group champ_region" >
+		    <div class="controls contenu_onglet" id="region">
 		      <select id="search_type_region" name="search_type_region">
 			<option value="">Régions</option>
 		      </select>
 		    </div>
 		  </div>
 		  <div class="control-group champ_region">
-		    <div class="controls">
+		    <div class="controls contenu_onglet" id="departement">
 		      <select id="search_type_departement" name="search_type_departement">
 			<option value="">Départements</option>
 		      </select>
@@ -50,7 +51,7 @@
 		  </div>
 
 		  <div class="control-group ville_station">
-		    <div class="controls">
+		    <div class="controls contenu_onglet" id="ville">
 		      <select id="search_type_ville" name="search_type_ville">
 			<option value="">Ville/Station</option>
 		      </select>
@@ -108,7 +109,7 @@
 
 		  <div class="control-group date_depart">
 		    <label class="control-label" for="search_type_date_depart">Date de départ</label>
-		    <input type="text" id="search_type_date_depart" name="search_type[date_depart]" class="date" style="width:113px" />
+		    <input type="text" id="search_type_date_depart" name="search_type[date_depart]" class="date" style="width:70px" />
 		  </div>
 
 		  <div class="control-group date_flexible">
@@ -136,32 +137,32 @@
 	      <fieldset>
 		<form method="post" name="ski" class="form-horizontal" action="/recherche-detail">
 
-		  <div class="control-group champ_pays">
+		  <div class="control-group champ_pays" id="pays_ski">
 		    <div class="controls">
-		      <select id="search_type_pays" name="search_type_pays">
+		      <select id="search_type_pays_ski" name="search_type_pays_ski">
 			<option value="">Pays</option>
 		      </select>
 		    </div>
 		  </div>
 
 		  <div class="control-group champ_region">
-		    <div class="controls">
-		      <select id="search_type_region" name="search_type_region">
+		    <div class="controls contenu_onglet " id="region_ski">
+		      <select id="search_type_region_ski" name="search_type_region_ski">
 			<option value="">Régions</option>
 		      </select>
 		    </div>
 		  </div>
 		  <div class="control-group champ_region">
-		    <div class="controls">
-		      <select id="search_type_departement" name="search_type_departement">
+		    <div class="controls contenu_onglet " id="departement_ski">
+		      <select id="search_type_departement_ski" name="search_type_departement_ski">
 			<option value="">Départements</option>
 		      </select>
 		    </div>
 		  </div>
 
 		  <div class="control-group ville_station">
-		    <div class="controls">
-		      <select id="search_type_ville" name="search_type_ville">
+		    <div class="controls contenu_onglet" id="ville_ski">
+		      <select id="search_type_ville_ski" name="search_type_ville_ski">
 			<option value="">Ville/Station</option>
 		      </select>
 		    </div>
@@ -171,7 +172,7 @@
 
 		  <div class="control-group date_depart">
 		    <label class="control-label" for="search_type_date_depart">Date de départ</label>
-		    <input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" style="width:113px" required="required">
+		    <input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" style="width:70px" required="required">
 		  </div>
 
 		  <div class="control-group date_flexible">

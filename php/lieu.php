@@ -1,10 +1,15 @@
 <?php
+require("config.php");
+
 // connexion à la base de données
-try {
-  $bdd = new PDO('mysql:host=localhost;dbname=ppurlowj', 'root', '123456789Aa');
-} catch(Exception $e) {
-  exit('Impossible de se connecter à la base de données.');
-  }
+try{
+  $bdd = new PDO("mysql:host={$_sgbd["host"]};dbname={$_sgbd["dbname"]}; charset=UTF8",$_sgbd["pseudo"],$_sgbd["mdp"]);
+  $bdd -> exec("SET CHARACTER SET utf8");
+} 
+catch (Exception $e) {
+  echo $e="Impossible de se connecter à la base de données. Erreur PDO:: query($req)";
+  exit();
+}
 
 $json = array();
      
@@ -33,9 +38,10 @@ else if(isset($_GET['id_departement']) ) {
 $resultat = $bdd->query($requete) or die(print_r($bdd->errorInfo()));
      
 // résultats
-while($donnees = $resultat->fetch(PDO::FETCH_ASSOC)) {
+while(($donnees = $resultat->fetch()) != null) {
   // je remplis un tableau et mettant l'id en index (que ce soit pour les régions ou les départements ou les villes)
-  $json[$donnees['id']][] = utf8_encode($donnees['nom']);
+  $json[$donnees['id']][] = $donnees['nom'];
+  //print_r ($json) ;
 }
      
 // envoi du résultat au success

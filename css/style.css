@@ -35,11 +35,13 @@
 
 .control-label-nbPersonnes {
     text-align: left;
-    width: 150px;
+    width: 130px;
+    float: left;
+    padding-top: 5px;
 }
 
 .nbPersonnes {
-    width: 100px;
+    width: 33px;
     margin-bottom : 10px ;
 }
 .recherche {
