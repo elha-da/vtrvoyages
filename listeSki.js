@@ -1,11 +1,10 @@
 $(document).ready(function() {
-    var $pays = $('#search_type_pays_ski');
-    var $regions = $('#search_type_region_ski');
-    var $departements = $('#search_type_departement_ski');
-    var $villes = $('#search_type_ville_ski');
+    var $choixSki = $('#choix_type_ski');
     var val = '';
+
     // chargement des pays
-    if(val == '') {
+    if (val == '') {
+	$choixSki.append('<option value="">Pays</option>');
 	$.ajax({
             url: 'php/lieu.php',
             data: 'go', // on envoie $_GET['go']
@@ -13,25 +12,42 @@ $(document).ready(function() {
             success: function(json) {
 		$.each(json, function(index, value) { // pour chaque noeud JSON
                     // on ajoute l option dans la liste
-                    $pays.append('<option value="P'+ index +'">'+ value +'</option>');
+                    $choixSki.append('<option value="P'+ index +'">'+ value +'</option>');
 		});
             }
 	});
     }
     
     // à la sélection d un pays dans la liste
-    $pays.on('change', function() {	
-	var liste, valeur;
-	liste = document.getElementById("search_type_pays_ski");
+    $choixSki.on('change', function() {	
+	var liste, valeur, valeurText;
+	liste = document.getElementById("choix_type_ski");
 	valeurText = liste.options[liste.selectedIndex].text;
-        val = $(this).val(); // on récupère la valeur du pays
-	$( '#pays_ski' ).addClass( "contenu_onglet" );
-	$( '#region_ski' ).removeClass( "contenu_onglet" );
-	if((val != '') && (val.substring(0, 1) == "P") ) {
-	    $('#choix_type_ski').append('<option value="'+ val +'">'+ valeurText +'</option>');
-	    var valeur = val.substring(1);
-	    $regions.empty(); // on vide la liste des regions
-	    $regions.append('<option value="">Regions</option>');
+        val =  $(this).val();// on récupère la valeur du pays
+	valeur = val.substring(1);
+	//$choixSki.empty(); // on vide la liste
+	$('#choix_type_ski option').remove();
+	var choixPays = choixPays ;
+
+	if (val == '') {
+	    $choixSki.append('<option value="">Pays</option>');
+	    $.ajax({
+		url: 'php/lieu.php',
+		data: 'go', // on envoie $_GET['go']
+		dataType: 'json', // on veut un retour JSON
+		success: function(json) {
+		    $.each(json, function(index, value) { // pour chaque noeud JSON
+			// on ajoute l option dans la liste
+			$choixSki.append('<option value="P'+ index +'">'+ value +'</option>');
+		    });
+		}
+	    });
+	}
+	
+	else if ((val != '' ) && (val.substring(0, 1) == "P")) {
+	    var choixPays = '<option value="">Pays</option><option value="'+ val +'"selected="selected" >'+ valeurText +'</option>' ;
+  	    $choixSki.append(choixPays);
+	    $choixSki.append('<option value="">Regions</option>');
 
 	    $.ajax({
                 url: 'php/lieu.php',
@@ -39,65 +55,56 @@ $(document).ready(function() {
                 dataType: 'json',
                 success: function(json) {		   
                     $.each(json, function(index, value) {
-			$regions.append('<option value="R'+ index +'">-'+ value +'</option>');
+			$choixSki.append('<option value="R'+ index +'">- '+ value +'</option>');
                     });
                 }
 	    });
+	    
 	} 
-    });
-    
-    // à la sélection d une région dans la liste
-    $regions.on('change', function() {
-	var liste, valeur;
-	liste = document.getElementById("search_type_region_ski");
-	valeurText = liste.options[liste.selectedIndex].text; // on récupère le text de l'option choisie
-
-        val = $(this).val(); // on récupère la valeur de la région
-	$( '#region_ski' ).addClass( "contenu_onglet" );
-	$( '#departement_ski' ).removeClass( "contenu_onglet" );
-        if((val != '') && (val.substring(0, 1) == "R") ) {
-	    $('#choix_type_ski').append('<option value="R'+ val +'">'+ valeurText +'</option>');
-	    var valeur = val.substring(1);
-            $departements.empty(); // on vide la liste des départements
-            $departements.append('<option value="">Départements</option>');
+	
+	else if (val.substring(0, 1) == "R") {
+	    var choixRegion = '<option value="">Regions</option><option value="'+ val +'"selected="selected" >'+ valeurText +'</option>' ;
+	    $choixSki.append(choixPays);
+	    $choixSki.html(choixRegion);
+	    
+            $choixSki.append('<option value="">Départements</option>');
             $.ajax({
-                url: 'php/lieu.php',
-                data: 'id_region='+ valeur, // on envoie $_GET['id_region']
-                dataType: 'json',
-                success: function(json) {
-                    $.each(json, function(index, value) {
-                        $departements.append('<option value="D'+ index +'">--'+ value +'</option>');
-                    });
-                }
+		url: 'php/lieu.php',
+		data: 'id_region='+ valeur, // on envoie $_GET['id_region']
+		dataType: 'json',
+		success: function(json) {
+		    $.each(json, function(index, value) {
+			$choixSki.append('<option value="D'+ index +'">-- '+ value +'</option>');
+		    });
+		}
             });
+	    
         }
-    });
-    // à la sélection d un département dans la liste
-    $departements.on('change', function() {
-	var liste, valeur;
-	liste = document.getElementById("search_type_departement_ski");
-	valeurText = liste.options[liste.selectedIndex].text;
-        val = $(this).val(); // on récupère la valeur du departement
-	$( '#departement_ski' ).addClass( "contenu_onglet" );
-	$( '#ville_ski' ).removeClass( "contenu_onglet" );
-        if((val != '') && (val.substring(0, 1) == "D") ) {
-	    $('#choix_type_ski').append('<option value="'+ val +'">'+ valeurText +'</option>');
-	    ///$('#choix_ski').append('<p id="index_choix_departement" value="'+val+'"> Département : '+ valeurText +'</p>');
-	    var valeur = val.substring(1);
-            $villes.empty(); // on vide la liste des villes
-            $villes.append('<option value="">Villes</option>');
-            $.ajax({
-                url: 'php/lieu.php',
-                data: 'id_departement='+ valeur, // on envoie $_GET['id_departement']
-                dataType: 'json',
-                success: function(json) {
-                    $.each(json, function(index, value) {
-                        $villes.append('<option value="'+ index +'">---'+ value +'</option>');
-                    });
-                }
-            });
-        }
-    });
-    
 
+	else if (val.substring(0, 1) == "D") {
+	    var choixDepartement = '<option value="">Départements</option><option value="'+ val +'"selected="selected" >'+ valeurText +'</option>' ;
+	    $choixSki.html(choixDepartement);
+	    
+            $choixSki.append('<option value="">Villes</option>');
+            $.ajax({
+		url: 'php/lieu.php',
+		data: 'id_departement='+ valeur, // on envoie $_GET['id_departement']
+		dataType: 'json',
+		success: function(json) {
+		    $.each(json, function(index, value) {
+			$choixSki.append('<option value="V'+ index +'">--- '+ value +'</option>');
+		    });
+		}
+            });
+	    
+        }
+
+	else if (val.substring(0, 1) == "V") {
+	    var choixVille = '<option value="'+ val +'"selected="selected">'+ valeurText +'</option>' ;
+	    $choixSki.append(choixVille);
+	}
+	
+	
+
+    });
 });
