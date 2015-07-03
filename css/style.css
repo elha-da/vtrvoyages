@@ -54,3 +54,14 @@
     min-width : 231px;
     margin : 5px -11px ;
 }
+
+#choix_ski {
+    cursor:pointer;
+}
+
+.option_select {
+    font-size:16px ;
+}
+
+
+

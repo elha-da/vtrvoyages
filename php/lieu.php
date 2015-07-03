@@ -22,6 +22,7 @@ else if(isset($_GET['id_pays']) ) {
   // requête qui récupère les départements selon la région
   $requete = "SELECT id, nom FROM regions WHERE id_pays = ". $id_pays ." ORDER BY nom";
 }
+
 else if(isset($_GET['id_region']) ) {
   $id_region = $_GET['id_region'] ;
   // requête qui récupère les départements selon la région
@@ -41,7 +42,6 @@ $resultat = $bdd->query($requete) or die(print_r($bdd->errorInfo()));
 while(($donnees = $resultat->fetch()) != null) {
   // je remplis un tableau et mettant l'id en index (que ce soit pour les régions ou les départements ou les villes)
   $json[$donnees['id']][] = $donnees['nom'];
-  //print_r ($json) ;
 }
      
 // envoi du résultat au success
