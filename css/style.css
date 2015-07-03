@@ -33,9 +33,15 @@
     border-bottom: 1px solid  #eee;
 }
 
-.control-label-nbPersonnes {
-    text-align: left;
+.date_flexible {
+    display:inline-block;
     width: 130px;
+    
+}
+
+.control-label-nbPersonnes, .control-label-formule {
+    text-align: left;
+    width: 150px;
     float: left;
     padding-top: 5px;
 }
@@ -62,6 +68,22 @@
 .option_select {
     font-size:16px ;
 }
+
+#tooltip {
+    position:absolute;
+    z-index:99;
+    background-color:#eee;
+    font-size:10px;
+    width:180px;
+}
+
+input[id="search_type_hebergement"], 
+input[id="search_type_rem_meca"], 
+input[id="search_type_materiel"],
+input[id="search_type_cours_ski"] {
+    margin: 8px 20px;
+}
+
 
 
 

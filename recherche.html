@@ -5,10 +5,7 @@
     <title>VTR Voyages</title>		
     <link rel="stylesheet" type="text/css" href="http://www.vtr-voyages.fr/css/5e48888.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="liste.js"></script>
-    <script src="listeSki.js"></script>
+    
   </head>
 
   <body>
@@ -163,14 +160,12 @@
 		  <hr class="bloc" />
 
 		  <div class="control-group date_depart">
-		    <label class="control-label" for="search_type_date_depart">Date de départ</label>
-		    <input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" style="width:70px" required="required">
+		    <label class="control-label-date_depart " style="width:100px" for="search_type_date_depart">Date de départ</label>
+		    <input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" style="width:70px " required="required">
+		    <input rel="tooltip" title="Date flexible" type="checkbox" id="search_type_date_flexible_ski" name="search_type[date_flexible]" value="1">
 		  </div>
 
-		  <div class="control-group date_flexible">
-		    <label class="control-label" for="Search_Type_Date_Flexible">Date flexible</label>
-		    <input type="checkbox" id="search_type_date_flexible_ski" name="search_type[date_flexible]" value="1" checked="checked">
-		  </div>
+		  
 
 		  <hr class="bloc" />
 		  
@@ -183,15 +178,23 @@
 
 		  <div class="control-group champ_pays">
 		    <div class="controls">
-		      <select id="search_type_theme" name="search_type[theme]">
-			<option value="">Formule</option>
-			<option value="1">Hebergement seul</option>
-			<option value="2">H + remontées mécaniques</option>
-			<option value="3">H + RM + matériel</option>
-			<option value="4">H + RM + M + cours de ski</option>
-			
-			
-		      </select>
+		      <div class="control-group-formule ">
+			<label class="control-label-formule " for="search_type_hebergement">Hebergement</label>
+			<input type="checkbox" id="search_type_hebergement" name="search_type[hebergement]" value="1" checked="checked">
+		      </div>
+		      <div class="control-group-formule">
+			<label class="control-label-formule " for="search_type_rem_meca">Remontées mécaniques</label>
+			<input type="checkbox" id="search_type_rem_meca" name="search_type[rem_meca]" value="1" />
+		      </div>
+		      <div class="control-group-formule">
+			<label class="control-label-formule" for="search_type_materiel">Matériel</label>
+			<input type="checkbox" id="search_type_materiel" name="search_type[materiel]" value="1" />
+		      </div>
+		       <div class="control-group-formule">
+			<label class="control-label-formule " for="search_type_cours_ski">Cours de ski</label>
+			<input type="checkbox" id="search_type_cours_ski" name="search_type[cours_ski]" value="1" />
+		      </div>
+
 		    </div>
 		  </div>
 
@@ -213,8 +216,13 @@
 
       </div>
     </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <!--  -->
     <script src="js/recherche.js"></script>
+    <!--  -->
+    <script src="liste.js"></script>
+    <script src="listeSki.js"></script>
 
     <!-- ressources pour datepicker -->
     <script src="js/datePicker.js"></script>
