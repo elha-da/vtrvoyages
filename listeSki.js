@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     // chargement des pays
     if (val == '') {
-	$choixSki.append('<option value="">Pays</option>');
+	$choixSki.append('<option value="P">Pays</option>');
 	$.ajax({
             url: 'php/lieu.php',
             data: 'go', // on envoie $_GET['go']
@@ -16,6 +16,7 @@ $(document).ready(function() {
 		});
             }
 	});
+	//$choixSki.append('</optgroup>');
     }
     
     // à la sélection d un pays dans la liste
@@ -30,7 +31,8 @@ $(document).ready(function() {
 	var choixPays = choixPays ;
 
 	if (val == '') {
-	    $choixSki.append('<option value="">Pays</option>');
+	    $('#choix_type_ski_recup').empty();
+	    $choixSki.append('<option value="P" selected >Pays</option>');
 	    $.ajax({
 		url: 'php/lieu.php',
 		data: 'go', // on envoie $_GET['go']
@@ -45,9 +47,11 @@ $(document).ready(function() {
 	}
 	
 	else if ((val != '' ) && (val.substring(0, 1) == "P")) {
-	    var choixPays = '<option value="">Pays</option><option value="'+ val +'"selected="selected" >'+ valeurText +'</option>' ;
-  	    $choixSki.append(choixPays);
-	    $choixSki.append('<option value="">Regions</option>');
+	    $('#region_choix, #departement_choix, #ville_choix').remove();
+	    var choixPays = '<option id="pays_choix" value="" class="option_select">'+ valeurText +'</option>' ;
+  	    $('#choix_type_ski_recup').append(choixPays);
+	    $choixSki.append(choixPays);
+	    $choixSki.append('<option value="R" selected >Regions</option>');
 
 	    $.ajax({
                 url: 'php/lieu.php',
@@ -63,11 +67,16 @@ $(document).ready(function() {
 	} 
 	
 	else if (val.substring(0, 1) == "R") {
-	    var choixRegion = '<option value="">Regions</option><option value="'+ val +'"selected="selected" >'+ valeurText +'</option>' ;
-	    $choixSki.append(choixPays);
-	    $choixSki.html(choixRegion);
-	    
-            $choixSki.append('<option value="">Départements</option>');
+	    $('#region_choix, #departement_choix, #ville_choix').remove();
+	    var les_choix = document.getElementById("choix_type_ski_recup").innerHTML;
+	    //alert(pays_choisi);
+	    $choixSki.append(les_choix);
+
+	    var choixRegion = '<option id="region_choix" value="'+ val +'" class="option_select">'+ valeurText +'</option>' ;
+  	    $('#choix_type_ski_recup').append(choixRegion);
+	    $choixSki.append(choixRegion);
+
+	    $choixSki.append('<option value="D" selected >-- Départements </option>');
             $.ajax({
 		url: 'php/lieu.php',
 		data: 'id_region='+ valeur, // on envoie $_GET['id_region']
@@ -82,10 +91,15 @@ $(document).ready(function() {
         }
 
 	else if (val.substring(0, 1) == "D") {
-	    var choixDepartement = '<option value="">Départements</option><option value="'+ val +'"selected="selected" >'+ valeurText +'</option>' ;
-	    $choixSki.html(choixDepartement);
+	    $('#departement_choix, #ville_choix').remove();
+	    var les_choix = document.getElementById("choix_type_ski_recup").innerHTML;
+	    $choixSki.append(les_choix);
+
+	    var choixDepartement = '<option id="departement_choix" value="'+ val +'" class="option_select">'+ valeurText +'</option>' ;
+	    $('#choix_type_ski_recup').append(choixDepartement);
+	    $choixSki.append(choixDepartement);
 	    
-            $choixSki.append('<option value="">Villes</option>');
+            $choixSki.append('<option value="V" selected >--- Villes</option>');
             $.ajax({
 		url: 'php/lieu.php',
 		data: 'id_departement='+ valeur, // on envoie $_GET['id_departement']
@@ -100,7 +114,12 @@ $(document).ready(function() {
         }
 
 	else if (val.substring(0, 1) == "V") {
-	    var choixVille = '<option value="'+ val +'"selected="selected">'+ valeurText +'</option>' ;
+	    $('#ville_choix').remove();
+	    var les_choix = document.getElementById("choix_type_ski_recup").innerHTML;
+	    $choixSki.append(les_choix);
+	    
+	    var choixVille = '<option id="ville_choix" value="'+ val +'">'+ valeurText +'</option>' ;
+	    $('#choix_type_ski_recup').append(choixVille);
 	    $choixSki.append(choixVille);
 	}
 	
