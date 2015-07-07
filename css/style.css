@@ -67,6 +67,8 @@
 
 .option_select {
     font-size:16px ;
+    text-decoration: none;
+    cursor:pointer;
 }
 
 #tooltip {
@@ -83,6 +85,53 @@ input[id="search_type_materiel"],
 input[id="search_type_cours_ski"] {
     margin: 8px 20px;
 }
+
+.contenu_fil_ariane {
+    color: #777;
+    text-decoration: none;
+    
+}
+
+#fil_ariane {
+	font-size: 11px;
+    margin: 0 ;
+    padding: 0 ;
+    list-style-type: none;	
+}
+
+#fil_ariane li {
+	display : inline-block ;
+}
+
+#fil_ariane a:link,  
+#fil_ariane a:visited, 
+#fil_ariane a:hover {
+    color: #000;
+	text-decoration: none;
+	cursor:pointer;
+}
+
+#fil_ariane a:before {
+    color: #808080;
+    content: "/";
+    margin: 0 0.5px 0 1.5px;
+}
+
+#fil_ariane a:first-child:before{
+    content: "";
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
