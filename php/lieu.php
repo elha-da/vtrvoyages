@@ -1,37 +1,31 @@
 <?php
-require("config.php");
+require("connexion.php");
 
-// connexion à la base de données
-try{
-  $bdd = new PDO("mysql:host={$_sgbd["host"]};dbname={$_sgbd["dbname"]}; charset=UTF8",$_sgbd["pseudo"],$_sgbd["mdp"]);
-  $bdd -> exec("SET CHARACTER SET utf8");
-} 
-catch (Exception $e) {
-  echo $e="Impossible de se connecter à la base de données. Erreur PDO:: query($req)";
-  exit();
-}
 
 $json = array();
      
 if(isset($_GET['go'])) {
-  // requête qui récupère les régions
-  $requete = "SELECT id, nom FROM pays ORDER BY nom";
+  // requête qui récupère tous les pays
+  $requete = "SELECT id, name 
+              FROM atlas_pays ORDER BY name";
 } 
 else if(isset($_GET['id_pays']) ) {
   $id_pays = $_GET['id_pays'] ;
-  // requête qui récupère les départements selon la région
-  $requete = "SELECT id, nom FROM regions WHERE id_pays = ". $id_pays ." ORDER BY nom";
+  // requête qui récupère les régions selon le pays
+  $requete = "SELECT id, name 
+              FROM atlas_region
+              WHERE pays_id = ". $id_pays ." 
+              ORDER BY name";
 }
 
 else if(isset($_GET['id_region']) ) {
   $id_region = $_GET['id_region'] ;
-  // requête qui récupère les départements selon la région
-  $requete = "SELECT id, nom FROM departements WHERE id_region = ". $id_region ." ORDER BY nom";
-}
-else if(isset($_GET['id_departement']) ) {
-  $id_departement = $_GET['id_departement'] ;
-  // requête qui récupère les villes selon le département
-  $requete = "SELECT id, nom FROM villes WHERE id_departement = ". $id_departement ." ORDER BY nom";
+  // requête qui récupère les villes selon la région
+  $requete = "SELECT atC.id As id, atC.name As name
+              FROM atlas_city atC
+              JOIN atlas_departement atDep ON atDep.id = atC.departement_id
+                           AND region_id = ". $id_region ." 
+              ORDER BY name";
 }
 
 
@@ -41,7 +35,7 @@ $resultat = $bdd->query($requete) or die(print_r($bdd->errorInfo()));
 // résultats
 while(($donnees = $resultat->fetch()) != null) {
   // je remplis un tableau et mettant l'id en index (que ce soit pour les régions ou les départements ou les villes)
-  $json[$donnees['id']][] = $donnees['nom'];
+  $json[$donnees['id']][] = $donnees['name'];
 }
      
 // envoi du résultat au success
