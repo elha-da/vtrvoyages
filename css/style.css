@@ -101,25 +101,38 @@ input[id="search_type_cours_ski"] {
 
 #fil_ariane li {
 	display : inline-block ;
+	color : #5472AE ;
 }
 
-#fil_ariane a:link,  
-#fil_ariane a:visited, 
-#fil_ariane a:hover {
+#fil_ariane li:link,  
+#fil_ariane li:visited, 
+#fil_ariane li:hover {
     color: #000;
 	text-decoration: none;
 	cursor:pointer;
 }
 
-#fil_ariane a:before {
+#fil_ariane li:before {
     color: #808080;
     content: "/";
     margin: 0 0.5px 0 1.5px;
 }
 
-#fil_ariane a:first-child:before{
+#fil_ariane li:first-child:before{
     content: "";
 }
+
+#search_type_date_flexible_ski {
+	margin : 0 10px ;
+
+}
+
+
+
+
+
+
+
 
 
 

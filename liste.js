@@ -45,7 +45,7 @@ $(document).ready(function() {
 	$( '#departement' ).removeClass( "contenu_onglet"); // on affiche la div departement
         if(val != '') {
             $departements.empty(); // on vide la liste des départements
-            $departements.append('<option value="">Départements</option>');
+            $departements.append('<option value="">Villes</option>');
             $.ajax({
                 url: 'php/lieu.php',
                 data: 'id_region='+ val, // on envoie $_GET['id_region']
