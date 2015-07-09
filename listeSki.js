@@ -1,25 +1,16 @@
 $(document).ready(function() {
     var $choixSki = $('#choix_type_ski');
     var val = '';
-
-    // chargement des pays
-    if (val == '' || val == 0 || val == '0' || val == null || val == undefined) {
-	$choixSki.append('<option value="P">Pays</option>');
-	$.ajax({
-            url: 'php/lieu-ski.php',
-            data: 'go', // on envoie $_GET['go']
-            dataType: 'json', // on veut un retour JSON
-            success: function(json) {
-		$.each(json, function(index, value) { // pour chaque noeud JSON
-                    // on ajoute l option dans la liste
-                    $choixSki.append('<option value="P'+ index +'">'+ value +'</option>');
-		});
-            }
-	});
-	
-    }
-
     
+    function afficher() {
+	$.get("php/zoneGeo.php", function(data){
+	    $choixSki.html(data) ;
+        });
+	$('#fil_ariane').append('<a><li id="fil_ariane_pays" value="" >France</li></a>');
+    }
+    afficher() ;
+
+   
     // à la sélection d un choix dans la liste
     $choixSki.on('change', function() {	
 	var liste, valeur, valeurText;
@@ -35,7 +26,7 @@ $(document).ready(function() {
 	if (val == '' || val == 0 || val == '0' || val == null || val == undefined) {
 	    $('#choix_type_ski_recup').empty(); // on vide la div de stockage des sélections
 	    $('#fil_ariane').empty(); // on vide la ul du fil d ariane
-	    $choixSki.append('<option value="P" selected >Pays</option>'); // on ajoute l option dans la liste
+	    $choixSki.append('<option value="" selected >Pays</option>'); // on ajoute l option dans la liste
 	    $.ajax({
 		url: 'php/lieu-ski.php', // fichier au quel la demande est envoyée
 		data: 'go', // on envoie $_GET['go']
@@ -55,10 +46,10 @@ $(document).ready(function() {
 	else if ((val != '' ) && (val.substring(0, 1) == "P")) {
 	    $('#zonegeo_choix, #ville_choix').remove(); // on supprime les attributs avec l id
 	    $('#fil_ariane_zonegeo, #fil_ariane_pays, #retour').remove();
-	    var choixPays = ' value="" >'+ valeurText ;
-  	    $('#fil_ariane').append('<li id="fil_ariane_pays" '+choixPays+'</li>');
-	    $('#choix_type_ski_recup').append('<option id="pays_choix" class="option_select" '+choixPays+'</option>');
-	    $choixSki.append('<option id="pays_choix" class="option_select" '+choixPays+'</option>');	    
+	    
+  	    $('#fil_ariane').append('<a><li id="fil_ariane_pays" value="" >'+ valeurText +'</li></a>');
+	    $('#choix_type_ski_recup').append('<option id="pays_choix" class="option_select"  value="" >'+ valeurText+'</option>');
+	    $choixSki.append('<option id="pays_choix" class="option_select" class="option_select"  value="" >'+ valeurText+'</option>');	    
 	    $choixSki.append('<option value="Z" selected >Zone géographique</option>');
 
 	    $.ajax({
@@ -81,10 +72,9 @@ $(document).ready(function() {
 	    //alert(pays_choisi);
 	    $choixSki.append(les_choix);
 
-	    var choixZonegeo = ' value="'+ val +'" >'+ valeurText ;
-	    $('#fil_ariane').append('<li id="fil_ariane_zonegeo" '+choixZonegeo+'</li>');
-  	    $('#choix_type_ski_recup').append('<option id="zonegeo_choix" class="option_select" '+choixZonegeo+'</option>');
-	    $choixSki.append('<option id="zonegeo_choix" class="option_select" '+choixZonegeo+'</option>');
+	    $('#fil_ariane').append('<a><li id="fil_ariane_zonegeo" value="'+ val +'" >'+ valeurText+'</li></a>');
+  	    $('#choix_type_ski_recup').append('<option id="zonegeo_choix" class="option_select" value="'+ val +'" >'+ valeurText+'</option>');
+	    $choixSki.append('<option id="zonegeo_choix" class="option_select"  value="'+ val +'" >'+ valeurText+'</option>');
 
 	    $choixSki.append('<option value="V" selected >Ville/Station </option>');
             $.ajax({
@@ -118,23 +108,25 @@ $(document).ready(function() {
     /*
      * gestion du fil d'ariane pour le retour en arrière !
      */
-  
-    var ul = document.getElementById('fil_ariane');
-    ul.onclick = function() {
+//    var li = document.getElementById('fil_ariane');
+//    li.onclick = function() {
+    $('#fil_ariane a li').click(function() {
 	
-	var id_selectionne = $('#fil_ariane li').attr("id"); 
-	var val = $(this).val() ;
-
-	var text = $('#fil_ariane li').text() ;
+	var val = $(this).attr("value") ;
+	alert (val) ;
+	var text = $(this).text() ;
 	var valeur = '<option id="retour" value="'+ val +'">'+ text +'</option>' ;
-
+	//alert (text) ;
 	$('#choix_type_ski').append(valeur);	    
 	document.getElementById('retour').selected = "true";
-	alert ( text) ;
-	$('#choix_type_ski').trigger('change');
-	$('#retour').remove();
-	//return false ;
-    } ;
+	resultat = true ;
+	if (resultat) {
+	    $('#choix_type_ski').trigger('change');
+	    $('#retour').remove();
+	    resultat = false ;
+	}
+    });
+
 
 
     /*
