@@ -108,8 +108,7 @@ $(document).ready(function() {
     /*
      * gestion du fil d'ariane pour le retour en arrière !
      */
-//    var li = document.getElementById('fil_ariane');
-//    li.onclick = function() {
+
     $('#fil_ariane a li').click(function() {
 	
 	var val = $(this).attr("value") ;
