@@ -127,11 +127,14 @@ $(document).ready(function() {
     });
 
 
+    
+
 
     /*
      * ajout de 8 jours avant et après la date de départ
      */
-    
+
+/*    
     $('input[title="Date flexible"]').click(function(){
 	var date_select = document.getElementById('search_type_date_depart_ski').value ;
 	
@@ -151,6 +154,8 @@ $(document).ready(function() {
         }
 	
     });
+*/
+
 
     /*
      * infos bulle au survol de la souris
@@ -171,5 +176,53 @@ $(document).ready(function() {
 
 	
     });
+    
+    $('#nbPersonnes_nb').on('change', function(){
+	document.getElementById('nbPersonnes_details').style.display='block';
+	var nbPersonnes = document.getElementById('nbPersonnes_nb').value ;
+	if ((nbPersonnes <= 2) || (nbPersonnes > 6)) {
+	    document.getElementById('nbPersonnes_as').value= nbPersonnes;
+	    document.getElementById('nbPersonnes_ans').value= 0;
+	    document.getElementById('nbPersonnes_es').value= 0;
+	    document.getElementById('nbPersonnes_ens').value= 0;
+	}
+	else if (nbPersonnes == 3) {
+	    document.getElementById('nbPersonnes_as').value= 2;
+	    document.getElementById('nbPersonnes_ans').value= 0;
+	    document.getElementById('nbPersonnes_es').value= 0;
+	    document.getElementById('nbPersonnes_ens').value= 1;
+	    
+	}
+	else if (nbPersonnes == 4) {
+	    document.getElementById('nbPersonnes_as').value= 2;
+	    document.getElementById('nbPersonnes_ans').value= 0;
+	    document.getElementById('nbPersonnes_es').value= 1;
+	    document.getElementById('nbPersonnes_ens').value= 1;
+	}
+	else if (nbPersonnes == 5) {
+	    document.getElementById('nbPersonnes_as').value= 2;
+	    document.getElementById('nbPersonnes_ans').value= 0;
+	    document.getElementById('nbPersonnes_es').value= 2;
+	    document.getElementById('nbPersonnes_ens').value= 1;
+	}
+	else if (nbPersonnes == 6) {
+	    document.getElementById('nbPersonnes_as').value= 3;
+	    document.getElementById('nbPersonnes_ans').value= 1;
+	    document.getElementById('nbPersonnes_es').value= 1;
+	    document.getElementById('nbPersonnes_ens').value= 1;
+	}
+
+    });
+   
+    $('#nbPersonnes_as').on('change', function(){
+	var as = document.getElementById('nbPersonnes_as').value;
+	var ans= document.getElementById('nbPersonnes_ans').value;
+	var es = document.getElementById('nbPersonnes_es').value;
+	var ens= document.getElementById('nbPersonnes_ens').value;
+	var nb = as + ans + es + ens;
+	document.getElementById('nbPersonnes_nb').value= nb;
+	
+    });	
+
 });
 

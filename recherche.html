@@ -132,7 +132,7 @@
 	  <aside class="span3">
 	    <div class="recherche">
 	      <fieldset>
-		<form method="post" name="ski" class="form-horizontal" action="/recherche-detail">		 
+		<form method="post" name="ski" class="form-horizontal" action="resultatRecherche/test.php">		 
 
 		  <div class="contenu_fil_ariane" id="choix_type_ski_fil_ariane">
 		    <ul id="fil_ariane" >
@@ -170,27 +170,38 @@
 		    <input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" style="width:100px " required="required">
 		    <input rel="tooltip" title="Date flexible" type="checkbox" id="search_type_date_flexible_ski" name="search_type[date_flexible]" value="1">
 		  </div>
-
+		  <hr class="bloc" />
 		  
-
+		    <input type="radio" name="duree_sejour" id="weekEnd" value="2" />
+		    <label for="weekEnd">week-end (1 à 3 jours)</label>
+		    
+		    <input type="radio" name="duree_sejour" id="semaine" value="7" />
+		    <label for="semaine">1 semaine et plus</label>
+		  
 		  <hr class="bloc" />
 		  
 		  <div class="control-group controls">	
 		    <div>
-		      <label class="control-label-nbPersonnes" for="search_type_date_nbPersonnes">Adultes skieurs</label>
-		      <input type="number" step="1" value="2" min="1" class="nbPersonnes" required="required">
+		      <label class="control-label-nbPersonnes" for="search_type[nbPersonnes][nb]">Nombre de participants</label>
+		      <input id="nbPersonnes_nb" type="number" step="1" value="2" min="1" class="nbPersonnes" required="required" name="search_type[nbPersonnes][nb]">
 		    </div>
-		    <div>
-		      <label class="control-label-nbPersonnes" for="search_type_date_nbPersonnes">Adultes non skieurs</label>
-		      <input type="number" step="1" value="0" min="0" class="nbPersonnes" required="required">
-		    </div>
-		    <div>
-		      <label class="control-label-nbPersonnes" for="search_type_date_nbPersonnes">Enfants skieurs</label>
-		      <input type="number" step="1" value="0" min="0" class="nbPersonnes" required="required">
-		    </div>
-		    <div>
-		      <label class="control-label-nbPersonnes" for="search_type_date_nbPersonnes">Bébés/enfants non skieurs</label>
-		      <input type="number" step="1" value="0" min="0" class="nbPersonnes" required="required">
+		    <div id="nbPersonnes_details" style="display: none;">
+		      <div>
+			<label class="control-label-nbPersonnes" for="search_type[nbPersonnes][as]">Adultes skieurs</label>
+			<input id="nbPersonnes_as" type="number" step="1" value="2" min="1" max="19" class="nbPersonnes" required="required" name="search_type[nbPersonnes][as]">
+		      </div>
+		      <div>
+			<label class="control-label-nbPersonnes" for="search_type[nbPersonnes][ans]">Adultes non skieurs</label>
+			<input id="nbPersonnes_ans" type="number" step="1" value="0" min="0" max="19" class="nbPersonnes" required="required" name="search_type[nbPersonnes][ans]">
+		      </div>
+		      <div>
+			<label class="control-label-nbPersonnes" for="search_type[nbPersonnes][es]">Enfants skieurs</label>
+			<input id="nbPersonnes_es" type="number" step="1" value="0" min="0" max="19" class="nbPersonnes" required="required" name="search_type[nbPersonnes][es]">
+		      </div>
+		      <div>
+			<label class="control-label-nbPersonnes" for="search_type[nbPersonnes][ens]">Bébés/enfants non skieurs</label>
+			<input id="nbPersonnes_ens" type="number" step="1" value="0" min="0" max="19" class="nbPersonnes" required="required" name="search_type[nbPersonnes][ens]">
+		      </div>
 		    </div>
 		  </div>	
 		  
@@ -199,24 +210,26 @@
 		  <div class="control-group champ_pays">
 		    <div class="controls">
 		      <div class="control-group-formule ">
-			<label class="control-label-formule " for="search_type_hebergement">Hebergement</label>
-			<input type="checkbox" id="search_type_hebergement" name="search_type[hebergement]" value="1" checked="checked">
+			<label class="control-label-formule " for="search_type[formule][hebergement]">Hebergement</label>
+			<input type="checkbox" id="search_type_hebergement" name="search_type[formule][hebergement]" value="1" checked="checked">
 		      </div>
 		      <div class="control-group-formule">
-			<label class="control-label-formule " for="search_type_rem_meca">Remontées mécaniques</label>
-			<input type="checkbox" id="search_type_rem_meca" name="search_type[rem_meca]" value="1" />
+			<label class="control-label-formule " for="search_type[formule][rem_meca]">Remontées mécaniques</label>
+			<input type="checkbox" id="search_type_rem_meca" name="search_type[formule][rem_meca]" value="1" />
 		      </div>
 		      <div class="control-group-formule">
-			<label class="control-label-formule" for="search_type_materiel">Matériel</label>
-			<input type="checkbox" id="search_type_materiel" name="search_type[materiel]" value="1" />
+			<label class="control-label-formule" for="search_type[formule][materiel]">Matériel</label>
+			<input type="checkbox" id="search_type_materiel" name="search_type[formule][materiel]" value="1" />
 		      </div>
 		       <div class="control-group-formule">
-			<label class="control-label-formule " for="search_type_cours_ski">Cours de ski</label>
-			<input type="checkbox" id="search_type_cours_ski" name="search_type[cours_ski]" value="1" />
+			<label class="control-label-formule " for="search_type[formule][cours_ski]">Cours de ski</label>
+			<input type="checkbox" id="search_type_cours_ski" name="search_type[formule][cours_ski]" value="1" />
 		      </div>
 
 		    </div>
 		  </div>
+		  <label class="control-label-date_depart " for="search_type_date_depart" style="width:100px">Texte libre</label>
+		  <input type="text" value="" placeholder="Ex : val d'isère" name="texte_libre">
 
 		  <div class="control-group">
 		    <button type="submit" class="btn">
@@ -251,29 +264,4 @@
   </body>
 </html>
 
-<!--
-    <select id="search_type_pays" name="search_type[pays]" required="required">
-      <option value="12">Allemagne</option>
-      <option value="15">Andorre</option>
-      <option value="5">Angleterre</option>
-      <option value="7">Croatie</option>
-      <option value="19">Cuba</option>
-      <option value="23">Emirats Arabes Unis</option>
-      <option value="4">Espagne</option>
-      <option value="20">Etats-Unis</option>
-      <option value="1" selected="selected">France</option>
-      <option value="8">Grèce</option>
-      <option value="22">Inde</option>
-      <option value="2">Italie</option>
-      <option value="11">Malte</option>
-      <option value="9">Maroc</option>
-      <option value="13">Pays Bas</option>
-      <option value="21">Pérou</option>
-      <option value="16">République Tchèque</option>
-      <option value="18">Sénégal</option>
-      <option value="3">Suisse</option>
-      <option value="24">Tanzanie</option>
-      <option value="17">Thaïlande</option>
-      <option value="25">Tunisie</option>
-      <option value="26">Turquie</option>
-      -->
+
