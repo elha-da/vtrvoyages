@@ -27,66 +27,103 @@ $url_srv = 'http://gestion.vtr-voyages.fr/admin/recherche/resultset.php?';
 */
 // à faire = construire la query string dynamiquement
 $lieu= $_POST['choix_ski']; // tableau du lieu du formulaire de recherche
-$z= empty($lieu['zone_geo'])? NULL: $lieu['zone_geo'];
-$p= empty($lieu['pays'])? NULL: $lieu['pays'];
-$r= empty($lieu['region'])? NULL: $lieu['region'];
-$v= empty($lieu['ville'])? NULL: $lieu['ville'];
-
+$z= empty($lieu['zone_geo'])? NULL: $lieu['zone_geo']; // non
+$p= empty($lieu['pays'])? NULL: $lieu['pays']; // non
+$r= empty($lieu['region'])? NULL: $lieu['region']; // non
+$v= empty($lieu['ville'])? NULL: $lieu['ville']; // non
+$ds= empty($tab[''])? NULL: $tab['']; // non
+$dp= empty($tab[''])? NULL: $tab['']; // non
 
 $tab= $_POST['search_type']; //le tableau critères du formulaire de recherche
 
 $var= empty($tab['date_depart'])? NULL: $tab['date_depart'];
 $date = str_replace('/', '-', $var);
-$d = date('Y-m-d', strtotime($date));
+$d = date('Y-m-d', strtotime($date)); //ok
 
-$fd= empty($tab['date_flexible'])? NULL: $tab['date_flexible'];
-//$l= empty($tab[''])? NULL: $tab[''];
-$pr= empty($tab[''])? '1': $tab[''];
-$nb= empty($tab['nbPersonnes']['nb'])? NULL: $tab['nbPersonnes']['nb'];
-$as= empty($tab['nbPersonnes']['as'])? NULL: $tab['nbPersonnes']['as'];
-$ans= empty($tab['nbPersonnes']['ans'])? NULL: $tab['nbPersonnes']['ans'];
-$es= empty($tab['nbPersonnes']['es'])? NULL: $tab['nbPersonnes']['es'];
-$ens= empty($tab['nbPersonnes']['ens'])? NULL: $tab['nbPersonnes']['ens'];
-$ds= empty($tab[''])? NULL: $tab[''];
-$dp= empty($tab[''])? NULL: $tab[''];
-$t= empty($_POST['texte_libre'])? NULL: $_POST['texte_libre'];
+$fd= empty($tab['date_flexible'])? 0: $tab['date_flexible']; //ok
+$l= empty($tab['duree_sejour'])? NULL: $tab['duree_sejour']; //ok
+$pr=1;
+if (empty($tab['formule']['rem_meca']))
+  $pr= $pr;
+else 
+  $pr = $pr + pow(2, ($tab['formule']['rem_meca']));
 
-$query_string = "d=".$d."&fd=".$fd."&pr=".$pr."&t=".$t ;
+if (empty($tab['formule']['materiel']))
+  $pr= $pr;
+else 
+  $pr = $pr + pow(2, ($tab['formule']['materiel']));
+
+if (empty($tab['formule']['cours_ski']))
+  $pr= $pr;
+else 
+  $pr = $pr + pow(2, ($tab['formule']['cours_ski']));
+
+
+$nb= empty($tab['nbPersonnes']['nb'])? NULL: $tab['nbPersonnes']['nb']; //ok
+$as= empty($tab['nbPersonnes']['as'])? NULL: $tab['nbPersonnes']['as']; //ok
+$ans= empty($tab['nbPersonnes']['ans'])? NULL: $tab['nbPersonnes']['ans']; //ok
+$es= empty($tab['nbPersonnes']['es'])? NULL: $tab['nbPersonnes']['es']; //ok
+$ens= empty($tab['nbPersonnes']['ens'])? NULL: $tab['nbPersonnes']['ens']; //ok
+$t= empty($_POST['texte_libre'])? NULL: $_POST['texte_libre']; //ok
+
+$query_string = "o=json&d=".$d."&fd=".$fd."&l=".$l."&pr=".$pr."&nb=".$nb."&as=".$as."&ans=".$ans."&es=".$es."&ens=".$ens."&t=".$t;
+//$query_string ="o=json&d=2016-02-13&fd=0&l=&pr=3&nb=1&as=1&ans=&es=&ens=&t=val d'isère";
+
+//$query_string = "o=json&d=2016-02-13&fd=8&pr=1&t=val d'isère";
 $res = file_get_contents($url_srv . $query_string);
+
 //die($res); // meme résultat que l'appel direct à resultset.php
 $res = json_decode($res, true);
-
+print_r ($res);
 echo "reprise des valeurs utilisées pour la recherche : $query_string<br /> \n";
-echo "<hr /> \n Entete de liste = petit formulaire de tri et/ou filtre (à voir)<hr /> \n";
+//echo "<hr /> \n Entete de liste = petit formulaire de tri et/ou filtre (à voir)<hr /> \n";
 
 include('template.php');
 // on créé une nouvelle instance de la classe Template
 // et on indique en argument le chemin vers les modèles
 $template = new Template('./');
+$entete_page = new Template('./');
+$pied_page = new Template('./');
 // modèle à utiliser auquel on adjoint un nom arbitraire
+$entete_page->set_filenames(array('entete_page' => 'entete_page.html'));
+$pied_page->set_filenames(array('pied_page' => 'pied_page.html'));
 $template->set_filenames(array('bloc_sejour' => 'bloc_sejour.html'));
 
-
-foreach($res as $sejour) {
-  /*	
+$entete_page->pparse('entete_page');
+//print_r ($res) ;
+$i= 0;
+if (!empty($res)) {
+  foreach($res as $sejour) {
+    /*	
 	echo "<pre>\n";
 	print_r($sejour);
 	echo "</pre>\n";
-  */
-  // Assignation des variables
-  $template->assign_vars($sejour);
-	
-  $template->assign_block_vars('presta',$sejour['Inclus']);
+    */
+    // Assignation des variables
+    $template->assign_vars($sejour);
+    $max = sizeof($sejour['Inclus']);
+    for($i = 0; $i < $max; $i++){
+      $template->assign_block_vars('presta', array('nom' => $sejour['Inclus'][$i],
+						   'picto' => str_replace(" ", "_", strtolower($sejour['Inclus'][$i]))
+						   )
+				   );
+    }
 
-  if($sejour['Prix_old']) {
-    $template->assign_block_vars('promo',array(
-					       'Promo_prix' => $sejour['Prix_old'] ,
-					       'Promo_pourcent' => round(($sejour['Prix'] - $sejour['Prix_old'])/$sejour['Prix_old'],0) . " %"
-					       ));
+    if($sejour['Prix_old']) {
+      $template->assign_block_vars('promo',array(
+						 'Promo_prix' => $sejour['Prix_old'] ,
+						 'Promo_pourcent' => round(($sejour['Prix'] - $sejour['Prix_old'])/$sejour['Prix_old'],0) . " %"
+						 ));
+    }
+    // Affichage des données
+    $template->pparse('bloc_sejour');
+
   }
-  // Affichage des données
-  $template->pparse('bloc_sejour');
 }
+else 
+  echo "aucun resultat ";
+
+$pied_page->pparse('pied_page');
 
 echo "<hr /> \n Bas de liste (pagination ?) ou simple reprise de l'entete de liste (petit formulaire de tri/filtre) ?";
 

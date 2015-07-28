@@ -213,16 +213,39 @@ $(document).ready(function() {
 	}
 
     });
+
    
     $('#nbPersonnes_as').on('change', function(){
 	var as = document.getElementById('nbPersonnes_as').value;
 	var ans= document.getElementById('nbPersonnes_ans').value;
 	var es = document.getElementById('nbPersonnes_es').value;
 	var ens= document.getElementById('nbPersonnes_ens').value;
-	var nb = as + ans + es + ens;
+	var nb = Number(as) + Number(ans) + Number(es) + Number(ens);
 	document.getElementById('nbPersonnes_nb').value= nb;
-	
-    });	
-
+    });
+    $('#nbPersonnes_ans').on('change', function(){
+	var as = document.getElementById('nbPersonnes_as').value;
+	var ans= document.getElementById('nbPersonnes_ans').value;
+	var es = document.getElementById('nbPersonnes_es').value;
+	var ens= document.getElementById('nbPersonnes_ens').value;
+	var nb = Number(as) + Number(ans) + Number(es) + Number(ens);
+	document.getElementById('nbPersonnes_nb').value= nb;
+    });
+    $('#nbPersonnes_es').on('change', function(){
+	var as = document.getElementById('nbPersonnes_as').value;
+	var ans= document.getElementById('nbPersonnes_ans').value;
+	var es = document.getElementById('nbPersonnes_es').value;
+	var ens= document.getElementById('nbPersonnes_ens').value;
+	var nb = Number(as) + Number(ans) + Number(es) + Number(ens);
+	document.getElementById('nbPersonnes_nb').value= nb;
+    });
+    $('#nbPersonnes_ens').on('change', function(){
+	var as = document.getElementById('nbPersonnes_as').value;
+	var ans= document.getElementById('nbPersonnes_ans').value;
+	var es = document.getElementById('nbPersonnes_es').value;
+	var ens= document.getElementById('nbPersonnes_ens').value;
+	var nb = Number(as) + Number(ans) + Number(es) + Number(ens);
+	document.getElementById('nbPersonnes_nb').value= nb;
+    });
 });
 

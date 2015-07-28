@@ -5,15 +5,14 @@
     <title>VTR Voyages</title>		
     <link rel="stylesheet" type="text/css" href="http://www.vtr-voyages.fr/css/5e48888.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    
   </head>
 
   <body>
 
     <div class="container-fluid">
       <div class="onglets">
-	<span class="onglet_0 onglet" id="onglet_ski" onclick="change_onglet('ski');">Ski</span>
-	<span class="onglet_0 onglet" id="onglet_autre" onclick="change_onglet('autre');">Autre</span>				
+		<span class="onglet_0 onglet" id="onglet_ski" onclick="change_onglet('ski');">Ski</span>
+		<span class="onglet_0 onglet" id="onglet_autre" onclick="change_onglet('autre');">Autre</span>				
       </div>
 
       <div>
@@ -22,9 +21,9 @@
 	  <aside class="span3">
 	    <div class="recherche">
 	      <fieldset>
-		<form method="post" class="form-horizontal" action="/recherche-detail">
+			<form method="post" class="form-horizontal" action="/recherche-detail">
 		  
-		  <div class="control-group champ_pays">
+		  	<div class="control-group champ_pays">
 		    <div class="controls" id="pays">
 		      <select id="search_type_pays" name="search_type_pays">
 			<option value="">Pays</option>
@@ -132,7 +131,11 @@
 	  <aside class="span3">
 	    <div class="recherche">
 	      <fieldset>
-		<form method="post" name="ski" class="form-horizontal" action="resultatRecherche/test.php">		 
+		<form method="post" name="ski" class="form-horizontal" action="resultatRecherche/test.php">	
+
+		  <label class="control-label-date_depart " for="texte_libre" style="width:100px">Recherche libre</label>
+		  <input type="text" value="" placeholder="Ex : Val d'Isère" name="texte_libre" style="width: 197px;">
+		  <hr class="bloc" />	 
 
 		  <div class="contenu_fil_ariane" id="choix_type_ski_fil_ariane">
 		    <ul id="fil_ariane" >
@@ -168,22 +171,23 @@
 		  <div class="control-group date_depart">
 		    <label class="control-label-date_depart " style="width:100px" for="search_type_date_depart">Date de départ</label>
 		    <input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" style="width:100px " required="required">
-		    <input rel="tooltip" title="Date flexible" type="checkbox" id="search_type_date_flexible_ski" name="search_type[date_flexible]" value="1">
+		    <input checked="checked" rel="tooltip" title="Date flexible" type="checkbox" id="search_type_date_flexible_ski" name="search_type[date_flexible]" value="8">
 		  </div>
 		  <hr class="bloc" />
-		  
-		    <input type="radio" name="duree_sejour" id="weekEnd" value="2" />
-		    <label for="weekEnd">week-end (1 à 3 jours)</label>
-		    
-		    <input type="radio" name="duree_sejour" id="semaine" value="7" />
-		    <label for="semaine">1 semaine et plus</label>
-		  
+		  <div>
+		    <input type="radio" name="duree_sejour" id="weekEnd" value="2" >
+		    <label for="weekEnd" style="display: inline;">week-end (1 à 3 jours)</label>
+		  </div>
+		  <div>
+		    <input type="radio" name="duree_sejour" id="semaine" value="7" checked="checked">
+		    <label for="semaine" style="display: inline;">1 semaine et plus</label>
+		  </div>
 		  <hr class="bloc" />
 		  
 		  <div class="control-group controls">	
 		    <div>
-		      <label class="control-label-nbPersonnes" for="search_type[nbPersonnes][nb]">Nombre de participants</label>
-		      <input id="nbPersonnes_nb" type="number" step="1" value="2" min="1" class="nbPersonnes" required="required" name="search_type[nbPersonnes][nb]">
+		      <label class="control-label-nbPersonnes" for="search_type[nbPersonnes][nb]" ><strong>Nombre de participants</strong></label>
+		      <input id="nbPersonnes_nb" type="number" step="1" value="2" min="1" max="19" class="nbPersonnes" required="required" name="search_type[nbPersonnes][nb]" style="width: 35px; margin: 1px 0 0 -3px;">
 		    </div>
 		    <div id="nbPersonnes_details" style="display: none;">
 		      <div>
@@ -210,8 +214,8 @@
 		  <div class="control-group champ_pays">
 		    <div class="controls">
 		      <div class="control-group-formule ">
-			<label class="control-label-formule " for="search_type[formule][hebergement]">Hebergement</label>
-			<input type="checkbox" id="search_type_hebergement" name="search_type[formule][hebergement]" value="1" checked="checked">
+			<label class="control-label-formule " for="search_type[formule][hebergement]" >Hebergement</label>
+			<input type="checkbox" id="search_type_hebergement" name="search_type[formule][hebergement]" value="0" checked="checked">
 		      </div>
 		      <div class="control-group-formule">
 			<label class="control-label-formule " for="search_type[formule][rem_meca]">Remontées mécaniques</label>
@@ -219,18 +223,16 @@
 		      </div>
 		      <div class="control-group-formule">
 			<label class="control-label-formule" for="search_type[formule][materiel]">Matériel</label>
-			<input type="checkbox" id="search_type_materiel" name="search_type[formule][materiel]" value="1" />
+			<input type="checkbox" id="search_type_materiel" name="search_type[formule][materiel]" value="2" />
 		      </div>
 		       <div class="control-group-formule">
 			<label class="control-label-formule " for="search_type[formule][cours_ski]">Cours de ski</label>
-			<input type="checkbox" id="search_type_cours_ski" name="search_type[formule][cours_ski]" value="1" />
+			<input type="checkbox" id="search_type_cours_ski" name="search_type[formule][cours_ski]" value="3" />
 		      </div>
 
 		    </div>
 		  </div>
-		  <label class="control-label-date_depart " for="search_type_date_depart" style="width:100px">Texte libre</label>
-		  <input type="text" value="" placeholder="Ex : val d'isère" name="texte_libre">
-
+		  
 		  <div class="control-group">
 		    <button type="submit" class="btn">
 		      <i class="icon-search"></i>
