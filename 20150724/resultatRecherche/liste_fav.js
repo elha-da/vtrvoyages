@@ -1,3 +1,4 @@
+/*
 $(".ajouter_liste").click(function() {
 	var idSejourFav = this.id;
 	var dateSejour = document.getElementById(favIdSejour).getAttribute('value');
@@ -11,3 +12,4 @@ $(".ajouter_liste").click(function() {
 		}
 	});	
 });
+*/
