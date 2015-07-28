@@ -170,12 +170,13 @@
 
 		  <div class="control-group date_depart">
 		    <label class="control-label-date_depart " style="width:100px" for="search_type_date_depart">Date de départ</label>
-		    <input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" style="width:100px " required="required">
+		    <input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" style="width:100px ">
 		    <input checked="checked" rel="tooltip" title="Date flexible" type="checkbox" id="search_type_date_flexible_ski" name="search_type[date_flexible]" value="8">
+		    <p style="display: inline; font-size: 10px; margin: 0 0 0 -10px ;" > +/- 8 jours. </p>
 		  </div>
 	
 		  <div>
-		    <input type="radio" name="duree_sejour" id="weekEnd" value="2" >
+		    <input type="radio" name="duree_sejour" id="weekEnd" value="02" >
 		    <label for="weekEnd" style="display: inline;">week-end (1 à 3 jours)</label>
 		  </div>
 		  <div>
@@ -214,20 +215,28 @@
 		  <div class="control-group champ_pays">
 		    <div class="controls">
 		      <div class="control-group-formule ">
-			<label class="control-label-formule " for="search_type[formule][hebergement]" >Hebergement</label>
-			<input type="checkbox" id="search_type_hebergement" name="search_type[formule][hebergement]" value="0" checked="checked" disabled >
+			<label class="control-label-formule" for="search_type[formule][hebergement]" >Hebergement</label>
+			<input type="checkbox" id="search_type_hebergement" name="search_type[formule][hebergement]" value="0" checked="checked" onClick="cocherDecocherFormule(0);">
 		      </div>
 		      <div class="control-group-formule">
-			<label class="control-label-formule " for="search_type[formule][rem_meca]">Remontées mécaniques</label>
-			<input type="checkbox" id="search_type_rem_meca" name="search_type[formule][rem_meca]" value="1" />
+			<label class="control-label-formule" for="search_type[formule][rem_meca]">Remontées mécaniques</label>
+			<input class="search_type_formule" type="checkbox" id="search_type_rem_meca" name="search_type[formule][rem_meca]" value="1" onClick="cocherDecocherFormule(1);"/>
 		      </div>
 		      <div class="control-group-formule">
 			<label class="control-label-formule" for="search_type[formule][materiel]">Matériel</label>
-			<input type="checkbox" id="search_type_materiel" name="search_type[formule][materiel]" value="2" />
+			<input class="search_type_formule" type="checkbox" id="search_type_materiel" name="search_type[formule][materiel]" value="2" onClick="cocherDecocherFormule(2);"/>
 		      </div>
-		       <div class="control-group-formule">
-			<label class="control-label-formule " for="search_type[formule][cours_ski]">Cours de ski</label>
-			<input type="checkbox" id="search_type_cours_ski" name="search_type[formule][cours_ski]" value="3" />
+		      <div class="control-group-formule">
+			<label class="control-label-formule" for="search_type[formule][cours_ski]">Cours de ski</label>
+			<input class="search_type_formule" type="checkbox" id="search_type_cours_ski" name="search_type[formule][cours_ski]" value="3" onClick="cocherDecocherFormule(3);"/>
+		      </div>
+		      <div class="control-group-formule">
+			<label class="control-label-formule" for="search_type[formule][transport]">Transport</label>
+			<input class="search_type_formule" type="checkbox" id="search_type_transport" name="search_type[formule][transport]" value="4" onClick="cocherDecocherFormule(4);"/>
+		      </div>
+		      <div class="control-group-formule">
+			<label class="control-label-formule" for="search_type[formule][foodpack]">Livraison de courses</label>
+			<input class="search_type_formule" type="checkbox" id="search_type_foodpack" name="search_type[formule][foodpack]" value="5" onClick="cocherDecocherFormule(5);"/>
 		      </div>
 
 		    </div>
@@ -262,7 +271,60 @@
 
     <!-- ressources pour datepicker -->
     <script src="js/datePicker.js"></script>
+    <script type="text/javascript">
 
+      function cocherDecocherFormule(source) {
+      var valFormule = source;
+      
+      if (valFormule == 0) {
+
+         for(i=1; i < 6; i++) {                    		 
+		 $('input[value='+i+']').removeAttr('checked');
+	       }
+	  }
+		 else {
+		   $('input[value=1]').prop('checked', 'checked');
+		   
+		   
+		   if ((valFormule == 1) || (valFormule == 2) || (valFormule == 3) || (valFormule == 4)) {
+		     if ($('input[value=2]').attr('checked')) {
+		       return false;
+		     }
+		     else {
+		        for(i = 1; i < 6; i++) { 
+			 
+			  $('input[value='+i+']').removeAttr('checked');
+			}
+		        $('input[value='+valFormule+']').prop('checked', 'checked');
+			$('input[value=1]').prop('checked', 'checked');
+			
+		      } 
+		   }
+		    if (valFormule == 5) {
+		     if ($('input[value=2]').attr('checked')) {
+		       return false;
+		     }
+		     else {
+		        for(i = 1; i < 6; i++) { 
+			  
+			  $('input[value='+i+']').removeAttr('checked');
+			}
+		        $('input[value='+valFormule+']').prop('checked', 'checked');
+			$('input[value=1]').prop('checked', 'checked');
+			
+			$('input[value=2]').prop('checked', 'checked');
+			
+		      } 
+		   }
+		   
+    	    }
+	 $('input[value=0]').prop('checked', 'checked');
+
+       }
+				  
+					
+					
+    </script>
   </body>
 </html>
 

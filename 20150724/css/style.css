@@ -94,7 +94,9 @@
 input[id="search_type_hebergement"], 
 input[id="search_type_rem_meca"], 
 input[id="search_type_materiel"],
-input[id="search_type_cours_ski"] {
+input[id="search_type_cours_ski"],
+input[id="search_type_transport"],
+input[id="search_type_foodpack"] {
     margin: 8px 20px;
 }
 
