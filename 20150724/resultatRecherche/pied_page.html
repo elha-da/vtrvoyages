@@ -1,0 +1,24 @@
+
+          
+        </ul>
+<script src="../js/jquery.js"></script>
+  <script src="../js/jquery-ui.js"></script>
+	<script type="text/javascript">
+	  $(".ajouter_liste").click(function() {
+	  var idSejourFav = $(this).attr('id');
+	  var dateSejour = $(this).attr('value');
+	  
+	  $.ajax({
+	  type : "POST",
+	  url : "liste_fav.php",
+	  data : { idSejourFav: idSejourFav, dateSejour: dateSejour },
+	  success : function(data) { 
+	  alert(dateSejour);
+	  }
+	  });	
+	  });
+	</script>
+	
+  </body>
+
+</html>
