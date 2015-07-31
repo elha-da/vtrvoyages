@@ -62,8 +62,8 @@
 }
 
 input[id="nbPersonnes_nb"] {
-	width: 35px; 
-	margin: 1px 0 0 -3px;
+    width: 35px; 
+    margin: 1px 0 0 -3px;
 }
 
 .recherche {
@@ -110,35 +110,35 @@ input[id="search_type_foodpack"] {
 }
 
 #fil_ariane {
-	font-size: 13px;
+    font-size: 13px;
     margin: 0 ;
     padding: 0 ;
     list-style-type: none;	
 }
 
 #fil_ariane li {
-/*	display : inline-block ; */
-	color : #5472AE ;
-	margin: -1px 0 -1px;
+    /*	display : inline-block ; */
+    color : #5472AE ;
+    margin: -1px 0 -1px;
 }
 
 #fil_ariane a:link,  
 #fil_ariane a:visited, 
 #fil_ariane a:hover {
     color: #000;
-	text-decoration: none;
-	cursor:pointer;
+    text-decoration: none;
+    cursor:pointer;
 }
 /*
-#fil_ariane a:before {
-    color: #808080;
-    content: "/";
-    margin: 0 0.5px 0 1.5px;
-}
-#fil_ariane a:first-child:before{
-    content: "";
-}
-*/
+  #fil_ariane a:before {
+  color: #808080;
+  content: "/";
+  margin: 0 0.5px 0 1.5px;
+  }
+  #fil_ariane a:first-child:before{
+  content: "";
+  }
+  */
 #fil_ariane li{
     
 }
@@ -147,197 +147,205 @@ input[id="search_type_foodpack"] {
 }
 
 #search_type_date_depart_ski {
-	width: 100px;
+    width: 100px;
 }
 
 #search_type_date_flexible_ski {
-	margin : 0 10px ;
+    margin : 0 10px ;
 
 }
 
 /* **************************************** PC ****************************************** */
-	    
+
 @media screen and (min-width: 999px) {
-	﻿.onglets {
-		width : 231px ;
-	}
-	.onglet {
-  		min-width: 111px;
-	}
-	input[name="texte_libre"] {
-		width: 197px;
-	}
-	.bloc {
-    width : 230px;
-	}
+    ﻿.onglets {
+	width : 231px ;
+    }
+    .onglet {
+  	min-width: 111px;
+    }
+    input[name="texte_libre"] {
+	width: 197px;
+    }
+    .bloc {
+	width : 230px;
+    }
+    input[name="search_type[texte_libre]"] {	
+	width: 197px;
+    }
 
 }
 
 /* **************************************** Tablette & Mobile ****************************************** */
 
 @media screen and (max-width: 998px) {
-	aside#recherche_autre, 
-	#recherche_autre,
-	aside#recherche_ski, 
-	#recherche_ski {
-		display: block;
-	}
+    aside#recherche_autre, 
+    #recherche_autre,
+    aside#recherche_ski, 
+    #recherche_ski {
+	display: block;
+    }
 }
 
 /* **************************************** Tablette ****************************************** */
 
 @media screen and (min-width: 768px) and (max-width: 998px) {
-	#btn_recherche {
-		display: none;
-	}
-	﻿.onglets {
-		width: 185px ;
-	}
-	.onglet {
-	    width: 88px;
-	}
-	#span_recherche_ski,
-	#span_recherche_autre {
-		width: 185px;
-	}
-	input[name="texte_libre"] {
-	    width: 150px;
-	}
-	.bloc {
-    width : 185px;
-	}	
-	#search_type_date_flexible_ski {
-	    margin: 0 10px 0 -2px;
-	}
-	
-	#search_type_date_depart_ski {
-	    width: 82px;
-	}
+    #btn_recherche {
+	display: none;
+    }
+    ﻿.onglets {
+	width: 185px ;
+    }
+    .onglet {
+	width: 88px;
+    }
+    #span_recherche_ski,
+    #span_recherche_autre {
+	width: 185px;
+    }
+    input[name="texte_libre"] {
+	width: 150px;
+    }
+    .bloc {
+	width : 185px;
+    }	
+    #search_type_date_flexible_ski {
+	margin: 0 10px 0 -2px;
+    }
+    
+    #search_type_date_depart_ski {
+	width: 82px;
+    }
 
-	.total_nbPersonnes {
-		width: 185px; 
-		padding: 0 0 0 -10px;
-	}
-	.total_nbPersonnes label {
-		margin: 2px 4px 0px -7px;
-	}
-	.recherche label {
+    .total_nbPersonnes {
+	width: 185px; 
+	padding: 0 0 0 -10px;
+    }
+    .total_nbPersonnes label {
+	margin: 2px 4px 0px -7px;
+    }
+    .recherche label {
     	font: 11px/20px Arial;
-	}
-	#nbPersonnes_details div label {
-		margin: 2px 4px 0px -7px;
-	}
-	#nbPersonnes_details div input {
-		margin: 2px 4px 0px -7px;
-	}
-	
-	input[id="nbPersonnes_nb"] {
-	    margin: 1px 0 0 -9px;
-	    width: 32px;
-	}
-	
+    }
+    #nbPersonnes_details div label {
+	margin: 2px 4px 0px -7px;
+    }
+    #nbPersonnes_details div input {
+	margin: 2px 4px 0px -7px;
+    }
+    
+    input[id="nbPersonnes_nb"] {
+	margin: 1px 0 0 -9px;
+	width: 32px;
+    }
+    
 
-	.control-label-nbPersonnes, 
-	.control-label-formule {
+    .control-label-nbPersonnes, 
+    .control-label-formule {
     	width: 135px;
-	}	
+    }	
 
-	input[id="search_type_hebergement"], 
-	input[id="search_type_rem_meca"], 
-	input[id="search_type_materiel"], 
-	input[id="search_type_cours_ski"], 
-	input[id="search_type_transport"], 
-	input[id="search_type_foodpack"] {
+    input[id="search_type_hebergement"], 
+    input[id="search_type_rem_meca"], 
+    input[id="search_type_materiel"], 
+    input[id="search_type_cours_ski"], 
+    input[id="search_type_transport"], 
+    input[id="search_type_foodpack"] {
     	margin: 8px 7px;
-	}
+    }
+    input[name="search_type[texte_libre]"] {
+	width: 150px;
+    }
 }
 
 
 /* ************************************* Mobile ********************************************* */	    
 @media screen and (max-width: 767px) {
-	#recherche_ski_autre {
-		display: none;
-	}
-﻿	.onglets {
-	    width : 308px;
-	}
-	.onglet {
-	    width: 148px;
-	}
-	#recherche_autre,
-	#recherche_ski {
-		padding:  0 0 0 10px;
-	}
-	#span_recherche_ski,
-	#span_recherche_autre {
-		width: 305px;
-	}
-	input[name="texte_libre"] {
-		width: 270px;
-	}
-	.bloc {
-    width : 305px;
-	}
-	#choix_type_ski {
-		width: 280px;
-	}
-	#choix_type_ski option {
-		text-align: left;
-	}
-	.div_inline {
-		display: inline;
-		margin: 0 20px 0 0;
-	}
-	.controls div.control-group-formule:nth-child(2n+1) {
-	    float: left;
-	    margin: 0 90px 0 0;
-	}
-	
-	.controls div.control-group-formule:nth-child(2n) {
-	    float: right;
-	    margin: -29px 10px 0 0;
-	}
-	
-	@-moz-document url-prefix() { .controls div.control-group-formule:nth-child(2n) {
-	    float: right;
-	    margin: 0 15px 0 0;
-	} }
+    #recherche_ski_autre {
+	display: none;
+    }
+    ﻿	.onglets {
+	width : 308px;
+    }
+    .onglet {
+	width: 148px;
+    }
+    #recherche_autre,
+    #recherche_ski {
+	padding:  0 0 0 10px;
+    }
+    #span_recherche_ski,
+    #span_recherche_autre {
+	width: 305px;
+    }
+    input[name="texte_libre"] {
+	width: 270px;
+    }
+    .bloc {
+	width : 305px;
+    }
+    #choix_type_ski {
+	width: 280px;
+    }
+    #choix_type_ski option {
+	text-align: left;
+    }
+    .div_inline {
+	display: inline;
+	margin: 0 20px 0 0;
+    }
+    .controls div.control-group-formule:nth-child(2n+1) {
+	float: left;
+	margin: 0 90px 0 0;
+    }
+    
+    .controls div.control-group-formule:nth-child(2n) {
+	float: right;
+	margin: -29px 10px 0 0;
+    }
+    
+    @-moz-document url-prefix() { .controls div.control-group-formule:nth-child(2n) {
+				      float: right;
+				      margin: 0 15px 0 0;
+				  } }
 
 
-	input[id="search_type_hebergement"], 
-	input[id="search_type_materiel"], 
-	input[id="search_type_cours_ski"]
-	{
-   		margin: 8px -65px;
-	}
-	input[id="search_type_rem_meca"], 
-	input[id="search_type_transport"] ,
-	input[id="search_type_foodpack"] {
-		margin: 8px -10px;
-	}
-	.total_nbPersonnes {
-		padding: 0 25px ;
-	}
-	input[id="nbPersonnes_nb"] {
-		margin: 0 0 0 25px;
-	}
-	#nbPersonnes_details {
-		padding: 3px 25px ;
-	}
-	#nbPersonnes_as,
-	#nbPersonnes_ans,
-	#nbPersonnes_es,
-	#nbPersonnes_ens {
-		margin: 0 0 0 28px;
-	}
-	#search_type_date_depart_ski {
-		width: 150px;
-	}
-	button.btn, 
-	input.btn[type="submit"] {
+    input[id="search_type_hebergement"], 
+    input[id="search_type_materiel"], 
+    input[id="search_type_cours_ski"]
+    {
+   	margin: 8px -65px;
+    }
+    input[id="search_type_rem_meca"], 
+    input[id="search_type_transport"] ,
+    input[id="search_type_foodpack"] {
+	margin: 8px -10px;
+    }
+    .total_nbPersonnes {
+	padding: 0 25px ;
+    }
+    input[id="nbPersonnes_nb"] {
+	margin: 0 0 0 25px;
+    }
+    #nbPersonnes_details {
+	padding: 3px 25px ;
+    }
+    #nbPersonnes_as,
+    #nbPersonnes_ans,
+    #nbPersonnes_es,
+    #nbPersonnes_ens {
+	margin: 0 0 0 28px;
+    }
+    #search_type_date_depart_ski {
+	width: 150px;
+    }
+    button.btn, 
+    input.btn[type="submit"] {
     	margin: 0 85px;
-	}
-	
+    }
+    input[name="search_type[texte_libre]"] {
+	width: 268px;
+    }
 
 }
 
