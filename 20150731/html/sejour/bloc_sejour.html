@@ -1,0 +1,77 @@
+<li id="sejour_resultat_{Sejour_id}" class="produit vignettes">
+
+    <div class="thumbnail">
+      <div id="haut_vignette" class="haut_vignette">
+	<div class="pictos_infos_sejour">
+<!-- BEGIN presta -->
+	  <figure style="display: inline;">
+	    <img src="http://img3.vtr-voyages.net/img/w24h24/pictos_formules/{presta.picto}.png?filter=src" border="0" alt="{presta.nom}">	    
+<!-- <figcaption>{presta.nom}</figcaption> -->
+	  </figure>
+<!-- END presta -->
+	</div>
+	<div class="titre_haut_vignette">
+	  <span> <p id="haut_vignette_stationVille" >{StationVille} </p></span>
+	  <p id="haut_vignette_lieu"> {Lieu}</p>
+	  <p id="haut_vignette_categ" class="categ" style="margin: 1px 0;">{Souscat}</p>
+	</div>
+      </div>
+      <a href="http://www.vtr-voyages.fr{Sejour_url}">
+	<div id="photo_vignette" class="photo_vignette">
+	  <figure>
+	    <img src="{Image}" border="0" alt="{Hebergement}">
+	  </figure>
+	</div>
+      </a>
+      <div id="caption" class="caption">
+	<a href="{Sejour_url}">
+	  <div class="titre_caption" style="margin: 0 0 0px;height: 1.5em;">
+	    <p>{Hebergement}</p>
+	  </div>
+	</a>
+	<div class="votes">
+	  <p style="margin: 0 0 5px;" title="1 étoile">☆</p>
+	  <p style="margin: 0 0 5px;" title="2 étoiles">☆</p>
+	  <p style="margin: 0 0 5px;" title="3 étoiles">☆</p>
+	  <p style="margin: 0 0 5px;" title="4 étoiles">☆</p>
+	  <p style="margin: 0 0 5px;" title="5 étoiles">☆</p>
+	</div>
+	<div class="avis_caption">
+	  (5 avis)
+	</div>
+
+	<div id="header_infos_sejour" class="header_infos_sejour" style="border-right: none;">
+<!-- 	  <p id="sejour_categ" class="categ" ><u>Description :</u> </p> -->
+	  <p style="clear: both; max-height: 6em; margin: 0 0 5px; text-align: justify;" id="description_categ" class="categ">{Description}</p>
+<!--	  <span class="tarifs_caption" onclick="javascript:afficher_cacher('options_infos_sejour');"> Tarifs </span> -->
+	</div>
+      </div>
+      <div id="prix_sejour" class="prix_sejour">
+<!-- BEGIN promo -->
+	<div id="vignette_promotions" class="vignette_promotions">
+	  <p id="prix_nuits_barre" class="prix_nuits"><del>{promo.Promo_prix}€</del></p>
+	  <span id="promo_span">{promo.Promo_pourcent}</span>
+	</div>
+<!-- END promo -->
+	<p id="text_prix" class="prix_nuits">{Nb_nuits} nuits à partir de&nbsp;</p>
+	<p id="prix_nuits_sejour" class="prix_nuits">
+	  <font> {Prix} € </font> 
+	</p>      		   
+	<p id="muted" style="line-height: normal;">
+	  <small class="muted">Départ {Debut} - {Typo}</small>
+	</p>
+	<a id="btn_ifos_resa" class="btn btn-warning btn_resultat" titre="Infos et réservation" href="http://www.vtr-voyages.fr{Sejour_url}">
+	  <div>
+	    <span style="font-size: 13px; display: block;">Infos &amp; </span>
+	    <span style="font-size: 13px;">réservation</span>
+	  </div>
+	</a>
+	<div  id="{Sejour_id}" value="{Debut}" class="ajouter_liste" style="font-size: 11px; text-align: center; cursor: pointer; display: none;">
+	  <a id="liste_fav_{Sejour_id}">
+	    <span style="font-size: 13px; color: red;"> ♡ </span>
+	    Ajouter à ma liste
+	  </a>
+	</div>
+      </div>
+    </div>
+</li>
