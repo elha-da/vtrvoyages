@@ -37,12 +37,8 @@ $dp= empty($tab[''])? NULL: $tab['']; // non
 $tab= $_POST['search_type']; //le tableau critères du formulaire de recherche
 
 $var= empty($tab['date_depart'])? NULL: $tab['date_depart'];
-if ($var != NULL) {
-  $date = str_replace('/', '-', $var);
-  $d = date('Y-m-d', strtotime($date)); //ok
-}
-else 
-  $d= NULL; //ok
+$date = str_replace('/', '-', $var);
+$d = date('Y-m-d', strtotime($date)); //ok
 
 $fd= empty($tab['date_flexible'])? NULL: $tab['date_flexible']; //ok
 $l= empty($tab['duree_sejour'])? NULL: $tab['duree_sejour']; //ok

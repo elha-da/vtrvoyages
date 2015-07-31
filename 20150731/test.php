@@ -88,10 +88,10 @@ include('template.php');
 $entete_page = new Template('./');
 $pied_page = new Template('./');
 // modèle à utiliser auquel on adjoint un nom arbitraire
-$entete_page->set_filenames(array('entete_page' => 'entete_page.html'));
+$section_blockSejour->set_filenames(array('section_blockSejour' => 'section_blockSejour.html'));
 $pied_page->set_filenames(array('pied_page' => 'pied_page.html'));
 
-$entete_page->pparse('entete_page');
+$section_blockSejour->pparse('section_blockSejour');
 //print_r ($res) ;
 $i= 0;
 if (!empty($res)) {
@@ -107,6 +107,7 @@ if (!empty($res)) {
 
     // Assignation des variables
     $bloc->assign_vars($sejour);
+
 
     foreach($sejour['Inclus'] as $presta) {
       $bloc->assign_block_vars('presta',array(  'nom' => $presta,
