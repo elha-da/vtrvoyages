@@ -85,11 +85,41 @@ echo "<hr /> \n Entete de liste = petit formulaire de tri et/ou filtre (à voir)
 include('template.php');
 // on créé une nouvelle instance de la classe Template
 // et on indique en argument le chemin vers les modèles
-$entete_page = new Template('./');
-$pied_page = new Template('./');
+$entete_site = new Template('./html/');
+$pied_site = new Template('./html/');
+
+$section_blockSejour = new Template('./html/sejour');
+$pied_page_blockSejour = new Template('./html/sejour');
 // modèle à utiliser auquel on adjoint un nom arbitraire
+$entete_site->set_filenames(array('entete_site' => 'entete_site.html'));
+$pied_site->set_filenames(array('pied_site' => 'pied_site.html'));
+
+// Formulaire de recherche :
+$onglets_recherche = new Template('./html/recherche');
+$block_recherche = new Template('./html/recherche');
+$piedAside_recherche = new Template('./html/recherche');
+
+$entete_site->set_filenames(array('entete_site' => 'entete_site.html'));
+$pied_site->set_filenames(array('pied_site' => 'pied_site.html'));
+
+
+$onglets_recherche->set_filenames(array('onglets_recherche' => 'onglets_recherche.html'));
+$block_recherche->set_filenames(array('block_recherche' => 'block_recherche.html'));
+$piedAside_recherche->set_filenames(array('piedAside_recherche' => 'piedAside_recherche.html'));
+
+// Fin formulaire de recherche :
+
+
 $section_blockSejour->set_filenames(array('section_blockSejour' => 'section_blockSejour.html'));
-$pied_page->set_filenames(array('pied_page' => 'pied_page.html'));
+$pied_page_blockSejour->set_filenames(array('pied_page_blockSejour' => 'pied_page_blockSejour.html'));
+
+$entete_site->pparse('entete_site');
+
+// Parse formulaire de recherche :
+$onglets_recherche->pparse('onglets_recherche');
+$block_recherche->pparse('block_recherche');
+$piedAside_recherche->pparse('piedAside_recherche');
+// Fin parse formulaire de recherche :
 
 $section_blockSejour->pparse('section_blockSejour');
 //print_r ($res) ;
@@ -102,12 +132,11 @@ if (!empty($res)) {
 	echo "</pre>\n";
     */
 	
-    $bloc = new Template('./');
+    $bloc = new Template('./html/sejour');
     $bloc->set_filenames(array('bloc_sejour_' . $sejour['Sejour_id'] => 'bloc_sejour.html'));
 
     // Assignation des variables
     $bloc->assign_vars($sejour);
-
 
     foreach($sejour['Inclus'] as $presta) {
       $bloc->assign_block_vars('presta',array(  'nom' => $presta,
@@ -130,7 +159,8 @@ if (!empty($res)) {
 else 
   echo "aucun resultat ";
 
-$pied_page->pparse('pied_page');
+$pied_page_blockSejour->pparse('pied_page_blockSejour');
+$pied_site->pparse('pied_site');
 
 echo "<hr /> \n Bas de liste (pagination ?) ou simple reprise de l'entete de liste (petit formulaire de tri/filtre) ?";
 

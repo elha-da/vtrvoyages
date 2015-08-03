@@ -173,6 +173,9 @@ input[id="search_type_foodpack"] {
     input[name="search_type[texte_libre]"] {	
 	width: 197px;
     }
+    #recherche_ski_autre {
+	display: block;
+    }
 
 }
 
@@ -190,6 +193,10 @@ input[id="search_type_foodpack"] {
 /* **************************************** Tablette ****************************************** */
 
 @media screen and (min-width: 768px) and (max-width: 998px) {
+    #recherche_ski_autre {
+	display: block;
+    }
+    
     #btn_recherche {
 	display: none;
     }
