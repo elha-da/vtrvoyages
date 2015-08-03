@@ -1,0 +1,452 @@
+﻿.sejour_resultat {
+    clear: both;
+}
+
+ul#liste_sejours_vtr li:nth-child(3n+1),
+ul#liste_sejours_vtr li:nth-child(3n) {
+    margin: 0 0 15px;
+}
+
+ul, li {
+    border: 0 none;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.titre_haut_vignette {	   
+    height: 35px; 	    
+    overflow: hidden;
+}
+
+#haut_vignette_stationVille,
+#haut_vignette_lieu {
+    height: 18px; 
+    overflow: hidden;
+    display: inline;
+}
+#haut_vignette_stationVille {
+    color: #fff;
+    font: bold 15px/16px Arial;
+}
+.pictos_infos_sejour {
+    font-size: 10px; 
+    color: #fff; 
+    height: 30px; 	     
+    margin: 5px 0 0;
+    float: right;
+}
+.pictos_infos_sejour figure { 
+    display: inline-block; 
+    margin: 1px 0;
+}
+.pictos_infos_sejour figure:before {
+    color: #fff;
+    content: "\2b";
+    font-size: 15px;
+    margin: 0 0.5px 0 1.5px;
+    vertical-align: bottom;
+}	  
+.pictos_infos_sejour figure:first-child:before{
+    content: "";
+}
+
+.titre_caption {
+    color: #666;
+    height: 18px;
+    overflow: hidden;
+}
+
+haut_vignette_lieu:before {
+    content: "-";
+    font-size: 13px;
+}	  
+
+.votes p {
+    float: left;
+}
+#sejour_categ {
+    clear: both;
+}
+
+#header_infos_sejour {
+    padding: 0;
+}
+
+.tarifs_caption {
+    font-size: 10px; 
+    cursor: pointer;
+    margin: 0 0 0 10px;
+}
+.tarifs_caption::before {
+    background: rgba(0, 0, 0, 0) url("images/fleche_bas.png") no-repeat scroll 0 1px / 100% 100%;
+    content: "";
+    height: 9px;
+    margin: 6px 0 0 -12px;
+    position: absolute;
+    width: 9px;
+}
+
+#muted {
+    text-align: center; 
+    font-size: 10px; 
+    color: #666;
+}
+
+/* **************************************** PC ****************************************** */
+
+@media screen and (min-width: 999px) {
+    .liste_sejours_vtr li {
+	margin: 0 0.4% 15px; 
+	width : 745px; 
+	background-color: #e1e1e1;
+    }
+
+    .pictos_infos_sejour img {
+	display: inline-block; 
+	vertical-align: bottom;
+    }
+    .pictos_infos_sejour figcaption {
+	display: inline-block;
+    }	  
+
+    #photo_vignette {
+	width: 225px; 
+	height: 150px; 
+	display: block;
+    }
+    #caption {
+	display: inline-block; 
+	width: 327px;
+    }
+    .titre_caption {
+	display: inline-block; 
+	height: auto; 
+	max-width: 325px;  
+	padding: 5px 0 0; 
+	font-size: 16px; 
+	color: #666;
+    }
+    .avis_caption a {
+	font-size: 10px; 
+	float: left; 
+	margin: 0 5px;
+    }
+    #description_categ {
+	max-height: 30px; 
+	overflow: hidden;
+    }
+    #prix_sejour {
+	width: 179px;
+    }
+
+    #prix_nuits_barre {
+	float: left;
+	font-size: 16px;
+	margin: 5px 0 0;
+	text-align: center;
+	width: 100%;
+    }
+    #promo_span {
+	margin: 0 8px 0 0 ;  
+	font-size: 14px;
+	padding: 5px 10px;
+    }
+
+    .prix_sejour {
+	float: right;
+	width: 200px;
+    }
+    #text_prix {
+	text-align: center; 
+	font-size: 10px; 
+	color: #666;
+    }
+    #prix_nuits_sejour {
+	margin: -8px 0px 5px 15px; 
+	text-align: center; 
+	color: #555;
+    }
+    #prix_nuits_sejour font {
+	font-size: 25px; 
+	font-weight: bold;
+    }
+    
+    #btn_ifos_resa {
+	margin: 0 20px; 
+	width: 140px; 
+	border-radius: 7px; 
+	text-align: left; 
+	padding: 1px 2px;
+    }
+    #btn_ifos_resa div {
+	line-height: 120%; 
+	margin: 5px; 
+	padding-left: 10px;
+    }
+    
+    .tarifs_resultat::before {
+	content: "\f103" ;
+    }
+    .btn_resultat::before {
+	border-bottom: 7px solid transparent;
+	border-left: 14px solid #fff;
+	border-top: 7px solid transparent;
+	content: "";
+	float: right;
+	height: 0;
+	margin-right: 18px;
+	margin-top: 15px;
+	width: 0;
+    }
+
+}
+
+/* **************************************** Tablette ****************************************** */
+@media screen and (min-width: 768px) and (max-width: 998px){
+    .liste_sejours_vtr li {
+	margin: 0 0.4% 15px; 
+	width : 570px; 
+	background-color: #e1e1e1;
+    }
+
+    #haut_vignette_stationVille {
+	font: bold 13px/16px Arial;
+    }
+
+    .pictos_infos_sejour img {
+	display: inline-block; 
+	vertical-align: bottom;
+    }
+    .pictos_infos_sejour figcaption {
+	display: inline-block;
+    }	  
+
+    #photo_vignette {
+	width: 175px; 
+	height: 130px; 
+	display: block;
+    }
+    #caption {
+	display: inline-block; 
+	width: 225px;
+    }
+    .titre_caption {
+	display: inline-block; 
+	height: auto; 
+	max-width: 325px;  
+	padding: 5px 0 0; 
+	font-size: 16px; 
+	color: #666;
+    }
+    .avis_caption a {
+	font-size: 10px; 
+	float: left; 
+	margin: 0 5px;
+    }
+    #description_categ {
+	max-height: 30px; 
+	overflow: hidden;
+    }
+    #prix_sejour {
+	width: 160px;
+    }
+
+
+    #prix_nuits_barre {
+	float: left;
+	font-size: 16px;
+	margin: 5px 0 0;
+	text-align: center;
+	width: 100%;
+    }
+    #promo_span {
+	margin: 0 -2px 0 0 ;  
+	font-size: 14px;
+	padding: 5px;
+    }
+
+    .tarifs_caption {
+	font-size: 10px; 
+	cursor: pointer;
+    }
+    .prix_sejour {
+	float: right;
+	width: 200px;
+    }
+    #text_prix {
+	text-align: center; 
+	font-size: 10px; 
+	color: #666;
+    }
+    #prix_nuits_sejour {
+	margin: -8px 0px 5px ; 
+	text-align: center; 
+	color: #555;
+    }
+    #prix_nuits_sejour font {
+	font-size: 25px; 
+	font-weight: bold;
+    }
+    
+    #btn_ifos_resa {
+	margin: 0 auto; 
+	width: 120px; 
+	border-radius: 7px; 
+	text-align: left; 
+	padding: 1px 2px;
+    }
+    #btn_ifos_resa div {
+	line-height: 120%; 
+	margin: 5px; 
+	padding-left: 10px;
+    }
+    
+    .tarifs_resultat::before {
+	content: "\f103" ;
+    }
+    .btn_resultat::before {
+	border-bottom: 7px solid transparent;
+	border-left: 14px solid #fff;
+	border-top: 7px solid transparent;
+	content: "";
+	float: right;
+	height: 0;
+	margin-right: 10px;
+	margin-top: 15px;
+	width: 0;
+    }
+}
+
+/* ************************************* Mobile ********************************************* */	    
+@media screen and (max-width: 767px) {
+    li.vignettes {
+	background-color: #e1e1e1;
+	padding: 0 0 5px ;
+    }
+    #haut_vignette_lieu {
+	display: none;
+    }
+    #haut_vignette_stationVille {
+   	font: bold 13px/16px Arial;
+    }
+    .pictos_infos_sejour figcaption {
+	display: none;
+    }
+    #caption {
+	float: right;
+	width: 54%;
+    }
+    .titre_caption {
+	font-weight: bold;
+	font-size: 13px;
+	text-align: center;
+	max-height: 23px;
+	overflow: hidden;
+	margin: 3px 0px 2px -5px;
+    }
+    .titre_caption.categ {
+	display: none;
+    }
+    .votes {
+	margin: 5px 0 0 18px;
+    }
+    .avis_caption {
+	padding: 0 0 0 110px;
+	font-size: 12px;
+	cursor: pointer;
+    }
+    .avis_caption a{
+	cursor: pointer;
+    }
+    #photo_vignette {
+	width: 130px; 
+	height: 95px; 
+	display: block;
+    }
+    #haut_vignette {
+	height: 35px;
+    }
+    #haut_vignette_stationVille {
+	display: block;
+    }
+
+    #header_infos_sejour {
+	display: none;
+    }
+    #prix_sejour {
+	width: 179px;
+    }
+    #text_prix {
+	float: right;
+	margin: -4px -85px 5px 0;
+	font-size: 13px;
+    }
+
+    #vignette_promotions {
+	width: 305px;
+	height: 60px;
+	position: absolute;
+	float: right;
+	cursor: pointer;
+    }
+    #promo_span {
+	float: right;
+	font-size: 13px;
+	line-height: 15px;
+	margin: -65px 175px 0 0;
+	position: static;
+	
+    }
+    .btn_resultat::before {
+	border-bottom: 7px solid transparent;
+	border-left: 14px solid #fff;
+	border-top: 7px solid transparent;
+	content: "";
+	float: right;
+	height: 0;
+	margin-right: 0px;
+	margin-top: 9px;
+	width: 0;
+    }
+    #btn_ifos_resa {
+	border-radius: 7px;
+	margin: -25px 167px 0;
+	padding: 2px 10px;
+	text-align: left;
+	width: 95px;
+	height: 31px;
+    }
+    #prix_nuits_sejour {
+	width: 308px;
+	text-align: center; 
+	color: #555;
+    }
+    #prix_nuits_sejour font {
+	font-size: 23px; 
+	font-weight: bold;
+    }
+    #prix_nuits_barre {
+	margin: 45px -2px 0 0;
+	font-size: 15px;
+    }
+    #vignette_promotions {
+	height: 75px;
+    }
+    #muted {
+	width: 180px;
+	margin: -5px 0 15px 129px;
+	text-align: center;
+	height: 31px;
+    }
+    .ajouter_liste {
+	width: 150px;
+	margin:  0;
+    }
+    .ajouter_liste a {
+	margin: -20px 40px 0 0;
+    }
+    #sejour_resultat {
+	background-color: #e1e1e1;
+    }
+}
+
