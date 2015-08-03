@@ -43,7 +43,7 @@ ul, li {
     color: #fff;
     content: "\2b";
     font-size: 15px;
-    margin: 0 0.5px 0 1.5px;
+    margin: 0 0.5px 0 1.5px; /*0 0 0 -8px; en rajoutant span ds html faut appliquer */
     vertical-align: bottom;
 }	  
 .pictos_infos_sejour figure:first-child:before{
@@ -92,12 +92,17 @@ haut_vignette_lieu:before {
     color: #666;
 }
 
+small {
+    font-size: 100%;
+}
+
 /* **************************************** PC ****************************************** */
 
 @media screen and (min-width: 999px) {
     .liste_sejours_vtr li {
 	margin: 0 0.4% 15px; 
 	width : 745px; 
+	height: 207px;
 	background-color: #e1e1e1;
     }
 
@@ -207,6 +212,7 @@ haut_vignette_lieu:before {
 	margin: 0 0.4% 15px; 
 	width : 570px; 
 	background-color: #e1e1e1;
+	height: 207px;
     }
 
     #haut_vignette_stationVille {
@@ -448,8 +454,6 @@ haut_vignette_lieu:before {
     #sejour_resultat {
 	background-color: #e1e1e1;
     }
-    small {
-	font-size: 100%;
-    }
+
 }
 

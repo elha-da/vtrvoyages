@@ -145,6 +145,13 @@ if (!empty($res)) {
 			       );
     }
 
+    foreach($sejour['Details'] as $option) {
+      $bloc->assign_block_vars('option',array(  'nom' => $option,
+						'picto' => str_replace(" ", "_", strtolower($option))
+						)
+			       );
+    }
+
     if($sejour['PrixOld']) {
       $bloc->assign_block_vars('promo',array(
 					     'Promo_prix' => $sejour['PrixOld'] ,
