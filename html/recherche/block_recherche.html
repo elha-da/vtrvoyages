@@ -8,6 +8,7 @@
 	  <hr class="bloc" />	 
 	  <div class="contenu_fil_ariane" id="choix_type_ski_fil_ariane">
 	    <ul id="fil_ariane" >
+<!--  fil d'ariane à remplir par "France (modifier)" au chargement de la page (on le fait déja avec js)  -->
 	      
 	    </ul>
 	  </div>
@@ -18,10 +19,15 @@
 	  <div class="control-group" id="choix_ski">
 	    <div class="controls">
 	      <select id="choix_type_ski" name="search_type[choix_ski]" onChange="javascript:Choix(this.form);">
+<!--  Options à remplir par les zonegeo au chargement du formulaire de recherche   -->
 		<option value="{lieu.id}">{lieu.nom}</option>
+
+<!--  Fin des options à itérer   -->
 	      </select>
 	    </div>
 	  </div>
+
+
 
 <!--	  <div class="control-group ville_station">
 	    <div class="controls contenu_onglet" id="ville_ski">
@@ -34,19 +40,19 @@
 	  <hr class="bloc" />
 
 	  <div class="control-group date_depart">
-	    <label class="control-label-date_depart " style="width:100px" for="search_type_date_depart">Date de départ</label>
+	    <label class="control-label-date_depart " style="width: 100px; display: inline;" for="search_type_date_depart">Départ le </label>
 	    <input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" >
 	    <input checked="checked" rel="tooltip" title="Date flexible" type="checkbox" id="search_type_date_flexible_ski" name="search_type[date_flexible]" value="8">
-	    <p style="display: inline; font-size: 10px; margin: 0 0 0 -10px ;" > +/- 8 jours. </p>
+	    <p style="display: inline; font-size: 10px; margin: 0 0 0 -10px ;" > +/- 8j </p>
 	  </div>
 	  
 	  <div class="div_inline">
 	    <input type="radio" name="search_type[duree_sejour]" id="weekEnd" value="02" >
-	    <label for="weekEnd" style="display: inline;">week-end (1 à 3 jours)</label>
+	    <label for="weekEnd" style="display: inline;">week-end</label>
 	  </div>
 	  <div class="div_inline">
 	    <input type="radio" name="search_type[duree_sejour]" id="semaine" value="7" checked="checked">
-	    <label for="semaine" style="display: inline;">1 semaine et plus</label>
+	    <label for="semaine" style="display: inline;">+ de 5jours</label>
 	  </div>
 	  
 	  <hr class="bloc" />
