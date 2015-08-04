@@ -71,24 +71,24 @@ jQuery(document).ready(function($){
 // Fonction pour créer et mettre à jour le cookie
 
 function setCookie = function(sNom,sValeur) {
-    var sDate = new Date();
-    sDate.setYear(sDate.getFullYear()+1);
-    var sCookie = encodeURIComponent(sNom) + '=' + encodeURIComponent(sValeur) + '§expires=' + sDate.toGMTString() + ';path=/';
+    
+    var sDate = new Date(); // date et heure courante
+    var sExpires = sDate.getDate()+90; // expiration du cookie 90 jours
+    var sCookie = encodeURIComponent(sNom) + '=' + encodeURIComponent(sValeur) + '§expires=' + sExpires + '§path=/';
     document.cookie= sCookie;
 }
 
 // Fonction pour lire le cookie
 
-function getCookie = function(sName) {
-    sName = sName.toLowerCase();
-    var oCrumbles = document.cookie.split(';');
-    for(var i=0; i<oCrumbles.length;i++)
-    {
+function getCookie = function(sNom) {
+    sNom = sNom.toLowerCase();
+    var oCrumbles = document.cookie.split('§');
+    for(var i=0; i<oCrumbles.length;i++) {
         var oPair= oCrumbles[i].split('=');
         var sKey = decodeURIComponent(oPair[0].trim().toLowerCase());
-        var sValue = oPair.length>1?oPair[1]:'';
-        if(sKey == sName)
-            return decodeURIComponent(sValue);
+        var sValeur = oPair.length>1?oPair[1]:'';
+        if(sKey == sNom)
+            return decodeURIComponent(sValeur);
     }
     return '';
 }
