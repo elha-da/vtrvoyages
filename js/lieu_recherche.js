@@ -3,7 +3,7 @@ jQuery(document).ready(function($){
     var val = '';
     
     function afficher() {
-	$('#fil_ariane').append('<a><li id="fil_ariane_pays" value="" >France</li>(modifier)</a>');
+	$('#fil_ariane').append('<a><li id="fil_ariane_pays" value="" >France</li> (modifier)</a>');
     }
     afficher() ;
     
@@ -67,3 +67,28 @@ jQuery(document).ready(function($){
 
 
 })
+
+// Fonction pour créer et mettre à jour le cookie
+
+function setCookie = function(sNom,sValeur) {
+    var sDate = new Date();
+    sDate.setYear(sDate.getFullYear()+1);
+    var sCookie = encodeURIComponent(sNom) + '=' + encodeURIComponent(sValeur) + '§expires=' + sDate.toGMTString() + ';path=/';
+    document.cookie= sCookie;
+}
+
+// Fonction pour lire le cookie
+
+function getCookie = function(sName) {
+    sName = sName.toLowerCase();
+    var oCrumbles = document.cookie.split(';');
+    for(var i=0; i<oCrumbles.length;i++)
+    {
+        var oPair= oCrumbles[i].split('=');
+        var sKey = decodeURIComponent(oPair[0].trim().toLowerCase());
+        var sValue = oPair.length>1?oPair[1]:'';
+        if(sKey == sName)
+            return decodeURIComponent(sValue);
+    }
+    return '';
+}

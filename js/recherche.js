@@ -66,35 +66,7 @@ function cocherDecocherFormule(source) {
 }
 
 jQuery(document).ready(function($){
-    var choixSki = $('#choix_type_ski');
-    var val = '';
-    
-    function afficher() {
-	$('#fil_ariane').append('<a><li id="fil_ariane_pays" value="" >France</li>(modifier)</a>');
-    }
-    afficher() ;
-    
-    // à la sélection d un choix dans la liste
 
-    /*
-     * gestion du fil d'ariane pour le retour en arrière !
-     */
-    $('#fil_ariane a li').click(function() {
-	
-	var val = $(this).attr("value") ;
-	alert (val) ;
-	var text = $(this).text() ;
-	var valeur = '<option id="retour" value="'+ val +'">'+ text +'</option>' ;
-	//alert (text) ;
-	$('#choix_type_ski').append(valeur);	    
-	document.getElementById('retour').selected = "true";
-	resultat = true ;
-	if (resultat) {
-	    $('#choix_type_ski').trigger('change');
-	    $('#retour').remove();
-	    resultat = false ;
-	}
-    });
 
     /*
      * infos bulle au survol de la souris
