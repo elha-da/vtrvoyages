@@ -17,18 +17,19 @@
 	  
 	  <div class="control-group" id="choix_ski">
 	    <div class="controls">
-	      <select id="choix_type_ski" name="search_type[choix_ski]">
+	      <select id="choix_type_ski" name="search_type[choix_ski]" onChange="javascript:Choix(this.form);">
+		<option value="{lieu.id}">{lieu.nom}</option>
 	      </select>
 	    </div>
 	  </div>
 
-	  <div class="control-group ville_station">
+<!--	  <div class="control-group ville_station">
 	    <div class="controls contenu_onglet" id="ville_ski">
 	      <select id="search_type_ville_ski" name="search_type[ville_ski]">
 		<option value="">Ville/Station</option>
 	      </select>
 	    </div>
-	  </div>
+	  </div> -->
 
 	  <hr class="bloc" />
 

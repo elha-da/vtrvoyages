@@ -139,14 +139,14 @@ if (!empty($res)) {
     $bloc->assign_vars($sejour);
 
     foreach($sejour['Inclus'] as $presta) {
-      $bloc->assign_block_vars('presta',array(  'nom' => $presta,
+      $bloc->assign_block_vars('presta', array( 'nom' => $presta,
 						'picto' => str_replace(" ", "_", strtolower($presta))
 						)
 			       );
     }
-
+    
     foreach($sejour['Details'] as $option) {
-      $bloc->assign_block_vars('option',array(  'nom' => $option,
+      $bloc->assign_block_vars('option', array( 'nom' => $option,
 						'picto' => str_replace(" ", "_", strtolower($option))
 						)
 			       );
