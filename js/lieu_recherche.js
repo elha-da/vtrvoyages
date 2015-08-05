@@ -1,4 +1,5 @@
 jQuery(document).ready(function($){
+
     var choixSki = $('#choix_type_ski');
     var val = '';
     
@@ -33,15 +34,15 @@ jQuery(document).ready(function($){
 
 
 
-/*    var pays = <?php echo json_encode($pays);?>;
-    var zonegeo = new Array("<?php json_encode($zonegeo);?>") ;
-    var ville = <?php echo json_encode($ville);?>;
-*/
+/*        var pays = <?php echo json_encode($pays);?>;
+	  var zonegeo = new Array("<?php json_encode($zonegeo);?>") ;
+	  var ville = <?php echo json_encode($ville);?>;
+   
     var pays =  ["France", "Suisse"];
     var zonegeo = [] ;
     zonegeo["France"] = ["Alpes du Nord", "Alpes du sud"];
     zonegeo["Suisse"] = ["Ski à l'étranger"];
-     var ville = [];
+    var ville = [];
     ville["Alpes du Nord"] = ["Annecy", "Courchevel", "Chambéry"];
     ville["Alpes du sud"] = ["Briançon", "Sisteron", "Castellane"];
     
@@ -62,15 +63,23 @@ jQuery(document).ready(function($){
 	} 
 	val = null;
     } 
-    
+*/   
 
 
+    $('button[type="submit"]').onsubmit(function() {
+	var date = new Date;
+	var nom = "vtr" + date;
+	var valeur = document.search_type[texte_libre];
+	alert (valeur);
+//	setCookie(nom, valeur);
+    });
 
-})
+
+});
 
 // Fonction pour créer et mettre à jour le cookie
 
-function setCookie = function(sNom,sValeur) {
+function setCookie(sNom,sValeur) {
     
     var sDate = new Date(); // date et heure courante
     var sExpires = sDate.getDate()+90; // expiration du cookie 90 jours
@@ -80,7 +89,7 @@ function setCookie = function(sNom,sValeur) {
 
 // Fonction pour lire le cookie
 
-function getCookie = function(sNom) {
+function getCookie(sNom) {
     sNom = sNom.toLowerCase();
     var oCrumbles = document.cookie.split('§');
     for(var i=0; i<oCrumbles.length;i++) {
@@ -92,3 +101,4 @@ function getCookie = function(sNom) {
     }
     return '';
 }
+

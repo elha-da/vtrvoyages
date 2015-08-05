@@ -2,7 +2,7 @@
   <aside id="span_recherche_ski" class="span3" >
     <div id="recherche_ski" class="recherche" >
       <fieldset>
-	<form method="POST" name="ski" class="form-horizontal" action="test.php" onSubmit="alert(document.ski.value);"> <!-- http://www.vtr-voyages.fr:8080/app_test.php/recherche-ski">	-->
+	<form method="POST" name="ski" class="form-horizontal" action="test.php"> <!-- http://www.vtr-voyages.fr:8080/app_test.php/recherche-ski">	-->
 	  <label class="control-label-date_depart " for="texte_libre" style="width:100px">Recherche libre</label>
 	  <input type="text" value="" placeholder="Ex : Val d'Isère" name="search_type[texte_libre]" >
 	  <hr class="bloc" />	 
@@ -19,10 +19,10 @@
 	  <div class="control-group" id="choix_ski">
 	    <div class="controls">
 	      <select id="choix_type_ski" name="search_type[choix_ski]" onChange="javascript:Choix(this.form);">
-<!--  Options à remplir par les zonegeo au chargement du formulaire de recherche   -->
+<!-- BEGIN lieu -->
 		<option value="{lieu.id}">{lieu.nom}</option>
 
-<!--  Fin des options à itérer   -->
+<!-- END lieu -->
 	      </select>
 	    </div>
 	  </div>
