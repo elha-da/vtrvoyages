@@ -7,3 +7,5 @@ function choix(paysId, paysVal) {
     $('#tree1').append(bloc);
 }
 
+
+
