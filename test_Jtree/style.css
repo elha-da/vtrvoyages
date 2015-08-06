@@ -1,5 +1,9 @@
+.liste_Jtree {
+    display: none;
+}
+
 input {
-  display: none;
+ display: none;
 }
 input ~ ul {
  display: none;
