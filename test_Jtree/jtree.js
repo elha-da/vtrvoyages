@@ -1,11 +1,22 @@
 
-function choix(paysId, paysVal) {
-    var id = 'search_type_'+paysId ;
-    var valeur = paysVal ;
-    var bloc = document.getElementById(id).innerHTML;
-    $('#tree1').empty();
-    $('#tree1').append(bloc);
+function choix(choixId, choixVal) {
+    if(document.getElementById(choixId).checked) {
+	var valeur = choixVal ;
+	var id = choixId;
+	var listeId = 'search_type_'+id ;
+	var labId = 'case_'+id ;
+	var textBloc = document.getElementById(labId).textContent;
+
+	document.getElementById('search_type_lieu').value = valeur ;
+	document.getElementById('case_search_type_lieu').textContent = textBloc ;
+
+	
+    } else { 
+	return null ;
+    }
 }
+
+
 
 function cookieFormulaireRecherche() {
     var departSki = document.getElementById('search_type_date_depart_ski').value;
@@ -31,7 +42,7 @@ function cookieFormulaireRecherche() {
     }   
     alert ("ok");
  
-    var tab = = new Array();
+    var tab = new Array();
     tab['departSki'] = departSki; 
     tab['dureeSejour'] = dureeSejour; 
     tab['nbPersonne'] = nbPersonne; 
@@ -43,5 +54,14 @@ function cookieFormulaireRecherche() {
 
 }
 
+//    document.getElementById(listeId).style.display = 'none';
+//    document.getElementById('case_search_type_lieu').setAttribute('for', id);
+//    document.getElementById('case_search_type_lieu').id = labId;
+	
+//    $('#tree1').empty();
+//    $('#tree1').append(bloc);
+
+
 // var  = document.getElementById('').value;
 //    alert(document.getElementsByName('search_type[duree_sejour]').value);
+

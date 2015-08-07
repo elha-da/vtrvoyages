@@ -5,25 +5,25 @@
   </head>
   <body>
     <div id="tree1">
-      <input type="checkbox" id="search_type_lieu" onclick="afficher_cacher('search_type_liste');">
-      <label for="search_type_lieu">Veuillez choisir un lieu</label>
+      <input type="checkbox" id="search_type_lieu" value=""/>
+      <label id="case_search_type_lieu" for="search_type_lieu">Veuillez choisir un lieu</label>
       <ul class="liste_jtree" id="search_type_liste">
 	<li id="search_type_pays_1"> 
 	  <input type="checkbox" id="pays_1" value="p=1" onclick="choix(this.id, this.value );"/>
-	  <label for="pays_1">France</label>
+	  <label id="case_pays_1" for="pays_1">France</label>
 	  <ul>
 	    <li id="search_type_region_1">
 	      <input type="checkbox" id="region_1" value="z=1" onclick="choix(this.id, this.value );"/>
-	      <label for="region_1">Alpes du Nord</label>
+	      <label id="case_region_1" for="region_1">Alpes du Nord</label>
 	      <ul>
 		<li value="v=1">Annecy</li>
 		<li value="v=2">Courchevel</li>
 		<li value="v=3">Chambéry</li>
 	      </ul>
 	    </li>
-	    <li>
-	      <input type="checkbox" id="search_type_region_2" value="z=2"/>
-	      <label for="search_type_region_2">Alpes du sud</label>
+	    <li id="search_type_region_2">
+	      <input type="checkbox" id="region_2" value="z=2" onclick="choix(this.id, this.value );"/>
+	      <label id="case_region_2" for="region_2">Alpes du sud</label>
 	      <ul>
 		<li value="v=4">Briançon</li>
 		<li value="v=5">Sisteron</li>
@@ -34,11 +34,11 @@
 	</li>
 	<li id="search_type_pays_2">
 	  <input type="checkbox"  id="pays_2" value="p=2" onclick="choix(this.id, this.value );" />
-	  <label for="pays_2">Italie</label>
+	  <label id="case_pays_2" for="pays_2">Italie</label>
 	  <ul>
-	    <li>
-	      <input type="checkbox" id="search_type_region_3" value="z=3"/>
-	      <label for="search_type_region_3">Ski à l'étrange</label>
+	    <li id="search_type_region_3" >
+	      <input type="checkbox" id="region_3" value="z=3" onclick="choix(this.id, this.value );"/>
+	      <label id="case_region_3" for="region_3">Ski à l'étrange</label>
 	      <ul>
 		<li value="v=7">Ski à l'étranger</li>
 	      </ul>
@@ -51,6 +51,5 @@
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery-ui.js"></script>
     <script src="jtree.js"></script>
-    <script src="../js/recherche.js"></script>
   </body>
 </html>
