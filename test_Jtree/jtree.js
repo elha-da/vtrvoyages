@@ -19,6 +19,10 @@ function choix(choixId, choixVal) {
 
 
 function cookieFormulaireRecherche() {
+    var cookieRecup = $.cookie('_vtrFormRech'); // récupère le tableau Json du cookie
+    alert(cookieRecup);
+
+
     var departSki = document.getElementById('search_type_date_depart_ski').value;
     if(document.getElementById('weekEnd').checked) {
 	var dureeSejour = document.getElementById('weekEnd').value;
@@ -40,7 +44,6 @@ function cookieFormulaireRecherche() {
     } else { 
 	var materiel = null ;
     }   
-    alert ("construction tab");
  
     var jsonTab = {
 	departSki : departSki, 
@@ -53,14 +56,10 @@ function cookieFormulaireRecherche() {
 
     $.cookie.raw = true;
     $.cookie.json = true;  
-
-    $.cookie('_vtrFormRech', jsonTab, {expires: 90});
-
-    $.cookie.raw = true;
     
-    var cookieRecup = $.cookie('_vtrFormRech');
-    alert(cookieRecup.departSki);
+    $.cookie('_vtrFormRech', jsonTab, {expires: 90}); // stocker Json : jsonTab  expire dans 90jours
 
+//    alert ("construction tab");
 }
 
 //    document.getElementById(listeId).style.display = 'none';
