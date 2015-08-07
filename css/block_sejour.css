@@ -209,6 +209,9 @@ small {
 	margin-top: 15px;
 	width: 0;
     }
+    .fleche {
+	display: none;
+    }
 
 }
 
@@ -329,6 +332,9 @@ small {
 	margin-right: 10px;
 	margin-top: 15px;
 	width: 0;
+    }
+    .fleche {
+	display: none;
     }
 }
 
@@ -454,13 +460,13 @@ small {
     #sejour_resultat {
 	background-color: #e1e1e1;
     }
+
     #prix_nuits_sejour {
-	height: 1.5em;
 	position: relative;
-	width: 7.5em;
-	margin: -30px 0 5px 160px;
+	width: 85px;
+	margin: -30px 0 5px 170px;
 	text-align: center; 
-	color: white;
+	color: #555;
 	background-color: #029ce1;
 	background-image: none;  
     }
@@ -479,16 +485,15 @@ small {
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 	vertical-align: middle;
     }
-    #prix_nuits_sejour::after {
-	border-bottom: 16px solid transparent;
-    border-left: 16px solid #029ce1;
-    border-top: 16px solid transparent;
-    content: "";
-    margin: -6px 12px -6px 15px;
-    position: absolute;
+
+    .fleche {
+	border: 15px solid #029ce1; 
+	border-top-color: transparent; 
+	border-right-color: transparent; 
+	border-bottom-color: transparent;       
+	margin: -35px 0 0 255px;
+	position: absolute;	
     }
-
-
 
 
 }
