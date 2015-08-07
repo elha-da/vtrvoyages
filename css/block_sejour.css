@@ -99,6 +99,11 @@ haut_vignette_lieu:before {
 small {
     font-size: 100%;
 }
+#prix_nuits_sejour font {
+    font-size: 1.5em; 
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}
 
 
 /* **************************************** PC ****************************************** */
@@ -177,10 +182,7 @@ small {
 	text-align: center; 
 	color: #555;
     }
-    #prix_nuits_sejour font {
-	font-size: 1.5em; 
-	font-weight: bold;
-    }
+
     
     #btn_ifos_resa {
 	margin: 0 20px; 
@@ -300,10 +302,6 @@ small {
 	margin: -8px 0px 5px ; 
 	text-align: center; 
 	color: #555;
-    }
-    #prix_nuits_sejour font {
-	font-size: 25px; 
-	font-weight: bold;
     }
     
     #btn_ifos_resa {
@@ -466,7 +464,7 @@ small {
 	width: 85px;
 	margin: -30px 0 5px 170px;
 	text-align: center; 
-	color: #555;
+	color: #fff;
 	background-color: #029ce1;
 	background-image: none;  
     }
@@ -482,7 +480,6 @@ small {
 	display: inline-block;
 	line-height: 20px;
 	padding: 4px 0px;
-	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 	vertical-align: middle;
     }
 
