@@ -102,7 +102,6 @@ small {
 #prix_nuits_sejour font {
     font-size: 1.5em; 
     font-weight: bold;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 }
 
 
@@ -182,7 +181,9 @@ small {
 	text-align: center; 
 	color: #555;
     }
-
+	#prix_nuits_sejour font {
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	}
     
     #btn_ifos_resa {
 	margin: 0 20px; 
@@ -303,6 +304,9 @@ small {
 	text-align: center; 
 	color: #555;
     }
+	#prix_nuits_sejour font {
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	}
     
     #btn_ifos_resa {
 	margin: 0 auto; 
@@ -446,7 +450,6 @@ small {
 	width: 180px;
 	margin: -3px 0 0 129px;
 	text-align: center;
-
     }
     .ajouter_liste {
 	width: 150px;

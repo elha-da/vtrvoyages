@@ -40,17 +40,26 @@ function cookieFormulaireRecherche() {
     } else { 
 	var materiel = null ;
     }   
-    alert ("ok");
+    alert ("construction tab");
  
-    var tab = new Array();
-    tab['departSki'] = departSki; 
-    tab['dureeSejour'] = dureeSejour; 
-    tab['nbPersonne'] = nbPersonne; 
-    tab['nbPersonne_as'] = nbPersonne_as; 
-    tab['nbPersonne_ans'] = nbPersonne_ans; 
-    tab['nbPersonne_es'] = nbPersonne_es; 
-    tab['nbPersonne_ens'] = nbPersonne_ens;
+    var jsonTab = {
+	departSki : departSki, 
+	dureeSejour : dureeSejour, 
+	nbPersonne : nbPersonne, 
+	nbPersonne_as : nbPersonne_as, 
+	nbPersonne_ans : nbPersonne_ans, 
+	nbPersonne_es : nbPersonne_es, 
+	nbPersonne_ens : nbPersonne_ens };
+
+    $.cookie.raw = true;
+    $.cookie.json = true;  
+
+    $.cookie('_vtrFormRech', jsonTab, {expires: 90});
+
+    $.cookie.raw = true;
     
+    var cookieRecup = $.cookie('_vtrFormRech');
+    alert(cookieRecup.departSki);
 
 }
 
