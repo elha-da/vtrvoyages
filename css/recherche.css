@@ -95,12 +95,16 @@ input[id="nbPersonnes_nb"] {
 }
 
 input[id="search_type_hebergement"], 
-input[id="search_type_rem_meca"], 
+input[id="search_type_rem_meca"] {
+    margin: 9px 10px 0 -5px;
+}
+
+
 input[id="search_type_materiel"],
 input[id="search_type_cours_ski"],
 input[id="search_type_transport"],
 input[id="search_type_foodpack"] {
-    margin: 8px 20px;
+    margin: -17px 10px 0 190px;
 }
 
 .contenu_fil_ariane {
@@ -162,6 +166,21 @@ input[id="search_type_foodpack"] {
     margin: 0 20px 0 0;
 }
 
+
+.control-group-formule img {
+    float: left;
+    width: 20px;
+    margin: 1px 3px 5px -2px;
+}
+
+.taille-label-hebergement {
+    width: 85px;
+}
+.taille-label-forfait {
+    width: 45px;
+}
+
+
 /* **************************************** PC ****************************************** */
 
 @media screen and (min-width: 999px) {
@@ -183,6 +202,8 @@ input[id="search_type_foodpack"] {
     #recherche_ski_autre {
 	display: block;
     }
+
+
 
 }
 
@@ -265,7 +286,7 @@ input[id="search_type_foodpack"] {
     input[id="search_type_cours_ski"], 
     input[id="search_type_transport"], 
     input[id="search_type_foodpack"] {
-    	margin: 8px 7px;
+    	margin: 8px 0;
     }
     input[name="search_type[texte_libre]"] {
 	width: 150px;
@@ -310,31 +331,42 @@ input[id="search_type_foodpack"] {
     }
     .controls div.control-group-formule:nth-child(2n+1) {
 	float: left;
-	margin: 0 90px 0 0;
+	margin: 0 10px 0 0;
     }
     
     .controls div.control-group-formule:nth-child(2n) {
 	float: right;
-	margin: -29px 10px 0 0;
+	margin: 0px 10px 0 0;
     }
-    
+/*    
     @-moz-document url-prefix() { .controls div.control-group-formule:nth-child(2n) {
 				      float: right;
-				      margin: 0 15px 0 0;
+				      margin: 0 10px 0 0;
 				  } }
-
+*/
 
     input[id="search_type_hebergement"], 
     input[id="search_type_materiel"], 
     input[id="search_type_cours_ski"]
     {
-   	margin: 8px -65px;
+   	margin: 7px -3px 10px 0;
     }
     input[id="search_type_rem_meca"], 
     input[id="search_type_transport"] ,
     input[id="search_type_foodpack"] {
-	margin: 8px -10px;
+	margin: 8px 0 10px 5px;
     }
+
+    .taille-label-materiel {
+	width: 85;
+    }
+     .taille-label-forfait {
+	 padding: 4px 67px 0 0;
+     }
+     .taille-label-foodpack {
+	 width: 113px;
+     }
+
     .total_nbPersonnes {
 	padding: 0 25px ;
     }
@@ -359,6 +391,9 @@ input[id="search_type_foodpack"] {
     }
     input[name="search_type[texte_libre]"] {
 	width: 268px;
+    }
+    label[for="search_type[formule][cours_ski]"] {
+	width: 248px;
     }
 
 }
