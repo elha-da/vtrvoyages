@@ -6,36 +6,84 @@
 	  <label class="control-label-date_depart " for="texte_libre" style="width:100px">Recherche libre</label>
 	  <input id="search_type_texte_libre" type="text" value="" placeholder="Ex : Val d'Isère" name="search_type[texte_libre]" >
 	  <hr class="bloc" />	 
-	  <div class="contenu_fil_ariane" id="choix_type_ski_fil_ariane">
-	    <ul id="fil_ariane" >
-<!--  fil d'ariane à remplir par "France (modifier)" au chargement de la page (on le fait déja avec js)  -->
-	      
+
+<!-- ****************************************************** DEBUT Jtree ****************************************************** -->
+
+	  <div id="tree1">
+	    <input type="checkbox" id="search_type_lieu" value=""/>
+	    <label class="btn" id="case_search_type_lieu" for="search_type_lieu">Veuillez choisir un lieu</label>
+	    <ul class="liste_jtree" id="search_type_liste">
+	      <li id="search_type_pays_1"> 
+		<input type="checkbox" id="pays_1" value="p=1" onclick="choix(this.id, this.value );"/>
+		<label id="case_pays_1" for="pays_1">France</label>
+		<ul>
+		  <li id="search_type_region_1">
+		    <input type="checkbox" id="region_1" value="z=1" onclick="choix(this.id, this.value );"/>
+		    <label id="case_region_1" for="region_1">Alpes du Nord</label>
+		    <ul>
+		      <li>
+			<input type="checkbox" id="ville_1" value="v=1" onclick="choix(this.id, this.value );"/>
+			<label id="case_ville_1" for="ville_1">Annecy</label>
+		      </li>
+		      <li>
+			<input type="checkbox" id="ville_2" value="v=2" onclick="choix(this.id, this.value );"/>
+			<label id="case_ville_2" for="ville_2">Courchevel</label>
+		      </li>
+		      <li>
+			<input type="checkbox" id="ville_3" value="v=3" onclick="choix(this.id, this.value );"/>
+			<label id="case_ville_3" for="ville_3">Chambéry</label>
+		      </li>
+		    </ul>
+		  </li>
+		  <li id="search_type_region_2">
+		    <input type="checkbox" id="region_2" value="z=2" onclick="choix(this.id, this.value );"/>
+		    <label id="case_region_2" for="region_2">Alpes du sud</label>
+		    <ul>
+		      <li>
+			<input type="checkbox" id="ville_4" value="v=4" onclick="choix(this.id, this.value );"/>
+			<label id="case_ville_4" for="ville_4">Briançon</label>
+		      </li>
+		      <li>
+			<input type="checkbox" id="ville_5" value="v=5" onclick="choix(this.id, this.value );"/>
+			<label id="case_ville_5" for="ville_5">Sisteronn</label>
+		      </li>
+		      <li>
+			<input type="checkbox" id="ville_6" value="v=6" onclick="choix(this.id, this.value );"/>
+			<label id="case_ville_6" for="ville_6">Castellane</label>
+		      </li>
+		    </ul>
+		  </li>
+		</ul>
+	      </li>
+	      <li id="search_type_pays_2">
+		<input type="checkbox"  id="pays_2" value="p=2" onclick="choix(this.id, this.value );" />
+		<label id="case_pays_2" for="pays_2">Italie</label>
+		<ul>
+		  <li id="search_type_region_3" >
+		    <input type="checkbox" id="region_3" value="z=3" onclick="choix(this.id, this.value );"/>
+		    <label id="case_region_3" for="region_3">Ski à l'étrange</label>
+		    <ul>
+		      <li> 
+			<input type="checkbox" id="ville_7" value="v=7" onclick="choix(this.id, this.value );"/>
+			<label id="case_ville_7" for="ville_7">Ski à l'étranger</label>
+		      </li>
+		    </ul>
+		  </li>
+		  <li> 
+		    <input type="checkbox" id="region_4" value="z=7" onclick="choix(this.id, this.value );"/>
+		    <label id="case_region_4" for="region_4">Ski à la patinoir</label>
+		  </li>
+		</ul>
+	      </li>
 	    </ul>
-	  </div>
 
-	  <div class="contenu_onglet" id="choix_type_ski_recup">
-	  </div>
-	  
-	  <div class="control-group" id="choix_ski">
-	    <div class="controls">
-	      <select id="choix_type_ski" name="search_type[choix_ski]" onChange="javascript:Choix(this.form);">
-<!-- BEGIN lieu -->
-		<option value="{lieu.id}">{lieu.nom}</option>
-
-<!-- END lieu -->
-	      </select>
-	    </div>
 	  </div>
 
 
+<!-- ****************************************************** FIN Jtree ****************************************************** -->
 
-<!--	  <div class="control-group ville_station">
-	    <div class="controls contenu_onglet" id="ville_ski">
-	      <select id="search_type_ville_ski" name="search_type[ville_ski]">
-		<option value="">Ville/Station</option>
-	      </select>
-	    </div>
-	  </div> -->
+
+
 
 	  <hr class="bloc" />
 
