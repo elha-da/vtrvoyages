@@ -476,7 +476,7 @@ small {
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #b3b3b3;
 	border-image: none;
 	border-radius: 4px;
-	border-style: solid;
+/*	border-style: solid;  */
 	border-width: 1px;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
 	cursor: pointer;
@@ -487,11 +487,11 @@ small {
     }
 
     .fleche {
-	border: 15px solid #029ce1; 
+	border: 14px solid #029ce1; 
 	border-top-color: transparent; 
 	border-right-color: transparent; 
 	border-bottom-color: transparent;       
-	margin: -35px 0 0 255px;
+	margin: -33px 0 0 252px;
 	position: absolute;	
     }
 
