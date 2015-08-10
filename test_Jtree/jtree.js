@@ -1,3 +1,28 @@
+window.onload = function() { 
+    var cookieRecup = $.cookie('_vtrFormRech'); // récupère le tableau Json du cookie
+//    alert(cookieRecup);
+    if (cookieRecup != null) {
+	var cookieObjet = JSON.parse(cookieRecup); 
+	//    document.write(cookieObjet.departSki + ", nbPersonne :" + cookieObjet.nbPersonne);
+	
+	document.getElementById('search_type_texte_libre').value = cookieObjet.texteLibre;
+	document.getElementById('search_type_date_depart_ski').value = cookieObjet.departSki;
+	document.getElementById('nbPersonnes_nb').value = cookieObjet.nbPersonnes_nb;
+	document.getElementById('nbPersonnes_as').value = cookieObjet.nbPersonnes_as;
+	document.getElementById('nbPersonnes_ans').value = cookieObjet.nbPersonnes_ans;
+	document.getElementById('nbPersonnes_es').value = cookieObjet.nbPersonnes_es;
+	document.getElementById('nbPersonnes_ens').value = cookieObjet.nbPersonnes_ens;
+	
+	if (cookieObjet.dureeSejour == 7) 
+	    document.getElementById('semaine').checked = true;
+	else 
+	    document.getElementById('weekEnd').checked = true;
+	
+
+    }
+
+};
+
 
 function choix(choixId, choixVal) {
 
@@ -16,10 +41,11 @@ function choix(choixId, choixVal) {
 
 
 function cookieFormulaireRecherche() {
-    var cookieRecup = $.cookie('_vtrFormRech'); // récupère le tableau Json du cookie
-    alert(cookieRecup);
+   
 
 
+
+    var texteLibre = document.getElementById('search_type_texte_libre').value ;
     var departSki = document.getElementById('search_type_date_depart_ski').value;
     if(document.getElementById('weekEnd').checked) {
 	var dureeSejour = document.getElementById('weekEnd').value;
@@ -43,6 +69,7 @@ function cookieFormulaireRecherche() {
     }   
  
     var jsonTab = {
+	texteLibre : texteLibre,
 	departSki : departSki, 
 	dureeSejour : dureeSejour, 
 	nbPersonne : nbPersonne, 
@@ -50,13 +77,12 @@ function cookieFormulaireRecherche() {
 	nbPersonne_ans : nbPersonne_ans, 
 	nbPersonne_es : nbPersonne_es, 
 	nbPersonne_ens : nbPersonne_ens };
-
+//    alert(jsonTab.departSki);
     $.cookie.raw = true;
     $.cookie.json = true;  
     
     $.cookie('_vtrFormRech', jsonTab, {expires: 90}); // stocker Json : jsonTab  expire dans 90jours
 
-//    alert ("construction tab");
 }
 
 //    document.getElementById(listeId).style.display = 'none';
