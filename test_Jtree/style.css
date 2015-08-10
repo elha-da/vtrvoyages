@@ -16,13 +16,11 @@ ul, li {
     list-style: outside none none;
 }
 
-/*
 li:hover {
   border: 1px solid grey;
   border-radius: 3px;
   background-color: lightgrey;
 }
-*/
 
 .simulation-champ-text {    
     display: inline-block;
