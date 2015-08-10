@@ -1,4 +1,39 @@
-﻿.onglets {
+﻿.liste_Jtree {
+    display: none;
+}
+
+.lieu_Jtree input {
+ display: none;
+}
+.lieu_Jtree input ~ ul {
+ display: none;
+}
+.lieu_Jtree input:checked ~ ul {
+ display: block;
+}
+
+.lieu_Jtree ul, .lieu_Jtree ul li {
+    list-style: outside none none;
+}
+
+.lieu_Jtree li:hover {
+  border: 1px solid grey;
+  border-radius: 3px;
+  background-color: lightgrey;
+}
+
+.simulation-champ-text {    
+    display: inline-block;
+    padding: 1px 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 3px;
+    color: #333;
+}
+
+/*  FIN style Jtree    */
+
+
+.onglets {
     text-decoration: none;
 }
 
