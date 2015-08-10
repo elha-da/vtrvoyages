@@ -1,6 +1,6 @@
 
 function choix(choixId, choixVal) {
-    if(document.getElementById(choixId).checked) {
+
 	var valeur = choixVal ;
 	var id = choixId;
 	var listeId = 'search_type_'+id ;
@@ -9,11 +9,8 @@ function choix(choixId, choixVal) {
 
 	document.getElementById('search_type_lieu').value = valeur ;
 	document.getElementById('case_search_type_lieu').textContent = textBloc ;
+	document.getElementById('case_search_type_lieu').className = 'simulation-champ-text';
 
-	
-    } else { 
-	return null ;
-    }
 }
 
 

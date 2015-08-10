@@ -23,3 +23,11 @@ li:hover {
   background-color: lightgrey;
 }
 */
+
+.simulation-champ-text {    
+    display: inline-block;
+    padding: 1px 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 3px;
+    color: #333;
+}
