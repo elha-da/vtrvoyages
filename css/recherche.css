@@ -2,32 +2,31 @@
     display: none;
 }
 
-.lieu_Jtree input {
- display: none;
+#lieu_Jtree input {
+    display: none;
 }
-.lieu_Jtree input ~ ul {
- display: none;
+#lieu_Jtree input ~ ul {
+    display: none;
+    padding: 0 0 0 10px;
 }
-.lieu_Jtree input:checked ~ ul {
- display: block;
+#lieu_Jtree input:checked ~ ul {
+    display: block;
 }
-
-.lieu_Jtree ul, .lieu_Jtree ul li {
-    list-style: outside none none;
+#lieu_Jtree ul {
+    border: 1px solid grey;
+    border-radius: 3px;
+    background-color: lightgrey;
 }
-
-.lieu_Jtree li:hover {
-  border: 1px solid grey;
-  border-radius: 3px;
-  background-color: lightgrey;
+#lieu_Jtree li:hover {
+    transform: scale(1.1);
 }
-
 .simulation-champ-text {    
     display: inline-block;
     padding: 1px 10px;
     border: 2px solid #e0e0e0;
     border-radius: 3px;
-    color: #333;
+    background-color: white;
+    color: #e1e1e1;
 }
 
 /*  FIN style Jtree    */
