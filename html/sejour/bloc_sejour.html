@@ -72,10 +72,15 @@
 	    <span style="font-size: 13px;">réservation</span>
 	  </div>
 	</a>
-	<div  id="{Sejour_id}" value="{Debut}" class="ajouter_liste" style="font-size: 11px; text-align: center; cursor: pointer; display: none;">
-	  <a id="liste_fav_{Sejour_id}">
+	<div id="{Sejour_id}" class="ajouter_liste" style="font-size: 11px; text-align: center; cursor: pointer;" >
+	  <input id="in_fav_liste_{Sejour_id}" value="{Debut}" style="display: none;"/>
+	  <a id="liste_ajout_fav_{Sejour_id}" style="display: block;" onclick="javascript:ajoutCookieFavList(this.id);">
 	    <span style="font-size: 13px; color: red;"> ♡ </span>
 	    Ajouter à ma liste
+	  </a>
+	  <a id="liste_supp_fav_{Sejour_id}" style="display: none;" onclick="javascript:suppCookieFavList(this.id);">
+            <span style="font-size: 13px; color: red;"> ♥ </span>
+	    Retirer de ma liste
 	  </a>
 	</div>
       </div>

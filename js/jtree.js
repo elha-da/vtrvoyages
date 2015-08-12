@@ -1,5 +1,7 @@
 window.onload = function() { 
     var cookieRecup = $.cookie('_vtrFormRech'); // récupère le tableau Json du cookie
+//    var cookieFavList = {{"id":"12", "date": "12-12-2015"}, {"id":"25", "date": "25-02-2016"}};//$.cookie('_vtrFavList'); // récupère le tableau Json du cookie
+
 //    alert(cookieRecup);
     if (cookieRecup != null) {
 	var cookieObjet = JSON.parse(cookieRecup); 
@@ -60,9 +62,6 @@ function choix(choixId, choixVal) {
 
 
 function cookieFormulaireRecherche() {
-   
-
-
 
     var texteLibre = document.getElementById('search_type_texte_libre').value ;
     var departSki = document.getElementById('search_type_date_depart_ski').value;
@@ -126,6 +125,57 @@ function cookieFormulaireRecherche() {
     $.cookie('_vtrFormRech', jsonTab, {expires: 90}); // stocker Json : jsonTab  expire dans 90jours
 
 }
+
+function ajoutCookieFavList(id) {
+    id = id.substring(16);
+    var date = document.getElementById('in_fav_liste_'+id).value;
+
+    var objTabs = {};
+    var cookieFavRecup = $.cookie('_vtrFavList');
+    if (cookieFavRecup != null)
+	objTabs = JSON.parse(cookieFavRecup); 
+    objTabs[id] = {id : id, date: date};
+
+    $.cookie.raw = true;
+    $.cookie.json = true; 
+    $.cookie('_vtrFavList', objTabs, {expires: 90});
+
+    document.getElementById('liste_ajout_fav_'+id).style.display = "none";
+    document.getElementById('liste_supp_fav_'+id).style.display = "block";
+}
+
+function suppCookieFavList(id) {
+    id = id.substring(15);
+
+    var cookieFavRecup = $.cookie('_vtrFavList');
+    if (cookieFavRecup != null)
+	objTabs = JSON.parse(cookieFavRecup); 
+    alert (objTabs[id]["id"]);
+    delete objTabs[id];
+    
+    $.cookie.raw = true;
+    $.cookie.json = true; 
+    $.cookie('_vtrFavList', objTabs, {expires: 90});
+
+    document.getElementById('liste_ajout_fav_'+id).style.display = "block";
+    document.getElementById('liste_supp_fav_'+id).style.display = "none";
+}
+
+
+window.onload = function() { 
+    var cookieFavRecup = $.cookie('_vtrFavList');
+    if (cookieFavRecup != null) {
+	objTabs = JSON.parse(cookieFavRecup);
+	for (var tab in objTabs) { 
+	    var ident = objTabs[tab]["id"];
+
+	    document.getElementById('liste_ajout_fav_'+ident).style.display = "none";
+	    document.getElementById('liste_supp_fav_'+ident).style.display = "block";
+	}	
+    }
+    
+};
+
 
 //    document.getElementById(listeId).style.display = 'none';
 //    document.getElementById('case_search_type_lieu').setAttribute('for', id);
