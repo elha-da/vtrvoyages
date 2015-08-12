@@ -150,7 +150,7 @@ function suppCookieFavList(id) {
     var cookieFavRecup = $.cookie('_vtrFavList');
     if (cookieFavRecup != null)
 	objTabs = JSON.parse(cookieFavRecup); 
-    alert (objTabs[id]["id"]);
+
     delete objTabs[id];
     
     $.cookie.raw = true;
