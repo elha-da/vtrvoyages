@@ -3,7 +3,7 @@
 }
 
 #lieu_Jtree input {
-    display: none;
+    display: none; 
 }
 #lieu_Jtree input ~ ul {
     display: none;
@@ -14,12 +14,10 @@
 }
 #lieu_Jtree ul {
     border: 1px solid grey;
-    border-radius: 3px;
+    border-radius: 3px; 
     background-color: lightgrey;
 }
-#lieu_Jtree li:hover {
-    transform: scale(1.1);
-}
+
 .simulation-champ-text {    
     display: inline-block;
     padding: 1px 10px;

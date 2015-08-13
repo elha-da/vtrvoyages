@@ -42,7 +42,7 @@
 
 	<div id="header_infos_sejour" class="header_infos_sejour" style="border-right: none;">
 	  <p style="clear: both; max-height: 4.5em; margin: 0 0 5px; text-align: justify;" id="description_categ" class="categ">{Description}</p>
-	  <!--		<span class="tarifs_caption" onclick="javascript:afficher_cacher('options_infos_sejour');"> Tarifs </span> -->
+<!--		<span class="tarifs_caption" onclick="javascript:afficher_cacher('options_infos_sejour');"> Tarifs </span> -->
 	  <div class="pictos_option" >
 <!-- BEGIN option -->
 	      <img src="http://img4.vtr-voyages.net/img/w0h0/pictos_options/{option.picto}.png?filter=src" border="0" alt="{option.nom}">
@@ -58,11 +58,12 @@
 	</div>
 <!-- END promo -->
 	<p id="text_prix" class="prix_nuits">{Nb_nuits} nuits à partir de&nbsp;</p>
-	<p id="prix_nuits_sejour" class="prix_nuits btn_prix_nuits_sejour">
-	  <font> {Prix} € </font> 
-	</p>    
-
-	<div class="fleche"> </div>
+	<a href="{Sejour_url}">
+	  <p id="prix_nuits_sejour" class="prix_nuits btn_prix_nuits_sejour">
+	    <font> {Prix} € </font> 
+	  </p>    
+	  <div class="fleche"> </div>
+	</a>
 	<p id="muted" style="line-height: normal;">
 	  <small class="muted">Départ {Debut} - {Typo}</small>
 	</p>

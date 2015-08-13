@@ -8,6 +8,13 @@ window.onload = function() {
 	//    document.write(cookieObjet.departSki + ", nbPersonne :" + cookieObjet.nbPersonne);
 	
 	document.getElementById('search_type_texte_libre').value = cookieObjet.texteLibre;
+/*
+	if (cookieObjet.lieu != null){
+	    document.getElementById('case_search_type_lieu').textContent = cookieObjet.lieu;
+	    document.getElementById('case_search_type_lieu').className = 'simulation-champ-text';
+	} else
+	    document.getElementById('case_search_type_lieu').textContent = "Veuillez choisir un lieu";
+*/
 	document.getElementById('search_type_date_depart_ski').value = cookieObjet.departSki;
 	document.getElementById('nbPersonnes_nb').value = cookieObjet.nbPersonne;
 	document.getElementById('nbPersonnes_as').value = cookieObjet.nbPersonne_as;
@@ -42,20 +49,34 @@ window.onload = function() {
 	} 
 
     }
+
+    var cookieFavRecup = $.cookie('_vtrFavList');
+    if (cookieFavRecup != null) {
+	objTabs = JSON.parse(cookieFavRecup);
+	for (var tab in objTabs) { 
+	    var ident = objTabs[tab]["id"];
+
+	    document.getElementById('liste_ajout_fav_'+ident).style.display = "none";
+	    document.getElementById('liste_supp_fav_'+ident).style.display = "block";
+	}	
+    }
+    
+
 };
 
 
 function choix(choixId, choixVal) {
 
-	var valeur = choixVal ;
-	var id = choixId;
-	var listeId = 'search_type_'+id ;
-	var labId = 'case_'+id ;
-	var textBloc = document.getElementById(labId).textContent;
-
-	document.getElementById('search_type_lieu').value = valeur ;
-	document.getElementById('case_search_type_lieu').textContent = textBloc ;
-	document.getElementById('case_search_type_lieu').className = 'simulation-champ-text';
+    var valeur = choixVal ;
+    var id = choixId;
+    var listeId = 'search_type_'+id ;
+    var labId = 'case_'+id ;
+    var textBloc = document.getElementById(labId).textContent;
+    
+    document.getElementById('search_type_lieu').value = valeur ;
+    document.getElementById('search_type_lieu_choisi').value = valeur ;
+    document.getElementById('case_search_type_lieu').textContent = textBloc ;
+    document.getElementById('case_search_type_lieu').className = 'simulation-champ-text';
 
 }
 
@@ -64,6 +85,11 @@ function choix(choixId, choixVal) {
 function cookieFormulaireRecherche() {
 
     var texteLibre = document.getElementById('search_type_texte_libre').value ;
+
+    if (document.getElementById('search_type_lieu').value != '')
+	var lieu = document.getElementById('case_search_type_lieu').textContent ;
+    else lieu = null;
+
     var departSki = document.getElementById('search_type_date_depart_ski').value;
     if (document.getElementById('search_type_date_flexible_ski').checked) {
 	var dateFlexible = document.getElementById('search_type_date_flexible_ski').value;
@@ -101,11 +127,11 @@ function cookieFormulaireRecherche() {
     } else { 
 	var courSki = null ;
     }
-    
 
  
     var jsonTab = {
 	texteLibre : texteLibre,
+	lieu : lieu,
 	departSki : departSki,
 	dateFlexible : dateFlexible,
 	dureeSejour : dureeSejour, 
@@ -162,17 +188,39 @@ function suppCookieFavList(id) {
 }
 
 
-window.onload = function() { 
-    var cookieFavRecup = $.cookie('_vtrFavList');
-    if (cookieFavRecup != null) {
-	objTabs = JSON.parse(cookieFavRecup);
-	for (var tab in objTabs) { 
-	    var ident = objTabs[tab]["id"];
 
-	    document.getElementById('liste_ajout_fav_'+ident).style.display = "none";
-	    document.getElementById('liste_supp_fav_'+ident).style.display = "block";
-	}	
-    }
+
+/* la liste des lieux cachée au mouse out   */
+$('#search_type_liste')
+    .mouseover(function() {
+	document.getElementById('search_type_lieu').checked = true;
+    })
+    .mouseout(function() {
+	document.getElementById('search_type_lieu').checked = false;
+    });
+
+/* l'effet au survole d'un élément de la liste des lieux */
+$('#search_type_liste label')
+    .mouseover(function() {
+	document.getElementById(this.id).style.transform = "scale(1.1)";
+    })
+    .mouseout(function() {
+	document.getElementById(this.id).style.transform = "scale(1)";
+    });
+
+
+
+$('#search_type_liste label').click(function() {
+    alert (document.getElementById(this.id).siblings().length);
     
-};
-
+//    var a = $('#search_type_liste').siblings('ul');
+/*    if ($(this.id).size() > 0)
+	alert (ok);
+    else alert (KO);
+*/
+//    alert ($('#search_type_liste').size());
+//    alert (document.getElementById(this.id).siblings()) ;
+//    alert($(this.id+' ul').size());
+//    alert(a);
+//    alert ($('#'+'search_type_liste').find('ul')); 
+});

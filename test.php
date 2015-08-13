@@ -26,15 +26,34 @@ $url_srv = 'http://gestion.vtr-voyages.fr/admin/recherche/resultset.php?';
 
 */
 // à faire = construire la query string dynamiquement
-$lieu= $_POST['choix_ski']; // tableau du lieu du formulaire de recherche
-$z= empty($lieu['zone_geo'])? NULL: $lieu['zone_geo']; // non
-$p= empty($lieu['pays'])? NULL: $lieu['pays']; // non
-$r= empty($lieu['region'])? NULL: $lieu['region']; // non
-$v= empty($lieu['ville'])? NULL: $lieu['ville']; // non
-$ds= empty($tab[''])? NULL: $tab['']; // non
-$dp= empty($tab[''])? NULL: $tab['']; // non
-
 $tab= $_POST['search_type']; //le tableau critères du formulaire de recherche
+// $lieu= $_POST['choix_ski']; // tableau du lieu du formulaire de recherche
+$lieu= empty($tab['lieu'])? NULL: $tab['lieu'];
+
+if ($lieu == NULL)
+  $p = $z = $v = $r = $ds = $dp = 0 ;
+else {
+  if ($lieu[0] == "p") {
+    $p = substr($lieu, 2);
+    $z = $v = $r = $ds = $dp = NULL;
+  }
+  elseif ($lieu[0] == "z") {
+    $z = substr($lieu, 2); 
+    $p = $r = $v = $ds = $dp = NULL;
+  }
+  elseif ($lieu[0] == "v") {
+    $v = substr($lieu, 2);
+    $p = $z = $r = $ds = $dp = NULL;
+  }
+}
+//$z= empty($lieu['zone_geo'])? NULL: $lieu['zone_geo']; // non
+//$p= empty($lieu['pays'])? NULL: $lieu['pays']; // non
+//$r= empty($lieu['region'])? NULL: $lieu['region']; // non
+//$v= empty($lieu['ville'])? NULL: $lieu['ville']; // non
+//$ds= empty($tab[''])? NULL: $tab['']; // non
+//$dp= empty($tab[''])? NULL: $tab['']; // non
+
+
 
 $var= empty($tab['date_depart'])? NULL: $tab['date_depart'];
 if ($var != NULL) {
@@ -68,9 +87,9 @@ $as= empty($tab['nbPersonnes']['as'])? NULL: $tab['nbPersonnes']['as']; //ok
 $ans= empty($tab['nbPersonnes']['ans'])? NULL: $tab['nbPersonnes']['ans']; //ok
 $es= empty($tab['nbPersonnes']['es'])? NULL: $tab['nbPersonnes']['es']; //ok
 $ens= empty($tab['nbPersonnes']['ens'])? NULL: $tab['nbPersonnes']['ens']; //ok
-$t= empty($_POST['texte_libre'])? NULL: $_POST['texte_libre']; //ok
+$t= empty($tab['texte_libre'])? NULL: $tab['texte_libre']; //ok
 
-$query_string = "o=json&d=".$d."&fd=".$fd."&l=".$l."&pr=".$pr."&nb=".$nb."&as=".$as."&ans=".$ans."&es=".$es."&ens=".$ens."&t=".urlencode($t);
+$query_string = "o=json&d=".$d."&p=".$p."&z=".$z."&v=".$v."&fd=".$fd."&l=".$l."&pr=".$pr."&nb=".$nb."&as=".$as."&ans=".$ans."&es=".$es."&ens=".$ens."&t=".urlencode($t);
 //$query_string ="o=json&d=2016-02-13&fd=0&l=&pr=3&nb=1&as=1&ans=&es=&ens=&t=val d'isère";
 
 //$query_string = "o=json&d=2016-02-13&fd=8&pr=1&t=val d'isère";
