@@ -176,15 +176,3 @@ window.onload = function() {
     
 };
 
-
-//    document.getElementById(listeId).style.display = 'none';
-//    document.getElementById('case_search_type_lieu').setAttribute('for', id);
-//    document.getElementById('case_search_type_lieu').id = labId;
-	
-//    $('#tree1').empty();
-//    $('#tree1').append(bloc);
-
-
-// var  = document.getElementById('').value;
-//    alert(document.getElementsByName('search_type[duree_sejour]').value);
-
