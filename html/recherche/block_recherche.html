@@ -7,7 +7,7 @@
 	  <input id="search_type_texte_libre" type="text" value="" placeholder="Ex : Val d'Isère" name="search_type[texte_libre]" >
 	  <hr class="bloc" />	 
 
-<!-- ****************************************************** DEBUT Jtree ****************************************************** -->
+	  <!-- ****************************************************** DEBUT Jtree ****************************************************** -->
 
 	  <div id="lieu_Jtree">
 	    <input id="search_type_lieu_choisi" type="text" value="" name="search_type[lieu]" style="display: none;"/>
@@ -27,8 +27,60 @@
 			<label id="case_zd_1" for="zd_1">Commençant par A</label>
 			<ul>
 			  <li>
-			    <input type="checkbox" id="ville_1" value="v=1" onclick="choix(this.id, this.value );"/>
+			    <input id="ville_1" type="checkbox" onclick="choix(this.id, this.value );" value="v=1">
 			    <label id="case_ville_1" for="ville_1">Annecy</label>
+			  </li>
+			  <li>
+			    <input id="ville_34017" type="checkbox" onclick="choix(this.id, this.value );" value="v=34017">
+			    <label id="case_ville_34017" for="ville_34017">Aime 2000</label>
+			  </li>
+			  <li>
+			    <input id="ville_28301" type="checkbox" onclick="choix(this.id, this.value );" value="v=28301">
+			    <label id="case_ville_28301" for="ville_28301">Albiez-Montrond</label>
+			  </li>
+			  <li>
+			    <input id="ville_4" type="checkbox" onclick="choix(this.id, this.value );" value="v=4">
+			    <label id="case_ville_4" for="ville_4">Alpe d'Huez</label>
+			  </li>
+			  <li>
+			    <input id="ville_34089" type="checkbox" onclick="choix(this.id, this.value );" value="v=34089">
+			    <label id="case_ville_34089" for="ville_34089">Arc 1600</label>
+			  </li>
+			  <li>
+			    <input id="ville_34090" type="checkbox" onclick="choix(this.id, this.value );" value="v=34090">
+			    <label id="case_ville_34090" for="ville_34090">Arc 1800</label>
+			  </li>
+			  <li>
+			    <input id="ville_34091" type="checkbox" onclick="choix(this.id, this.value );" value="v=34091">
+			    <label id="case_ville_34091" for="ville_34091">Arc 1950</label>
+			  </li>
+			  <li>
+			    <input id="ville_34092" type="checkbox" onclick="choix(this.id, this.value );" value="v=34092">
+			    <label id="case_ville_34092" for="ville_34092">Arc 2000</label>
+			  </li>
+			  <li>
+			    <input id="ville_34019" type="checkbox" onclick="choix(this.id, this.value );" value="v=34019">
+			    <label id="case_ville_34019" for="ville_34019">Arêches Beaufort</label>
+			  </li>
+			  <li>
+			    <input id="ville_34068" type="checkbox" onclick="choix(this.id, this.value );" value="v=34068">
+			    <label id="case_ville_34068" for="ville_34068">Argentière</label>
+			  </li>
+			  <li>
+			    <input id="ville_14049" type="checkbox" onclick="choix(this.id, this.value );" value="v=14049">
+			    <label id="case_ville_14049" for="ville_14049">Auris en Oisans</label>
+			  </li>
+			  <li>
+			    <input id="ville_28308" type="checkbox" onclick="choix(this.id, this.value );" value="v=28308">
+			    <label id="case_ville_28308" for="ville_28308">Aussois</label>
+			  </li>
+			  <li>
+			    <input id="ville_14050" type="checkbox" onclick="choix(this.id, this.value );" value="v=14050">
+			    <label id="case_ville_14050" for="ville_14050">Autrans</label>
+			  </li>
+			  <li>
+			    <input id="ville_34020" type="checkbox" onclick="choix(this.id, this.value );" value="v=34020">
+			    <label id="case_ville_34020" for="ville_34020">Avoriaz</label>
 			  </li>
 			</ul>
 		      <li id="search_type_zone1_2">
@@ -38,6 +90,42 @@
 			  <li>
 			    <input type="checkbox" id="ville_2" value="v=2" onclick="choix(this.id, this.value );"/>
 			    <label id="case_ville_2" for="ville_2">Courchevel</label>
+			  </li>
+			  <li>
+			    <input id="ville_34090" type="checkbox" onclick="choix(this.id, this.value );" value="v=34090">
+			    <label id="case_ville_34090" for="ville_34090">Arc 1800</label>
+			  </li>
+			  <li>
+			    <input id="ville_34091" type="checkbox" onclick="choix(this.id, this.value );" value="v=34091">
+			    <label id="case_ville_34091" for="ville_34091">Arc 1950</label>
+			  </li>
+			  <li>
+			    <input id="ville_34092" type="checkbox" onclick="choix(this.id, this.value );" value="v=34092">
+			    <label id="case_ville_34092" for="ville_34092">Arc 2000</label>
+			  </li>
+			  <li>
+			    <input id="ville_34019" type="checkbox" onclick="choix(this.id, this.value );" value="v=34019">
+			    <label id="case_ville_34019" for="ville_34019">Arêches Beaufort</label>
+			  </li>
+			  <li>
+			    <input id="ville_34068" type="checkbox" onclick="choix(this.id, this.value );" value="v=34068">
+			    <label id="case_ville_34068" for="ville_34068">Argentière</label>
+			  </li>
+			  <li>
+			    <input id="ville_14049" type="checkbox" onclick="choix(this.id, this.value );" value="v=14049">
+			    <label id="case_ville_14049" for="ville_14049">Auris en Oisans</label>
+			  </li>
+			  <li>
+			    <input id="ville_28308" type="checkbox" onclick="choix(this.id, this.value );" value="v=28308">
+			    <label id="case_ville_28308" for="ville_28308">Aussois</label>
+			  </li>
+			  <li>
+			    <input id="ville_14050" type="checkbox" onclick="choix(this.id, this.value );" value="v=14050">
+			    <label id="case_ville_14050" for="ville_14050">Autrans</label>
+			  </li>
+			  <li>
+			    <input id="ville_34020" type="checkbox" onclick="choix(this.id, this.value );" value="v=34020">
+			    <label id="case_ville_34020" for="ville_34020">Avoriaz</label>
 			  </li>
 			</ul>
 		      <li>
@@ -91,7 +179,7 @@
 	  </div>
 
 
-<!-- ****************************************************** FIN Jtree ****************************************************** -->
+	  <!-- ****************************************************** FIN Jtree ****************************************************** -->
 
 
 
