@@ -1,70 +1,3 @@
-window.onload = function() { 
-    var cookieRecup = $.cookie('_vtrFormRech'); // récupère le tableau Json du cookie
-//    var cookieFavList = {{"id":"12", "date": "12-12-2015"}, {"id":"25", "date": "25-02-2016"}};//$.cookie('_vtrFavList'); // récupère le tableau Json du cookie
-
-//    alert(cookieRecup);
-    if (cookieRecup != null) {
-	var cookieObjet = JSON.parse(cookieRecup); 
-	//    document.write(cookieObjet.departSki + ", nbPersonne :" + cookieObjet.nbPersonne);
-	
-	document.getElementById('search_type_texte_libre').value = cookieObjet.texteLibre;
-/*
-	if (cookieObjet.lieu != null){
-	    document.getElementById('case_search_type_lieu').textContent = cookieObjet.lieu;
-	    document.getElementById('case_search_type_lieu').className = 'simulation-champ-text';
-	} else
-	    document.getElementById('case_search_type_lieu').textContent = "Veuillez choisir un lieu";
-*/
-	document.getElementById('search_type_date_depart_ski').value = cookieObjet.departSki;
-	document.getElementById('nbPersonnes_nb').value = cookieObjet.nbPersonne;
-	document.getElementById('nbPersonnes_as').value = cookieObjet.nbPersonne_as;
-	document.getElementById('nbPersonnes_ans').value = cookieObjet.nbPersonne_ans;
-	document.getElementById('nbPersonnes_es').value = cookieObjet.nbPersonne_es;
-	document.getElementById('nbPersonnes_ens').value = cookieObjet.nbPersonne_ens;
-	
-	if (cookieObjet.dateFlexible != null) {
-	    document.getElementById('search_type_date_flexible_ski').checked = true;
-	} else {
-	    document.getElementById('search_type_date_flexible_ski').checked = false;
-	}
-
-	if (cookieObjet.dureeSejour == 7) 
-	    document.getElementById('semaine').checked = true;
-	else 
-	    document.getElementById('weekEnd').checked = true;
-	if (cookieObjet.forfait != null) {
-	    document.getElementById('search_type_rem_meca').checked = true;
-	} 
-
-	if (cookieObjet.materiel != null) {
-	    document.getElementById('search_type_materiel').checked = true;
-	} 
-   
-	if (cookieObjet.foodpack != null) {
-	    document.getElementById('search_type_foodpack').checked = true;
-	}
-
-	if (cookieObjet.courSki != null) {
-	    document.getElementById('search_type_cours_ski').checked = true;
-	} 
-
-    }
-
-    var cookieFavRecup = $.cookie('_vtrFavList');
-    if (cookieFavRecup != null) {
-	objTabs = JSON.parse(cookieFavRecup);
-	for (var tab in objTabs) { 
-	    var ident = objTabs[tab]["id"];
-
-	    document.getElementById('liste_ajout_fav_'+ident).style.display = "none";
-	    document.getElementById('liste_supp_fav_'+ident).style.display = "block";
-	}	
-    }
-    
-
-};
-
-
 function choix(choixId, choixVal) {
 
     var valeur = choixVal ;
@@ -72,15 +5,17 @@ function choix(choixId, choixVal) {
     var listeId = 'search_type_'+id ;
     var labId = 'case_'+id ;
     var textBloc = document.getElementById(labId).textContent;
+    if (choixVal.substring(0, 2) != "zd") {
+	document.getElementById('search_type_lieu').value = valeur ;
+	document.getElementById('search_type_lieu_choisi').value = valeur ;
+	document.getElementById('case_search_type_lieu').textContent = textBloc ;
+	document.getElementById('case_search_type_lieu').className = 'simulation-champ-text';
+    }
+    if (choixVal.substring(0, 1) == "v") {
+        document.getElementById("search_type_lieu").checked = false;
+    }
     
-    document.getElementById('search_type_lieu').value = valeur ;
-    document.getElementById('search_type_lieu_choisi').value = valeur ;
-    document.getElementById('case_search_type_lieu').textContent = textBloc ;
-    document.getElementById('case_search_type_lieu').className = 'simulation-champ-text';
-
 }
-
-
 
 function cookieFormulaireRecherche() {
 
@@ -199,13 +134,56 @@ $('#search_type_liste')
 /* l'effet au survole d'un élément de la liste des lieux */
 $('#search_type_liste label')
     .mouseover(function() {
-	document.getElementById(this.id).style.backgroundColor = "#93be1c";
+	document.getElementById(this.id).style.backgroundColor = "#029ce1";
 	document.getElementById(this.id).style.color = "#fff";
     })
     .mouseout(function() {
-		if(choix_precedent_id != this.id) {
-			//alert(choix_precedent_id + ' - ' + this.id);
-			document.getElementById(this.id).style.backgroundColor = null;
-			document.getElementById(this.id).style.color = "#333";
-		}
-   });
+	//alert(choix_precedent_id + ' - ' + this.id);
+	document.getElementById(this.id).style.backgroundColor = "";
+	document.getElementById(this.id).style.color = "#333";
+    });
+
+window.onload = function() {
+    var e = $.cookie("_vtrFormRech");
+    if (e != null) {
+        var a = JSON.parse(e);
+        document.getElementById("search_type_texte_libre").value = a.texteLibre;
+        document.getElementById("search_type_date_depart_ski").value = a.departSki;
+        document.getElementById("nbPersonnes_nb").value = a.nbPersonne;
+        document.getElementById("nbPersonnes_as").value = a.nbPersonne_as;
+        document.getElementById("nbPersonnes_ans").value = a.nbPersonne_ans;
+        document.getElementById("nbPersonnes_es").value = a.nbPersonne_es;
+        document.getElementById("nbPersonnes_ens").value = a.nbPersonne_ens;
+        if (a.dateFlexible != null) {
+            document.getElementById("search_type_date_flexible_ski").checked = true
+        } else {
+            document.getElementById("search_type_date_flexible_ski").checked = false
+        }
+        if (a.dureeSejour == 7) {
+            document.getElementById("semaine").checked = true
+        } else {
+            document.getElementById("weekEnd").checked = true
+        }
+        if (a.forfait != null) {
+            document.getElementById("search_type_rem_meca").checked = true
+        }
+        if (a.materiel != null) {
+            document.getElementById("search_type_materiel").checked = true
+        }
+        if (a.foodpack != null) {
+            document.getElementById("search_type_foodpack").checked = true
+        }
+        if (a.courSki != null) {
+            document.getElementById("search_type_cours_ski").checked = true
+        }
+    }
+    var b = $.cookie("_vtrFavList");
+    if (b != null) {
+        objTabs = JSON.parse(b);
+        for (var c in objTabs) {
+            var d = objTabs[c]["id"];
+            document.getElementById("liste_ajout_fav_" + d).style.display = "none";
+            document.getElementById("liste_supp_fav_" + d).style.display = "block"
+        }
+    }
+};

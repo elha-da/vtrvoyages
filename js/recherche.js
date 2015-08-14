@@ -66,7 +66,6 @@ function cocherDecocherFormule(source) {
 
 jQuery(document).ready(function($){
 
-
     /*
      * infos bulle au survol de la souris
      */
@@ -157,31 +156,8 @@ jQuery(document).ready(function($){
 });
 
 
-window.onload = function() { 
-    var cookieRecup = $.cookie('_vtrFormRech'); // récupère le tableau Json du cookie
-//    alert(cookieRecup);
-    if (cookieRecup != null) {
-	var cookieObjet = JSON.parse(cookieRecup); 
-	//    document.write(cookieObjet.departSki + ", nbPersonne :" + cookieObjet.nbPersonne);
-	
-	document.getElementById('search_type_texte_libre').value = cookieObjet.texteLibre;
-	document.getElementById('search_type_date_depart_ski').value = cookieObjet.departSki;
-	document.getElementById('nbPersonnes_nb').value = cookieObjet.nbPersonnes_nb;
-	document.getElementById('nbPersonnes_as').value = cookieObjet.nbPersonnes_as;
-	document.getElementById('nbPersonnes_ans').value = cookieObjet.nbPersonnes_ans;
-	document.getElementById('nbPersonnes_es').value = cookieObjet.nbPersonnes_es;
-	document.getElementById('nbPersonnes_ens').value = cookieObjet.nbPersonnes_ens;
-	
-	if (cookieObjet.dureeSejour == 7) 
-	    document.getElementById('semaine').checked = true;
-	else 
-	    document.getElementById('weekEnd').checked = true;
-	
 
-    }
-
-};
-
+/*
 function choix(choixId, choixVal) {
 
 	var valeur = choixVal ;
@@ -248,3 +224,4 @@ function cookieFormulaireRecherche() {
 // var  = document.getElementById('').value;
 //    alert(document.getElementsByName('search_type[duree_sejour]').value);
 
+*/
