@@ -186,4 +186,4 @@ window.onload = function() {
             document.getElementById("liste_supp_fav_" + d).style.display = "block"
         }
     }
-};
+}

@@ -71,6 +71,12 @@ function choix(c, b) {
     }
     if (b.substring(0, 1) == "v") {
         document.getElementById("search_type_lieu").checked = false;
+	if (window.matchMedia("(max-width: 767px)").matches) {
+	    window.scrollTo(0,0); // pour qu'après la selection l'écran remonte en haut pour l'écran mobile
+	}
+	else if (window.matchMedia("(min-width: 767px)").matches) {
+	    window.scrollTo(400,0); // pour qu'après la selection l'écran remonte en haut pour les autres écrans (400 pour le slider)
+	}
     }
     
 }
