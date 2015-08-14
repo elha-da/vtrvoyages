@@ -187,9 +187,6 @@ function suppCookieFavList(id) {
     document.getElementById('liste_supp_fav_'+id).style.display = "none";
 }
 
-
-
-
 /* la liste des lieux cachée au mouse out   */
 $('#search_type_liste')
     .mouseover(function() {
@@ -202,25 +199,13 @@ $('#search_type_liste')
 /* l'effet au survole d'un élément de la liste des lieux */
 $('#search_type_liste label')
     .mouseover(function() {
-	document.getElementById(this.id).style.transform = "scale(1.1)";
+	document.getElementById(this.id).style.backgroundColor = "#93be1c";
+	document.getElementById(this.id).style.color = "#fff";
     })
     .mouseout(function() {
-	document.getElementById(this.id).style.transform = "scale(1)";
-    });
-
-
-
-$('#search_type_liste label').click(function() {
-    alert (document.getElementById(this.id).siblings().length);
-    
-//    var a = $('#search_type_liste').siblings('ul');
-/*    if ($(this.id).size() > 0)
-	alert (ok);
-    else alert (KO);
-*/
-//    alert ($('#search_type_liste').size());
-//    alert (document.getElementById(this.id).siblings()) ;
-//    alert($(this.id+' ul').size());
-//    alert(a);
-//    alert ($('#'+'search_type_liste').find('ul')); 
-});
+		if(choix_precedent_id != this.id) {
+			//alert(choix_precedent_id + ' - ' + this.id);
+			document.getElementById(this.id).style.backgroundColor = null;
+			document.getElementById(this.id).style.color = "#333";
+		}
+   });
