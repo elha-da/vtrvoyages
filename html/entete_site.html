@@ -77,9 +77,7 @@
 	      </a>
 
 	      <div id="popup_favList" class="popup_block">
-		<a href="#" class="close">
-		  <img src="./images/close_pop.png" class="btn_close" title="Close Window" alt="Close">
-		</a>
+		<a href="#" class="fermer btn_close">x</a>
 		<p>ma liste de sjours favoris</p>
 		<p>Par ici</p>
 	      </div>
@@ -89,44 +87,36 @@
 	      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 	      <script type="text/javascript">
 
-		//Lorsque vous cliquez sur un lien de la classe poplight et que le href commence par #
 		$('a.poplight[href^=#]').click(function() {
-		var popID = $(this).attr('rel'); //Trouver la pop-up correspondante
-		var popURL = $(this).attr('href'); //Retrouver la largeur dans le href
+		var popID = $(this).attr('rel'); 
+		var popURL = $(this).attr('href'); 
 
-		// Récupérer les variables depuis le lien
 		var query= popURL.split('?');
 		var dim= query[1].split('&amp;');
-		var popWidth = dim[0].split('=')[1]; //La première valeur du lien
+		var popWidth = dim[0].split('=')[1]; 
 
-		// Faire apparaitre la pop-up et ajouter le bouton de fermeture
-		$('#' + popID).fadeIn().css({
-		'width': Number(popWidth)
+		$('#' + popID).fadeIn().css({'width': Number(popWidth)
 		})
-		.prepend('<a href="#" class="close"><img src="./images/close_pop.png" class="btn_close" title="Fermer la fenetre" alt="Fermer"></a>');
+		.prepend('<a href="#" class="fermer btn_close">x</a>');
 
-		// centrer la fenêtre 
 		var popMargTop = ($('#' + popID).height() + 80) / 2;
 		var popMargLeft = ($('#' + popID).width() + 80) / 2;
 
-		//On affecte le margin
 		$('#' + popID).css({
 		'margin-top' : -popMargTop,
 		'margin-left' : -popMargLeft
 		});
-
-		//Effet fade-in du fond opaque
-		$('body').append('<div id="fade"></div>'); //Ajout du fond opaque noir
-		//Apparition du fond - .css({'filter' : 'alpha(opacity=80)'}) pour corriger les bogues de IE
+		
+		$('body').append('<div id="fade"></div>'); 
 		$('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn();
 
 		return false;
 		});
 
 		//Fermeture de la pop-up et du fond
-		$('a.close, #fade').live('click', function() { //Au clic sur le bouton ou sur le calque...
+		$('a.fermer, #fade').live('click', function() { 
 		$('#fade , .popup_block').fadeOut(function() {
-		$('#fade, a.close').remove();  //...ils disparaissent ensemble
+		$('#fade, a.fermer').remove(); 
 		});
 		return false;
 		});
