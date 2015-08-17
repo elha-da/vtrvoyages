@@ -485,12 +485,12 @@ small {
     }
 
     .fleche {
-	border: 15px solid #029ce1;
+	border: 14px solid #029ce1;
 	border-top-color: transparent;
 	border-right-color: transparent;
 	border-bottom-color: transparent;
-	margin: 0 0 -9px -5px;
-	display: inline-block;
+	margin: -33px -102px 0 0;
+	float: right;
     }
 
 
