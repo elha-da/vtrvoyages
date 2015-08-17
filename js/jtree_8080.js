@@ -1,4 +1,6 @@
 window.onload = function() {
+    compteurFavList();
+
     var e = $.cookie("_vtrFormRech");
     if (e != null) {
         var a = JSON.parse(e);
@@ -32,15 +34,18 @@ window.onload = function() {
             document.getElementById("search_type_cours_ski").checked = true
         }
     }
+
     var b = $.cookie("_vtrFavList");
     if (b != null) {
         objTabs = JSON.parse(b);
         for (var c in objTabs) {
             var d = objTabs[c]["id"];
             document.getElementById("liste_ajout_fav_" + d).style.display = "none";
-            document.getElementById("liste_supp_fav_" + d).style.display = "block"
+            document.getElementById("liste_supp_fav_" + d).style.display = "block";
         }
     }
+
+    
 };
 /*
 var choix_precedent_id = null;
@@ -130,7 +135,7 @@ function cookieFormulaireRecherche() {
     $.cookie("_vtrFormRech", o, {expires: 90})
 }
 function ajoutCookieFavList(d) {
-    d = d.substring(16);
+    var d = d.substring(16);
     var b = document.getElementById("in_fav_liste_" + d).value;
     var c = {};
     var a = $.cookie("_vtrFavList");
@@ -142,7 +147,8 @@ function ajoutCookieFavList(d) {
     $.cookie.json = true;
     $.cookie("_vtrFavList", c, {expires: 90});
     document.getElementById("liste_ajout_fav_" + d).style.display = "none";
-    document.getElementById("liste_supp_fav_" + d).style.display = "block"
+    document.getElementById("liste_supp_fav_" + d).style.display = "block";
+    compteurFavList();
 }
 function suppCookieFavList(b) {
     b = b.substring(15);
@@ -155,7 +161,8 @@ function suppCookieFavList(b) {
     $.cookie.json = true;
     $.cookie("_vtrFavList", objTabs, {expires: 90});
     document.getElementById("liste_ajout_fav_" + b).style.display = "block";
-    document.getElementById("liste_supp_fav_" + b).style.display = "none"
+    document.getElementById("liste_supp_fav_" + b).style.display = "none";
+    compteurFavList();
 }
 $("#search_type_liste").mouseover(function() {
     document.getElementById("search_type_lieu").checked = true
@@ -171,3 +178,29 @@ $("#search_type_liste label").mouseover(function() {
         document.getElementById(this.id).style.color = "#333"
     }
 });
+
+function compteurFavList() {
+    var a = 0;
+    var b = $.cookie("_vtrFavList");
+    if ((b != null) || (b != {})) {
+        objTabs = JSON.parse(b);
+        for (var c in objTabs) {
+            a++;
+        }
+    }
+    if (a != 0) {
+	document.getElementById("circle").textContent = a;
+	document.getElementById("coups_coeur").style.display = "block";
+    }
+    if (a == 0) {
+	document.getElementById("circle").textContent = a;
+	document.getElementById("coups_coeur").style.display = "none";
+    }
+
+}
+
+
+
+
+
+

@@ -14,7 +14,7 @@
     
     <link rel="stylesheet" href="css/recherche.css" /> 
     <link rel="stylesheet" href="css/block_sejour.css" />
-
+    <link rel="stylesheet" href="css/coups_coeur.css" />
 
 
 
@@ -63,8 +63,78 @@
 		<i class="icon-search"></i>
 	      </a>
 <!-- **************************************** Fin btn recherche pour version mobile **************************************** -->
+<!-- **************************************** icon coups de coeur **************************************** -->
 
-		
+              <a class="poplight" href="#?w=500" rel="popup_favList" >
+		<div id="coups_coeur" style="float; right;">
+		  <div id="heart">
+		    <span class="heart-left"></span>
+		    <span class="heart-right"></span>
+		  </div>
+		  
+		  <p id="circle"> 9 </p> 
+		</div>
+	      </a>
+
+	      <div id="popup_favList" class="popup_block">
+		<a href="#" class="close">
+		  <img src="./images/close_pop.png" class="btn_close" title="Close Window" alt="Close">
+		</a>
+		<p>ma liste de sjours favoris</p>
+		<p>Par ici</p>
+	      </div>
+
+	      
+	      
+	      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	      <script type="text/javascript">
+
+		//Lorsque vous cliquez sur un lien de la classe poplight et que le href commence par #
+		$('a.poplight[href^=#]').click(function() {
+		var popID = $(this).attr('rel'); //Trouver la pop-up correspondante
+		var popURL = $(this).attr('href'); //Retrouver la largeur dans le href
+
+		// Récupérer les variables depuis le lien
+		var query= popURL.split('?');
+		var dim= query[1].split('&amp;');
+		var popWidth = dim[0].split('=')[1]; //La première valeur du lien
+
+		// Faire apparaitre la pop-up et ajouter le bouton de fermeture
+		$('#' + popID).fadeIn().css({
+		'width': Number(popWidth)
+		})
+		.prepend('<a href="#" class="close"><img src="./images/close_pop.png" class="btn_close" title="Fermer la fenetre" alt="Fermer"></a>');
+
+		// centrer la fenêtre 
+		var popMargTop = ($('#' + popID).height() + 80) / 2;
+		var popMargLeft = ($('#' + popID).width() + 80) / 2;
+
+		//On affecte le margin
+		$('#' + popID).css({
+		'margin-top' : -popMargTop,
+		'margin-left' : -popMargLeft
+		});
+
+		//Effet fade-in du fond opaque
+		$('body').append('<div id="fade"></div>'); //Ajout du fond opaque noir
+		//Apparition du fond - .css({'filter' : 'alpha(opacity=80)'}) pour corriger les bogues de IE
+		$('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn();
+
+		return false;
+		});
+
+		//Fermeture de la pop-up et du fond
+		$('a.close, #fade').live('click', function() { //Au clic sur le bouton ou sur le calque...
+		$('#fade , .popup_block').fadeOut(function() {
+		$('#fade, a.close').remove();  //...ils disparaissent ensemble
+		});
+		return false;
+		});
+
+	      </script>
+
+	      
+ <!-- **************************************** Fin icon coups de coeur **************************************** -->
 
 	     
 	    </div>
