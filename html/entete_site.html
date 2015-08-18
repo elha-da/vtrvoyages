@@ -126,7 +126,7 @@
 		return false;
 		});
 
-		$('#contenu_favList').load('html/pied_site.html');
+		$('#contenu_favList').load('html/pied_site.html'); // à la place du fichier "html/pied_site.html" on pourra mettre "maliste.php?+'stringReq'" 
 
 		//Fermeture de la pop-up et du fond
 		$('a.fermer, #fade').live('click', function() { 
@@ -151,6 +151,7 @@
 
 
 <!-- ********************* Debut type de tri ********************* -->
+<!--
       <div class="tri">
 	<div class="typeTri">
 	  <span>Trier par : </span>
@@ -162,7 +163,6 @@
 	  </div>
 	</div>
       </div>
-    </div>
     <script type="text/javascript">
       $('.bouton a[href^=#]').click(function() {
       changeTypeTri(this.id);
@@ -245,4 +245,6 @@
       }
 
     </style>
+
+-->
 <!-- ********************* Fin type de tri ********************* -->
