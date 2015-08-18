@@ -126,7 +126,7 @@
 		return false;
 		});
 
-		$('#contenu_favList').load('html/pied_site.html'); // à la place du fichier "html/pied_site.html" on pourra mettre "maliste.php?+'stringReq'" 
+		$('#contenu_favList').load('laListe.php'); // à la place du fichier "html/pied_site.html" on pourra mettre "maliste.php?+'stringReq'" 
 
 		//Fermeture de la pop-up et du fond
 		$('a.fermer, #fade').live('click', function() { 
@@ -196,6 +196,7 @@
       font-weight: bold;
       margin: 10px 0;
       padding: 10px;
+      width: 99%;
       }
 
       .tri typeTri, .tri .bouton {
