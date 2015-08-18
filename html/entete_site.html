@@ -58,32 +58,42 @@
 
 
 
-<!-- **************************************** btn recherche pour version mobile **************************************** -->
-	      <a id="btn_recherche" class="btn btn-navbar" style="padding: 3px 13px;" onclick="javascript:afficher_cacher('recherche_ski_autre');">
-		<i class="icon-search"></i>
-	      </a>
-<!-- **************************************** Fin btn recherche pour version mobile **************************************** -->
-<!-- **************************************** icon coups de coeur **************************************** -->
+<!-- **************************************** Debut icon coups de coeur **************************************** -->
 
-              <a class="poplight" href="#?w=500" rel="popup_favList" >
-		<div id="coups_coeur" style="float; right;">
+              <a class="poplight" href="#" rel="popup_favList">
+		<div id="coups_coeur" style="float; right; display: none">
 		  <div id="heart">
 		    <span class="heart-left"></span>
 		    <span class="heart-right"></span>
 		  </div>
 		  
-		  <p id="circle"> 9 </p> 
+		  <p id="circle">  </p> 
 		</div>
 	      </a>
+	   	      
+ <!-- **************************************** Fin icon coups de coeur **************************************** -->
 
+<!-- **************************************** btn recherche pour version mobile **************************************** -->
+	      <a id="btn_recherche" class="btn btn-navbar" style="padding: 3px 13px;" onclick="javascript:afficher_cacher('recherche_ski_autre');">
+		<i class="icon-search"></i>
+	      </a>
+<!-- **************************************** Fin btn recherche pour version mobile **************************************** -->
+	     
+	    </div>
+	  </div>
+	</div>
+      </nav>	
+<div>
 	      <div id="popup_favList" class="popup_block">
 		<a href="#" class="fermer btn_close">x</a>
 		<p>ma liste de sjours favoris</p>
 		<p>Par ici</p>
+		<div id="contenu_favList">
+		</div>
 	      </div>
 
 	      
-	      
+	      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 	      <script type="text/javascript">
 
@@ -91,9 +101,12 @@
 		var popID = $(this).attr('rel'); 
 		var popURL = $(this).attr('href'); 
 
-		var query= popURL.split('?');
-		var dim= query[1].split('&amp;');
-		var popWidth = dim[0].split('=')[1]; 
+		var larg = (window.innerWidth);
+		if ( larg >= 999 ){
+		popWidth = 760;
+		} else if (larg >= 768) {
+		popWidth = 545;
+		} else popWidth = 300; 
 
 		$('#' + popID).fadeIn().css({'width': Number(popWidth)
 		})
@@ -113,6 +126,8 @@
 		return false;
 		});
 
+		$('#contenu_favList').load('html/pied_site.html');
+
 		//Fermeture de la pop-up et du fond
 		$('a.fermer, #fade').live('click', function() { 
 		$('#fade , .popup_block').fadeOut(function() {
@@ -122,16 +137,7 @@
 		});
 
 	      </script>
-
-	      
- <!-- **************************************** Fin icon coups de coeur **************************************** -->
-
-	     
-	    </div>
-	  </div>
-	</div>
-
-      </nav>	
+</div>
     </header>
     <div class="container-fluid">
 
@@ -142,3 +148,101 @@
 
 
       <!-- ********************* Section (resultats) ********************* -->
+
+
+<!-- ********************* Debut type de tri ********************* -->
+      <div class="tri">
+	<div class="typeTri">
+	  <span>Trier par : </span>
+	  <div class="bouton">
+	    <a id="ordrePrix" class="courant fleche_haut" href="#">Prix</a>
+	  </div>
+	  <div class="bouton">
+	    <a id="ordrePopular" class="fleche_bas" href="#">Popularité</a>
+	  </div>
+	</div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $('.bouton a[href^=#]').click(function() {
+      changeTypeTri(this.id);
+      });
+
+      function changeTypeTri(id) {
+      var encienneClass = document.getElementById(id).className ;
+      
+      if (encienneClass != "courant fleche_haut") {
+      document.getElementById(id).className = "courant fleche_haut" ;
+      } else {document.getElementById(id).className = "courant fleche_bas"; }
+      if (id != encienIdBouton) {
+      var encienneClassDecocher = document.getElementById(encienIdBouton).className ;
+      if (encienneClassDecocher != "fleche_haut") {
+      document.getElementById(encienIdBouton).className = "fleche_haut" ;
+      } else {document.getElementById(encienIdBouton).className = "fleche_bas"; }
+      }
+      encienIdBouton = id ;
+      }
+
+      var encienIdBouton = "ordrePrix" ;
+      changeTypeTri(encienIdBouton);
+      
+    </script>
+
+    <style>
+      .tri {
+      border: 1px solid #e3e3e3;
+      box-sizing: border-box;
+      font-size: 0.9em;
+      font-weight: bold;
+      margin: 10px 0;
+      padding: 10px;
+      }
+
+      .tri typeTri, .tri .bouton {
+      display: inline-block;
+      }
+      .tri .bouton a {
+      background: #fff none repeat scroll 0 0;
+      border: 1px solid #029ce1;
+      border-radius: 3px;
+      color: #029ce1;
+      padding: 6px 22px 6px 10px;
+      }
+
+      .fleche_bas::after {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #029ce1
+      }
+      .fleche_haut::after {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #029ce1;
+      }
+
+      .fleche_haut, .fleche_bas {
+      position: relative;
+      }
+      .fleche_haut::after, 
+      .fleche_bas::after {
+      content: " ";
+      height: 0;
+      position: absolute;
+      right: 6px;
+      top: 11px;
+      width: 0;
+      }
+
+      .tri .bouton a.courant {
+      background: #029ce1 none repeat scroll 0 0;
+      color: #fff;
+      }  
+      .courant.fleche_bas::after {
+      border-top: 5px solid #fff;
+      }
+      .courant.fleche_haut::after {
+      border-bottom: 5px solid #fff;
+      }
+
+    </style>
+<!-- ********************* Fin type de tri ********************* -->
