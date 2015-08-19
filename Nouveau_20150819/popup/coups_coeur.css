@@ -1,0 +1,84 @@
+
+#coups_coeur {
+    z-index: 9;
+}
+#heart {
+    padding: 5px; 
+    z-index:1;
+}
+#heart .heart-left {
+    border-radius: 25px 0 0 25px;
+    transform: rotate(45deg) scale(0.45) skew(1deg) translate(0px);
+}
+#heart .heart-right {
+    border-radius: 0 25px 25px 0;    
+}
+#heart .heart-left, #heart .heart-right {
+    background-color: #029ce1;
+    display: inline-block;
+}
+#circle{
+    position:absolute; 
+    z-index:2; 
+
+    background:#FF0000;
+    border-radius:100px;
+    text-align:center;
+    font-weight: bold;
+    color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+    #coups_coeur {
+	position: fixed;  
+	right: 65px;
+    }
+    #heart {
+	position:absolute; 
+	background-color: #e0e0e0;
+	height: 35px;
+	border-radius: 10px 0 0 10px;
+	box-shadow: 0 2px #ccc;
+    }
+    #heart .heart-right {
+        transform: rotate(-45deg) scale(0.45) skew(1deg) translate(77px, -50px);
+    }
+    #heart .heart-left, #heart .heart-right {
+	height: 35px;
+	width: 58px;
+    }
+    #circle{
+	width: 19px;
+	height: 19px;
+	font-size: 12px;
+	margin: 3px 10px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #coups_coeur {
+	float: right;
+	max-height: 2em;
+	max-width: 3em;
+    }
+    #heart {
+	padding: 0;
+	margin: 3px -5px;
+	max-height: 2.5em;
+	max-width: 4em;
+    }
+    #heart .heart-right {
+	transform: rotate(-45deg) scale(0.45) skew(1deg) translate(67px, -44px);
+    }
+
+    #heart .heart-left, #heart .heart-right {
+	height: 30px;
+	width: 53px;
+    }
+    #circle{
+	width: 17px;
+	height: 17px;
+	font-size: 10px;
+	margin: -38px 0;
+    }
+}

@@ -1,0 +1,100 @@
+
+<section class="span9 categ_sejours">
+   <div class="tri">
+	<div class="typeTri">
+	  <span>Trier par : </span>
+	  <div class="bouton">
+	    <a id="ordrePrix" class="courant fleche_haut" data-h="#">Prix</a>
+	  </div>
+	  <div class="bouton">
+	    <a id="ordrePopular" class="fleche_bas" data-h="#">Popularité</a>
+	  </div>
+	</div>
+      </div>
+    <script type="text/javascript">
+      $('.bouton a[data-h^=#]').click(function() {
+      changeTypeTri(this.id);
+      });
+
+      function changeTypeTri(id) {
+      var encienneClass = document.getElementById(id).className ;
+      
+      if (encienneClass != "courant fleche_haut") {
+      document.getElementById(id).className = "courant fleche_haut" ;
+      } else {document.getElementById(id).className = "courant fleche_bas"; }
+      if (id != encienIdBouton) {
+      var encienneClassDecocher = document.getElementById(encienIdBouton).className ;
+      if (encienneClassDecocher != "fleche_haut") {
+      document.getElementById(encienIdBouton).className = "fleche_haut" ;
+      } else {document.getElementById(encienIdBouton).className = "fleche_bas"; }
+      }
+      encienIdBouton = id ;
+      }
+
+      var encienIdBouton = "ordrePrix" ;
+      changeTypeTri(encienIdBouton);
+      
+    </script>
+
+    <style>
+      .tri {      
+      border: 1px solid #e3e3e3;
+      box-sizing: border-box;
+      font-size: 0.9em;
+      font-weight: bold;
+      margin: 10px 0;
+      padding: 10px;
+      width: 99%;
+      }
+
+      .tri typeTri, .tri .bouton {
+      display: inline-block;
+      }
+      .tri .bouton a {
+      background: #fff none repeat scroll 0 0;
+      border: 1px solid #029ce1;
+      border-radius: 3px;
+      color: #029ce1;
+      padding: 6px 22px 6px 10px;
+      }
+
+      .fleche_bas::after {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #029ce1
+      }
+      .fleche_haut::after {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #029ce1;
+      }
+
+      .fleche_haut, .fleche_bas {
+      position: relative;
+      }
+      .fleche_haut::after, 
+      .fleche_bas::after {
+      content: " ";
+      height: 0;
+      position: absolute;
+      right: 6px;
+      top: 11px;
+      width: 0;
+      }
+
+      .tri .bouton a.courant {
+      background: #029ce1 none repeat scroll 0 0;
+      color: #fff;
+      }  
+      .courant.fleche_bas::after {
+      border-top: 5px solid #fff;
+      }
+      .courant.fleche_haut::after {
+      border-bottom: 5px solid #fff;
+      }
+
+    </style>
+
+<ul id="liste_sejours_vtr" class="liste_sejours_vtr">
+
+

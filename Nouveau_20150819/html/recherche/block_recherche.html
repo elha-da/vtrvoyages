@@ -1,0 +1,276 @@
+<div class="contenu_onglet" id="contenu_onglet_ski">
+  <aside id="span_recherche_ski" class="span3" >
+    <div id="recherche_ski" class="recherche" >
+      <fieldset>
+	<form method="POST" name="ski" class="form-horizontal" action="test.php" onsubmit="cookieFormulaireRecherche();"> <!-- http://www.vtr-voyages.fr:8080/app_test.php/recherche-ski">	-->
+	  <label class="control-label-date_depart" for="texte_libre" style="width:100px">Recherche libre</label>
+	  <input id="search_type_texte_libre" type="text" value="" placeholder="Ex : Val d'Isère" name="search_type[texte_libre]" >
+	  <hr class="bloc" />	 
+
+	  <!-- ****************************************************** DEBUT Jtree ****************************************************** -->
+
+	  <div id="lieu_Jtree">
+	    <input id="search_type_lieu_choisi" type="text" value="" name="search_type[lieu]" style="display: none;"/>
+	    <input type="checkbox" id="search_type_lieu" value="" />
+	    <label class="btn" id="case_search_type_lieu" for="search_type_lieu">Veuillez choisir un lieu</label>
+	    <ul class="liste_Jtree" id="search_type_liste">
+	      <li id="search_type_pays_1"> 
+		<input type="checkbox" id="pays_1" value="p=1" onclick="choix(this.id, this.value );"/>
+		<label id="case_pays_1" for="pays_1">France</label>
+		<ul>
+		  <li id="search_type_region_1">
+		    <input type="checkbox" id="region_1" value="z=1" onclick="choix(this.id, this.value );"/>
+		    <label id="case_region_1" for="region_1">Alpes du Nord</label>
+		    <ul>
+		      <li id="search_type_zone1_1">
+			<input type="checkbox" id="zd_1" value="zd=1" onclick="choix(this.id, this.value );"/>
+			<label id="case_zd_1" for="zd_1">Commençant par A</label>
+			<ul>
+			  <li>
+			    <input id="ville_1" type="checkbox" onclick="choix(this.id, this.value );" value="v=1">
+			    <label id="case_ville_1" for="ville_1">Annecy</label>
+			  </li>
+			  <li>
+			    <input id="ville_34017" type="checkbox" onclick="choix(this.id, this.value );" value="v=34017">
+			    <label id="case_ville_34017" for="ville_34017">Aime 2000</label>
+			  </li>
+			  <li>
+			    <input id="ville_28301" type="checkbox" onclick="choix(this.id, this.value );" value="v=28301">
+			    <label id="case_ville_28301" for="ville_28301">Albiez-Montrond</label>
+			  </li>
+			  <li>
+			    <input id="ville_4" type="checkbox" onclick="choix(this.id, this.value );" value="v=4">
+			    <label id="case_ville_4" for="ville_4">Alpe d'Huez</label>
+			  </li>
+			  <li>
+			    <input id="ville_34089" type="checkbox" onclick="choix(this.id, this.value );" value="v=34089">
+			    <label id="case_ville_34089" for="ville_34089">Arc 1600</label>
+			  </li>
+			  <li>
+			    <input id="ville_34090" type="checkbox" onclick="choix(this.id, this.value );" value="v=34090">
+			    <label id="case_ville_34090" for="ville_34090">Arc 1800</label>
+			  </li>
+			  <li>
+			    <input id="ville_34091" type="checkbox" onclick="choix(this.id, this.value );" value="v=34091">
+			    <label id="case_ville_34091" for="ville_34091">Arc 1950</label>
+			  </li>
+			  <li>
+			    <input id="ville_34092" type="checkbox" onclick="choix(this.id, this.value );" value="v=34092">
+			    <label id="case_ville_34092" for="ville_34092">Arc 2000</label>
+			  </li>
+			  <li>
+			    <input id="ville_34019" type="checkbox" onclick="choix(this.id, this.value );" value="v=34019">
+			    <label id="case_ville_34019" for="ville_34019">Arêches Beaufort</label>
+			  </li>
+			  <li>
+			    <input id="ville_34068" type="checkbox" onclick="choix(this.id, this.value );" value="v=34068">
+			    <label id="case_ville_34068" for="ville_34068">Argentière</label>
+			  </li>
+			  <li>
+			    <input id="ville_14049" type="checkbox" onclick="choix(this.id, this.value );" value="v=14049">
+			    <label id="case_ville_14049" for="ville_14049">Auris en Oisans</label>
+			  </li>
+			  <li>
+			    <input id="ville_28308" type="checkbox" onclick="choix(this.id, this.value );" value="v=28308">
+			    <label id="case_ville_28308" for="ville_28308">Aussois</label>
+			  </li>
+			  <li>
+			    <input id="ville_14050" type="checkbox" onclick="choix(this.id, this.value );" value="v=14050">
+			    <label id="case_ville_14050" for="ville_14050">Autrans</label>
+			  </li>
+			  <li>
+			    <input id="ville_34020" type="checkbox" onclick="choix(this.id, this.value );" value="v=34020">
+			    <label id="case_ville_34020" for="ville_34020">Avoriaz</label>
+			  </li>
+			</ul>
+		      <li id="search_type_zone1_2">
+			<input type="checkbox" id="zd_2" value="zd=2" onclick="choix(this.id, this.value );"/>
+			<label id="case_zd_2" for="zd_2">Commençant par C</label>
+			<ul>
+			  <li>
+			    <input type="checkbox" id="ville_2" value="v=2" onclick="choix(this.id, this.value );"/>
+			    <label id="case_ville_2" for="ville_2">Courchevel</label>
+			  </li>
+			  <li>
+			    <input id="ville_34090" type="checkbox" onclick="choix(this.id, this.value );" value="v=34090">
+			    <label id="case_ville_34090" for="ville_34090">Arc 1800</label>
+			  </li>
+			  <li>
+			    <input id="ville_34091" type="checkbox" onclick="choix(this.id, this.value );" value="v=34091">
+			    <label id="case_ville_34091" for="ville_34091">Arc 1950</label>
+			  </li>
+			  <li>
+			    <input id="ville_34092" type="checkbox" onclick="choix(this.id, this.value );" value="v=34092">
+			    <label id="case_ville_34092" for="ville_34092">Arc 2000</label>
+			  </li>
+			  <li>
+			    <input id="ville_34019" type="checkbox" onclick="choix(this.id, this.value );" value="v=34019">
+			    <label id="case_ville_34019" for="ville_34019">Arêches Beaufort</label>
+			  </li>
+			  <li>
+			    <input id="ville_34068" type="checkbox" onclick="choix(this.id, this.value );" value="v=34068">
+			    <label id="case_ville_34068" for="ville_34068">Argentière</label>
+			  </li>
+			  <li>
+			    <input id="ville_14049" type="checkbox" onclick="choix(this.id, this.value );" value="v=14049">
+			    <label id="case_ville_14049" for="ville_14049">Auris en Oisans</label>
+			  </li>
+			  <li>
+			    <input id="ville_28308" type="checkbox" onclick="choix(this.id, this.value );" value="v=28308">
+			    <label id="case_ville_28308" for="ville_28308">Aussois</label>
+			  </li>
+			  <li>
+			    <input id="ville_14050" type="checkbox" onclick="choix(this.id, this.value );" value="v=14050">
+			    <label id="case_ville_14050" for="ville_14050">Autrans</label>
+			  </li>
+			  <li>
+			    <input id="ville_34020" type="checkbox" onclick="choix(this.id, this.value );" value="v=34020">
+			    <label id="case_ville_34020" for="ville_34020">Avoriaz</label>
+			  </li>
+			</ul>
+		      <li>
+			<input type="checkbox" id="ville_3" value="v=3" onclick="choix(this.id, this.value );"/>
+			<label id="case_ville_3" for="ville_3">Chambéry</label>
+		      </li>
+		    </ul>
+		  </li>
+		  <li id="search_type_region_2">
+		    <input type="checkbox" id="region_2" value="z=2" onclick="choix(this.id, this.value );"/>
+		    <label id="case_region_2" for="region_2">Alpes du sud</label>
+		    <ul>
+		      <li>
+			<input type="checkbox" id="ville_4" value="v=4" onclick="choix(this.id, this.value );"/>
+			<label id="case_ville_4" for="ville_4">Briançon</label>
+		      </li>
+		      <li>
+			<input type="checkbox" id="ville_5" value="v=5" onclick="choix(this.id, this.value );"/>
+			<label id="case_ville_5" for="ville_5">Sisteronn</label>
+		      </li>
+		      <li>
+			<input type="checkbox" id="ville_6" value="v=6" onclick="choix(this.id, this.value );"/>
+			<label id="case_ville_6" for="ville_6">Castellane</label>
+		      </li>
+		    </ul>
+		  </li>
+		</ul>
+	      </li>
+	      <li id="search_type_pays_2">
+		<input type="checkbox"  id="pays_2" value="p=2" onclick="choix(this.id, this.value );" />
+		<label id="case_pays_2" for="pays_2">Italie</label>
+		<ul>
+		  <li id="search_type_region_3" >
+		    <input type="checkbox" id="region_3" value="z=3" onclick="choix(this.id, this.value );"/>
+		    <label id="case_region_3" for="region_3">Ski à l'étrange</label>
+		    <ul>
+		      <li> 
+			<input type="checkbox" id="ville_7" value="v=7" onclick="choix(this.id, this.value );"/>
+			<label id="case_ville_7" for="ville_7">Ski à l'étranger</label>
+		      </li>
+		    </ul>
+		  </li>
+		  <li> 
+		    <input type="checkbox" id="region_4" value="z=7" onclick="choix(this.id, this.value );"/>
+		    <label id="case_region_4" for="region_4">Ski à la patinoir</label>
+		  </li>
+		</ul>
+	      </li>
+	    </ul>
+
+	  </div>
+
+
+	  <!-- ****************************************************** FIN Jtree ****************************************************** -->
+
+
+
+
+	  <hr class="bloc" />
+
+	  <div class="control-group date_depart">
+	    <label class="control-label-date_depart " style="width: 100px; display: inline;" for="search_type_date_depart">Départ le </label>
+	    <input type="text" id="search_type_date_depart_ski" name="search_type[date_depart]" class="date" >
+	    <input checked="checked" rel="tooltip" title="Date flexible" type="checkbox" id="search_type_date_flexible_ski" name="search_type[date_flexible]" value="8">
+	    <p style="display: inline; font-size: 10px; margin: 0 0 0 -10px ;" > +/- 8j </p>
+	  </div>
+	  
+	  <div class="div_inline">
+	    <input type="radio" name="search_type[duree_sejour]" id="weekEnd" value="2" >
+	    <label for="weekEnd" style="display: inline;">week-end</label>
+	  </div>
+	  <div class="div_inline">
+	    <input type="radio" name="search_type[duree_sejour]" id="semaine" value="7" checked="checked">
+	    <label for="semaine" style="display: inline;">+ de 5jours</label>
+	  </div>
+	  
+	  <hr class="bloc" />
+	  
+	  <div class="control-group controls">	
+	    <div class="total_nbPersonnes">
+	      <label class="control-label-nbPersonnes" for="search_type[nbPersonnes][nb]" ><strong>Nombre de participants</strong></label>
+	      <input id="nbPersonnes_nb" type="number" step="1" value="2" min="1" max="19" class="nbPersonnes" required="required" name="search_type[nbPersonnes][nb]">
+	    </div>
+	    <div id="nbPersonnes_details" style="display: none;">
+	      <div>
+		<label class="control-label-nbPersonnes" for="search_type[nbPersonnes][as]">Adultes skieurs</label>
+		<input id="nbPersonnes_as" type="number" step="1" value="2" min="1" max="19" class="nbPersonnes" required="required" name="search_type[nbPersonnes][as]">
+	      </div>
+	      <div>
+		<label class="control-label-nbPersonnes" for="search_type[nbPersonnes][ans]">Adultes non skieurs</label>
+		<input id="nbPersonnes_ans" type="number" step="1" value="0" min="0" max="19" class="nbPersonnes" required="required" name="search_type[nbPersonnes][ans]">
+	      </div>
+	      <div>
+		<label class="control-label-nbPersonnes" for="search_type[nbPersonnes][es]">Enfants skieurs</label>
+		<input id="nbPersonnes_es" type="number" step="1" value="0" min="0" max="19" class="nbPersonnes" required="required" name="search_type[nbPersonnes][es]">
+	      </div>
+	      <div>
+		<label class="control-label-nbPersonnes" for="search_type[nbPersonnes][ens]">Enfants non skieurs</label>
+		<input id="nbPersonnes_ens" type="number" step="1" value="0" min="0" max="19" class="nbPersonnes" required="required" name="search_type[nbPersonnes][ens]">
+	      </div>
+	    </div>
+	  </div>	
+	  
+	  <hr class="bloc" />
+
+	  <div class="control-group champ_pays">
+	    <div class="controls">
+	      <div class="control-group-formule" style="display: inline-block">
+		<img src="http://img2.vtr-voyages.net/img/w0h0/pictos_formules/hebergement_black.png?filter=src" alt="Hébergement ski" title="Hébergement ski">
+		<label class="control-label-formule taille-label-hebergement" for="search_type[formule][hebergement]" >Hébergement</label>
+		<input type="checkbox" id="search_type_hebergement" name="search_type[formule][hebergement]" value="0" checked="checked"  disabled="disabled"/>
+	      </div>
+	      <div class="control-group-formule" style="display: inline-block">
+		<img src="http://img2.vtr-voyages.net/img/w0h0/pictos_formules/forfait_black.png?filter=src" alt="Forfait ski" title="Remontées mécaniques">
+		<label class="control-label-formule taille-label-forfait" for="search_type_rem_meca">Forfait</label>
+		<input class="search_type_formule" type="checkbox" id="search_type_rem_meca" name="search_type[formule][rem_meca]" value="1" />
+	      </div>
+	      <div class="control-group-formule">
+		<img src="http://img2.vtr-voyages.net/img/w0h0/pictos_formules/materiel_black.png?filter=src" alt="Location matériel ski" title="Location matériel ski">
+		<label class="control-label-formule taille-label-materiel" for="search_type_materiel">Matériel</label>
+		<input class="search_type_formule" type="checkbox" id="search_type_materiel" name="search_type[formule][materiel]" value="2" />
+	      </div>
+	      <div class="control-group-formule">
+		<img src="http://img2.vtr-voyages.net/img/w0h0/pictos_formules/courses_black.png?filter=src" alt="Livraison de courses" title="Livraison de courses">
+		<label class="control-label-formule taille-label-foodpack" for="search_type_foodpack">Livraison de courses</label>
+		<input class="search_type_formule" type="checkbox" id="search_type_foodpack" name="search_type[formule][foodpack]" value="3" />
+	      </div>
+	      <div class="control-group-formule">
+		<img class="img-formule-recherche" src="http://img2.vtr-voyages.net/img/w0h0/pictos_formules/pension_black.png?filter=src" alt="Pension complète demi-pension" title="Pension complète, demi-pension">
+		<label class="control-label-formule" for="search_type_cours_ski">Repas du soir et/ou midi</label>
+		<input class="search_type_formule" type="checkbox" id="search_type_cours_ski" name="search_type[formule][cours_ski]" value="4" />
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="control-group">
+	    <button type="submit" class="btn" >
+	      <i class="icon-search"></i>
+	      Recherche
+	    </button>
+	    <input type="reset" id="effacer" style="display: none;">
+	    <label for="effacer" style="float: right; text-decoration: underline; font-size: 13px; margin: 5px 20px 0 0;">Effacer </label>
+	  </div>
+	</form>
+      </fieldset>
+    </div>
+  </aside>
+</div>

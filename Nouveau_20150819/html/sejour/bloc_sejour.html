@@ -1,0 +1,101 @@
+<li id="sejour_resultat_{Sejour_id}" class="produit vignettes liste_sejours_vtr_li {Formule}">
+    <div class="thumbnail">
+      <div id="haut_vignette" class="haut_vignette">
+	<div class="pictos_infos_sejour">
+<!-- BEGIN presta -->
+	  <figure style="display: inline;">
+	    <img src="http://img3.vtr-voyages.net/img/w0h0/pictos_formules/{presta.picto}.png?filter=src" border="0" alt="{presta.nom}" title="{presta.nom}">	    
+<!-- 	<figcaption>{presta.nom}</figcaption> -->
+	  </figure>
+	  <span> &nbsp; </span>
+<!-- END presta -->
+	</div>
+	<div class="titre_haut_vignette">
+	  <span> <p id="haut_vignette_stationVille" >{StationVille} </p></span>
+	  <p id="haut_vignette_lieu"> {Lieu}</p>
+	  <p id="haut_vignette_categ" class="categ" style="margin: 1px 0;">{Souscat}</p>
+	</div>
+      </div>
+      <a href="{Sejour_url}">
+	<div id="photo_vignette" class="photo_vignette">
+	  <figure>
+	    <img src="{Image}" border="0" alt="{Hebergement}">
+	  </figure>
+	</div>
+      </a>
+      <div id="caption" class="caption">
+	<a href="{Sejour_url}">
+	  <div class="titre_caption" style="margin: 0 0 0px; height: 1em; line-height: 1em;">
+	    <p>{Hebergement}</p>
+	  </div>
+	</a>
+<!--	<div class="votes">
+	  <p style="margin: 0 0 5px;" title="1 étoile">☆</p>
+	  <p style="margin: 0 0 5px;" title="2 étoiles">☆</p>
+	  <p style="margin: 0 0 5px;" title="3 étoiles">☆</p>
+	  <p style="margin: 0 0 5px;" title="4 étoiles">☆</p>
+	  <p style="margin: 0 0 5px;" title="5 étoiles">☆</p>
+	</div>
+	<div class="avis_caption">
+	  (5 avis)
+	</div>
+-->
+	<div id="header_infos_sejour" class="header_infos_sejour" style="border-right: none;">
+	  <p style="clear: both; height: 7em; margin: 0 0 4px; text-align: justify;" id="description_categ" class="categ">{Description}</p>
+	  <!--		Si avis, max-height: 5em; -->
+	  <!--		<span class="tarifs_caption" onclick="javascript:afficher_cacher('options_infos_sejour');"> Tarifs </span> -->
+	  <div class="pictos_option" >
+<!-- BEGIN option -->
+	      <img src="http://img4.vtr-voyages.net/img/w0h0/pictos_options/{option.picto}.png?filter=src" border="0" alt="{option.nom}" title="{option.nom}">
+<!-- END option -->
+	  </div>
+	</div>
+      </div>
+      <div id="prix_sejour" class="prix_sejour">
+<!-- BEGIN promo -->
+	<div id="vignette_promotions" class="vignette_promotions">
+	  <p id="prix_nuits_barre" class="prix_nuits"><del>{promo.Promo_prix}€</del></p>
+	  <span id="promo_span">{promo.Promo_pourcent}</span>
+	</div>
+<!-- END promo -->
+	<p id="text_prix" class="prix_nuits">{Nb_nuits} nuits à partir de&nbsp;</p>
+	<a href="{Sejour_url}">
+	  <p id="prix_nuits_sejour" class="prix_nuits btn_prix_nuits_sejour">
+	    <font> {Prix} € </font> 
+
+	  </p>    
+	  <div class="fleche"> </div>
+	</a>
+	<p id="muted" style="line-height: normal;">
+	  <small class="muted" style="color: red;">Départ le {Debut}<br/>{Typo}</small>
+	</p>
+	<a id="btn_ifos_resa" class="btn btn-warning btn_resultat" titre="Infos et réservation" href="{Sejour_url}">
+	  <div>
+	    <span style="font-size: 13px; display: block;">Infos &amp; </span>
+	    <span style="font-size: 13px;">réservation</span>
+	  </div>
+	</a>
+	<div id="{Sejour_id}" class="ajouter_liste" style="font-size: 11px; text-align: center; cursor: pointer;" >
+	  <input id="in_fav_liste_{Sejour_id}" value="{Debut}" style="display: none;"/>
+	  <a id="liste_ajout_fav_{Sejour_id}" style="display: block;" onclick="javascript:ajoutCookieFavList(this.id);">
+	    <span style="font-size: 13px; color: red;"> ♡ </span>
+	    Ajouter à ma liste
+	  </a>
+	  <a id="liste_supp_fav_{Sejour_id}" style="display: none;" onclick="javascript:suppCookieFavList(this.id);">
+            <span style="font-size: 13px; color: red;"> ♥ </span>
+	    Retirer de ma liste
+	  </a>
+	</div>
+      </div>
+<!-- BEGIN NbFormules -->
+	  <div id="autres_formules" style="display: inline-block;padding: 5px;background-color: #029ce1;color: #fff;font-size: small;">
+	    <p style="display: inline-block;margin: 0em;text-decoration: underline;">Nos formules:</p>
+<!-- END NbFormules -->
+<!-- BEGIN formule -->
+		<a style="display: inline-block;color: inherit;" href="{formule.url}"><p style="display: inline-block;margin: 0em;">{formule.nom} = <font style="font-weight: bold;">{formule.prix} €</font> </p></a>
+<!-- END formule -->
+<!-- BEGIN NbFormules -->
+	  </div>
+<!-- END NbFormules -->
+	</div>
+</li>
