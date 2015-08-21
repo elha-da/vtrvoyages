@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="utf-8">
+    <meta name="Author" content="Daniel Hagnoul">
+    <title>Forum jQuery</title>
+    <style>
+      /* Base */
+      body { background-color:#dcdcdc; color:#000000; font-family:sans-serif; font-size:medium; font-style:normal;
+      font-weight:normal; line-height:normal; letter-spacing:normal; }
+      h1,h2,h3,h4,h5 { font-family:serif; }
+      div,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,form,table,img { margin:0px; padding:0px; }
+      h1 { font-size:2em; text-shadow: 4px 4px 4px #bbbbbb; text-align:center; }
+      p { padding:6px; }
+      div#conteneur { width:95%; min-width:800px; min-height:500px; margin:12px auto; background-color:#FFFFFF;
+      color:#000000; border:1px solid #666666; }
+      
+      /* Test */
+    </style>
+  </head>
+  <body>
+    <h1>Forum jQuery</h1>
+    <div id="conteneur">
+      
+      <table id="matable">
+	<tbody>
+	  <tr> <td>a</td> <td>r</td> </tr>
+	  <tr> <td>b</td> <td>i</td> </tr>
+	  <tr>
+	    <td>c</td>
+	    <td>v</td>
+	  </tr>
+	  <tr>
+	    <td>d</td>
+	    <td>b</td>
+	  </tr>
+	  <tr>
+	    <td>e</td>
+	    <td>o</td>
+	  </tr>
+	  <tr>
+	    <td>f</td>
+	    <td>z</td>
+	  </tr>
+	  <tr>
+	    <td>1</td>
+	    <td>23</td>
+	  </tr>
+	  <tr>
+	    <td>10</td>
+	    <td>24</td>
+	  </tr>
+	  <tr>
+	    <td>2</td>
+	    <td>25</td>
+	  </tr>
+	</tbody>
+      </table>
+      
+      <div>
+	<p>Alphabétique<br/>colonne 1</p>
+	<input type="button" onclick="sortTable('matable',0, 'desc')" value="tri desc col 1" />
+	<input type="button" onclick="sortTable('matable',0, 'asc')" value="tri asc col1" /><br/>
+	
+	<input type="button" onclick="sortTable('matable',0, 'ndesc')" value="tri num desc col 1" />
+	<input type="button" onclick="sortTable('matable',0, 'nasc')" value="tri num asc col1" /><br/>
+	
+	<input type="button" onclick="sortTable('matable',0, '?desc')" value="tri alphanum desc col 1" />
+	<input type="button" onclick="sortTable('matable',0, '?asc')" value="tri alphanum asc col1" />
+	
+	<p>colonne 2</p>
+	<input type="button" onclick="sortTable('matable',1, 'desc')" value="tri desc col2" />
+	<input type="button" onclick="sortTable('matable',1, 'asc')" value="tri asc col2" /><br/>
+	
+	<input type="button" onclick="sortTable('matable',1, 'ndesc')" value="tri num desc col2" />
+	<input type="button" onclick="sortTable('matable',1, 'nasc')" value="tri num asc col2" /><br/>
+	
+	<input type="button" onclick="sortTable('matable',1, '?desc')" value="tri alphanum desc col2" />
+	<input type="button" onclick="sortTable('matable',1, '?asc')" value="tri alphanum asc col2" />
+      </div>
+      
+    </div>
+    <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+    <script src="triage.js"></script>
+  </body>  
+</html>

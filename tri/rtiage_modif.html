@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="utf-8">
+    <meta name="Author" content="Daniel Hagnoul">
+    <title>Forum jQuery</title>
+    <style>
+      /* Base */
+      body { 
+      background-color:#dcdcdc; 
+      color:#000000; 
+      font-family:sans-serif; 
+      font-size:medium; 
+      font-style:normal;
+      font-weight:normal; 
+      line-height:normal; 
+      letter-spacing:normal; 
+      }
+      h1 { font-family:serif; }
+      h1, ul, li { margin:0px; padding:0px; }
+      h1 { font-size:2em; text-shadow: 4px 4px 4px #bbbbbb; text-align:center; }
+      p { padding:6px; }
+
+      div#conteneur { 
+      width:95%; 
+      min-width:800px; 
+      min-height:500px; 
+      margin:12px auto; 
+      background-color:#FFFFFF;
+      color:#000000; 
+      border:1px solid #666666; }
+      
+      /* Test */
+    </style>
+  </head>
+  <body>
+    <h1>Forum jQuery</h1>
+    <div id="conteneur">
+      
+<!--      <table id="matable">  -->
+	<ul id="matable">
+	  <!--	<tbody>  
+	    <tr><td>a</td></tr>-->
+	  <li data-prix="a"> aa </li>
+	  <li data-prix="b"> bb </li>
+	  <li data-prix="c"> cc </li>
+	  <li data-prix="d"> dd </li>
+	  <li data-prix="e"> ee </li>
+	  <li data-prix="f"> ff </li>
+	  <li data-prix="1" > 11 </li>
+	  <li data-prix="10"> 100 </li>
+	  <li data-prix="2"> 22 </li>
+	  <li data-prix="5"> 55 </li>
+	</ul>
+<!--	</tbody>
+      </table> -->
+      
+      <div>
+	<p>Alphabétique<br/>colonne 1</p>
+	<input type="button" onclick="sortTable('matable', 'desc')" value="tri desc " />
+	<input type="button" onclick="sortTable('matable', 'asc')" value="tri asc " /><br/>
+	
+	<input type="button" onclick="sortTable('matable', 'numDesc')" value="tri num desc " />
+	<input type="button" onclick="sortTable('matable', 'numAsc')" value="tri num asc " /><br/>
+	
+	<input type="button" onclick="sortTable('matable', 'alphaDesc')" value="tri alphanum desc " />
+	<input type="button" onclick="sortTable('matable', 'alphaAsc')" value="tri alphanum asc " />
+	
+	
+      </div>
+      
+    </div>
+    <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+    <script src="triage.js"></script>
+  </body>  
+</html>
