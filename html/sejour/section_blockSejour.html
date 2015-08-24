@@ -4,10 +4,10 @@
 	<div class="typeTri">
 	  <span>Trier par : </span>
 	  <div class="bouton">
-	    <a id="ordrePrix" class="courant fleche_haut" href="#">Prix</a>
+	    <a href="#" id="ordrePrix" class="sort courant fleche_bas" data-sort="data-prix" data-order="asc">Prix</a>
 	  </div>
 	  <div class="bouton">
-	    <a id="ordrePopular" class="fleche_bas" href="#">Popularité</a>
+	    <a href="#" id="ordrePopular" class="fleche_bas" data-sort="data-nbEtoiles" data-order="asc">Popularité</a>
 	  </div>
 	</div>
       </div>
@@ -19,16 +19,24 @@
       function changeTypeTri(id) {
       var encienneClass = document.getElementById(id).className ;
       
-      if (encienneClass != "courant fleche_haut") {
-      document.getElementById(id).className = "courant fleche_haut" ;
-      } else {document.getElementById(id).className = "courant fleche_bas"; }
+      if ((encienneClass == "sort courant fleche_bas") || (encienneClass == "sort courant fleche_bas active")) {
+        document.getElementById(id).className = "sort courant fleche_haut" ;
+        document.getElementById(id).setAttribute("data-order","desc");
+        return false;
+      } 
+      else {
+        document.getElementById(id).className = "sort courant fleche_bas";
+        document.getElementById(id).setAttribute("data-order","asc");
+      }
+
       if (id != encienIdBouton) {
-      var encienneClassDecocher = document.getElementById(encienIdBouton).className ;
-      if (encienneClassDecocher != "fleche_haut") {
-      document.getElementById(encienIdBouton).className = "fleche_haut" ;
-      } else {document.getElementById(encienIdBouton).className = "fleche_bas"; }
+        var encienneClassDecocher = document.getElementById(encienIdBouton).className ;
+        if (encienneClassDecocher != "fleche_haut") {
+          document.getElementById(encienIdBouton).className = "fleche_haut" ;
+        } else {document.getElementById(encienIdBouton).className = "fleche_bas"; }
       }
       encienIdBouton = id ;
+      return true;
       }
 
       var encienIdBouton = "ordrePrix" ;
@@ -94,6 +102,6 @@
       }
 
     </style>
-<ul id="liste_sejours_vtr" class="liste_sejours_vtr">
+    <ul id="liste_sejours_vtr" class="liste_sejours_vtr">
 
 
