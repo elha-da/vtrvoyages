@@ -11,7 +11,7 @@
 	<a id="ordrePopular" class="fleche_haut" data-sort="data-nbEtoiles" data-order="numDesc">Popularité</a>
       </div>
       <div class="bouton">
-	<a id="ordreAlphab" class="fleche_haut" data-sort="data-titre" data-order="alphaDesc">Ordre alphabétique</a>
+	<a id="ordreAlphab" class="fleche_haut" data-sort="data-titre" data-order="alphaDesc">De Z à A</a>
       </div>
     </div>
   </div>
@@ -25,42 +25,39 @@
     });
     
     function changeTypeTri(id) {
-    var encienneClass = document.getElementById(id).className ;
-    
-    if (encienneClass == "courant fleche_bas") {
-    document.getElementById(id).className = "courant fleche_haut" ;
-    if (id == "ordreAlphab"){
-    document.getElementById(id).setAttribute("data-order","alphaDesc");
-    document.getElementById(id).textContent = "de Z à A";
+      var a = document.getElementById(id);
+      var encienneClass = a.className ;
+      if (encienneClass == "courant fleche_bas") {
+        document.getElementById(id).className = "courant fleche_haut" ;
+        if (id == "ordreAlphab"){
+          a.setAttribute("data-order","alphaDesc");
+          a.textContent = "De Z à A";
+        }
+        else {
+          a.setAttribute("data-order","numDesc");    
+        }    
+      } else {
+          a.className = "courant fleche_bas";
+          if (id == "ordreAlphab"){
+            a.textContent = "De A à Z";
+            a.setAttribute("data-order","alphaAsc");
+          } else {
+              a.setAttribute("data-order","numAsc");
+            }
+      }
+      if (id != encienIdBouton) {
+          var encienneDataOrder = document.getElementById(encienIdBouton).getAttribute('data-order') ;
+//        var encienneClassDecocher = document.getElementById(encienIdBouton).className ;
+//        if (encienneClassDecocher != "fleche_haut")  {
+          if ((encienneDataOrder == "desc") || (encienneDataOrder == "numDesc") || (encienneDataOrder == "alphaDesc")) {
+            document.getElementById(encienIdBouton).className = "fleche_haut" ;
+          } else {
+              document.getElementById(encienIdBouton).className = "fleche_bas"; 
+            }
+       }
+      encienIdBouton = id ;
+      return true;
     }
-    else {
-    document.getElementById(id).setAttribute("data-order","numDesc");
-    }
-    
-    } 
-    else {
-    document.getElementById(id).className = "courant fleche_bas";
-    if (id == "ordreAlphab"){
-    document.getElementById(id).textContent = "de A à Z";
-    document.getElementById(id).setAttribute("data-order","alphaAsc");
-    }
-    else {
-    document.getElementById(id).setAttribute("data-order","numAsc");
-    }
-    }
-    
-    if (id != encienIdBouton) {
-    var encienneClassDecocher = document.getElementById(encienIdBouton).className ;
-    if (encienneClassDecocher != "fleche_haut") {
-    document.getElementById(encienIdBouton).className = "fleche_haut" ;
-    } else {document.getElementById(encienIdBouton).className = "fleche_bas"; }
-    document.getElementById('ordreAlphab').textContent = "Ordre alphabétique";
-    }
-    
-    encienIdBouton = id ;
-    return true;
-    }
-
     var encienIdBouton = "ordrePrix" ;
     changeTypeTri(encienIdBouton);
     
@@ -124,6 +121,14 @@
     border-bottom: 5px solid #fff;
     }
 
+    @media screen and (max-width: 767px) {
+    .tri .bouton a {
+    padding: 6px 20px 6px 5px;
+    }
+    .tri {
+    padding: 10px 6px;
+    }
+    }
   </style>
 
 
