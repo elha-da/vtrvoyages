@@ -3,14 +3,15 @@ function sortTable(tid, ord){
     
     var lines = $("#"+tid).children('li'),
     sorter = [],
+    idCourant = [],
     i = -1,
     j = -1;
     
     
     while(lines[++i]){
-	sorter.push([i, lines.eq(i).attr('data-prix')])
+	sorter.push([i, lines.eq(i).attr('data-prix')]);
+	idCourant.push([i, lines.eq(i).attr('id')]) ;
     }
-    //alert (sorter);
     
     if (ord == 'asc') {
 	sorter.sort();
@@ -55,14 +56,14 @@ function sortTable(tid, ord){
 	    }
 	});
     }
-    
+
+
     while(sorter[++j]){
-	alert ('li[data-prix='+sorter[j][1]+']');
-
-	var leBloc = $('li[data-prix='+sorter[j][1]+']').id ;
-	alert (leBloc);
-
-	$("#"+tid).append(sorter[j][1])
+	var idBloc = idCourant[sorter[j][0]][1];
+	var bloc = document.getElementById(idBloc).innerHTML ;
+	var leBloc = '<li data-prix="'+sorter[j][1]+'" class="mix produit vignettes liste_sejours_vtr_li mix_all" id="'+idBloc+'" style=" display: inline-block; opacity: 1;">'+bloc+'</li>' ;
+	document.getElementById(idBloc).remove();
+	$("#"+tid).append(leBloc)
     }
 }
 
