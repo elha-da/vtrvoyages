@@ -68,14 +68,14 @@
 	  <small class="muted" style="color: black;">Départ le {Debut}<br/>{Typo}</small>
 	</p>
 	<a id="btn_ifos_resa" class="btn btn-warning btn_resultat" titre="Infos et réservation" href="{Sejour_url}">
-	  <div>
+	  <div id="liste_ajout_vus_{Sejour_id}" onclick="javascript:ajoutCookieFavList('_vtrDejaVus', this.id);">
 	    <span style="font-size: 13px; display: block;">Infos &amp; </span>
 	    <span style="font-size: 13px;">réservation</span>
 	  </div>
 	</a>
 	<div id="{Sejour_id}" class="ajouter_liste" style="font-size: 11px; text-align: center; cursor: pointer;" >
 	  <input id="in_fav_liste_{Sejour_id}" value="{Debut}" style="display: none;"/>
-	  <a id="liste_ajout_fav_{Sejour_id}" style="display: block;" onclick="javascript:ajoutCookieFavList(this.id);">
+	  <a id="liste_ajout_fav_{Sejour_id}" style="display: block;" onclick="javascript:ajoutCookieFavList('_vtrFavList', this.id);">
 	    <span style="font-size: 13px; color: red;"> ♡ </span>
 	    Ajouter à ma liste
 	  </a>
