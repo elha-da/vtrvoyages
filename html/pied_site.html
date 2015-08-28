@@ -4,17 +4,6 @@
 <!-- ********************* Ici résultat ********************* -->
 
 
-
-
-
-
-
-
-
-
-
-
-
 </section>
 
 </div>
@@ -141,8 +130,95 @@
 	<!-- 2015-08-03 05:30:05 -->
       </div>
     </div>
-    <div class="logo_pied"><img src="http://img1.vtr-voyages.net/img/w0h50/atout_france.jpg"><img src="http://img1.vtr-voyages.net/img/w0h50/apst.jpg"><img src="http://img1.vtr-voyages.net/img/w0h50/ddjs.jpg"><img src="http://img1.vtr-voyages.net/img/w0h50/ancv.jpg"><img src="http://img1.vtr-voyages.net/img/w0h50/paybox.jpg"></div>
+    <div class="logo_pied"><img src="http://img1.vtr-voyages.net/img/w0h50/atout_france.jpg"><img src="http://img1.vtr-voyages.net/img/w0h50/apst.jpg">
+      <img src="http://img1.vtr-voyages.net/img/w0h50/ddjs.jpg"><img src="http://img1.vtr-voyages.net/img/w0h50/ancv.jpg"><img src="http://img1.vtr-voyages.net/img/w0h50/paybox.jpg">
+    </div>
+
+
+
+
+
+
+
+
+
+
+<!-- *********************************** DEBUT barre accept Cookies *********************************** -->
+
+    <div id="bare-charte_cookies" class="bare-charte" style="display = none;">
+      En poursuivant votre navigation, vous acceptez l'utilisation 
+      <a href="charte-cookies.html">des cookies</a> 
+      pour disposer de services et d'offres adaptés à vos centres d'intérêt. 
+      <span class="bare-charte_cookies_accepte">J'accepte</span>
+    </div>
+
+    <style>
+      .bare-charte {
+      position: fixed;
+      bottom: 0; 
+      width: 100%;
+      z-index: 10;
+      }    
+      #bare-charte_cookies {
+      padding: 5px 0;
+      opacity: 0.9;
+      background: #000;
+      border-top: 1px solid #999999;
+      color: #666666;
+      font-size: 11px;
+      text-align: center;
+      box-shadow: 0 0px 5px 0px #9b9b9b;
+      -moz-box-shadow: 0 0px 5px 0px #9b9b9b;
+      -webkit-box-shadow: 0 0px 5px 0px #9b9b9b;
+      -o-box-shadow: 0 0px 5px 0px #9b9b9b;
+      -khtml-box-shadow: 0 0px 5px 0px #9b9b9b;
+      }
+      .bare-charte_cookies_accepte {
+      display: inline-block;
+      margin-left: 10px;
+      padding: 2px 5px;
+      background-color: #cccccc;
+      color: #666666;
+      cursor: pointer;
+      }
+      
+    </style>
+    <script type="text/javascript">
+      function acceptCookies() {
+        var e = $.cookie("_vtrCookiesAccept");
+        if (e != null) {
+            $("#bare-charte_cookies").remove();
+        } else {
+            document.getElementById("bare-charte_cookies").style.display = "block";
+          }
+      }
+      acceptCookies();
+
+      $(".bare-charte_cookies_accepte").click(function(){
+        $.cookie("_vtrCookiesAccept", 1, {expires: 365, path:'/'});
+        $("#bare-charte_cookies").remove(); 
+      });
+      
+    </script>
 </footer>
+
+
+<!-- *********************************** FIN accept Cookies *********************************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,7 +1,161 @@
+<div style="clear:both;"></div>
+
+<script src="js/slider.js" type="text/javascript"></script>
+
+<div id="affinage" class="affinage" >
+  <div id="affinageBudget">
+    <span href="#affinageBudget-contenu" data-toggle="collapse" class="toggle">Budget</span>
+    <div class="collapse in" id="affinageBudget-contenu" style="display: block;">
+      <div id="affinageBudgetSlider">
+	
+	<p class="affinage_budget affinage_budget_min">
+	  <label id="affinage-prix-min"><span></span> €</label>	  
+	</p>
+	<p class="affinage_budget affinage_budget_max">
+	  <label id="affinage-prix-max"><span></span> €</label>
+	</p>
+
+	<div class="input">
+	  <input type="text" class="range min-700 max-8000" value="750" style="display:none;">
+
+	</div>
+
+	<p class="affinage_budget_prix"><span></span> €</p>
+
+      </div>
+    </div>
+  </div>
 
 
+  <div id="affinageFormule">             
+    <span href="#affinageFormule-contenu" data-toggle="collapse" class="toggle">Formule</span>
+             
+    <div class="collapse in" id="affinageFormule-contenu"> 
+
+      <fieldset class="affinage_formule_bloc">                         
+	<label class="affinage_formule_label">                         
+	  <input class="affinage_formule_checkbox" type="checkbox" id="formules" value="liste_sejours_vtr_li">Voir toutes les formules
+	  <span>(2051)</span>   
+	</label> 
+      </fieldset>   
+      
+      <fieldset class="affinage_formule_bloc">                         
+	<label class="affinage_formule_label">                         
+	  <input class="affinage_formule_checkbox" type="checkbox" id="formule_H" value="Hebergement">Hébergement seul 
+	  <span>(215)</span>   
+	</label> 
+      </fieldset>   
+                                                        
+      <fieldset class="affinage_formule_bloc">                         
+	<label class="affinage_formule_label">                         
+	  <input class="affinage_formule_checkbox" type="checkbox" id="formule_HF" value="Hebergement_+_Forfait_ski"> Hébergement + Forfait ski
+	  <span>(85)</span>    
+	</label>                     
+      </fieldset>   
+
+      <fieldset class="affinage_formule_bloc">                         
+	<label class="affinage_formule_label">                         
+	  <input class="affinage_formule_checkbox" type="checkbox" id="formule_HFM" value="Hebergement_+_Forfait_ski_+_Materiel_ski"> Héb. + Forfait + Materiel ski
+	  <span>(125)</span>    
+	</label>                     
+      </fieldset> 
+
+      <fieldset class="affinage_formule_bloc">                         
+	<label class="affinage_formule_label">                         
+	  <input class="affinage_formule_checkbox" type="checkbox" id="formule_HFC" value="Hebergement_+_Forfait_ski_+_Cours_ski"> Héb. + Forfait + Cours ski
+	  <span>(73)</span>    
+	</label>                     
+      </fieldset>
+
+    </div>         
+  </div>
+  
 </div>
-</div>
+
+
+</aside>
+
+
+<style type="text/css">
+  .affinage {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+  }
+  
+  .affinage span.toggle.collapsed::after {
+    width: 0;
+    height: 0;
+    content: "";
+    float: right;
+    border-left: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 5px solid #333;
+  }
+  .affinage span.toggle::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 10px;
+    right: 10px;
+    content: "";
+    border-bottom: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid #333;
+  }
+  .affinage span.toggle {
+    border-top: 2px solid #333;
+    color: #333;
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 13px 0;
+    padding: 3px 0;
+    position: relative;
+  }
+  #affinageBudgetSlider {
+    display: block;
+    margin: 0 1%;
+    width: 98%;
+  }
+  .affinage_budget {
+    display: inline-block;    
+    font-weight: 500 !important;
+    margin-bottom: 0 !important;
+    width: 48% !important;
+  }
+  .affinage_budget_max {
+    text-align: right;
+  }
+  .affinage_budget_prix {
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 5px;
+  }
+
+  .affinage_formule_bloc {
+    padding: 0;
+  }
+  .affinage_formule_label {
+    float: left;
+    font-size: 0.8em;
+    line-height: 1.3em;
+    width: 100%
+  }
+  .affinage_formule_label input[type="checkbox"] {
+    float: left;
+    margin: 0 5px 0 0;
+  }
+  .affinage_formule_label span {
+    float: right;
+  }
+
+
+</style>
+
 <script src="js/jquery.js"></script>
 <script src="js/jquery-ui.js"></script>
 <!--  -->
